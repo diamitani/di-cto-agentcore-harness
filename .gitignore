@@ -49,3 +49,6 @@ __pycache__/
 # Temp files
 *.tmp
 *.log
+
+# Local Archives
+Knowledge/Mac Mini archives/
