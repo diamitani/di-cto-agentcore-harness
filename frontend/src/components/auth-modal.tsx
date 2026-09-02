@@ -17,8 +17,10 @@ import {
 export interface UserSession {
   email: string;
   name: string;
+  provider: "github" | "google" | "email";
   tier: "free" | "pro";
   avatar: string;
+  accessToken?: string;
   byokConfigured: boolean;
 }
 
@@ -30,14 +32,39 @@ interface AuthModalProps {
 }
 
 export function AuthModal({ isOpen, onClose, onLogin, onOpenPricing }: AuthModalProps) {
-  const [isSignUp, setIsSignUp] = useState<boolean>(true);
+  const [isSignUp, setIsSignUp] = useState<boolean>(false);
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [name, setName] = useState<string>("");
   const [selectedTier, setSelectedTier] = useState<"free" | "pro">("free");
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [oauthProvider, setOauthProvider] = useState<string | null>(null);
 
   if (!isOpen) return null;
+
+  const handleOAuthLogin = (provider: "github" | "google") => {
+    setIsLoading(true);
+    setOauthProvider(provider);
+    setTimeout(() => {
+      const session: UserSession = {
+        email: provider === "github" ? "developer@github.com" : "developer@gmail.com",
+        name: provider === "github" ? "GitHub Developer" : "Google User",
+        provider: provider,
+        tier: selectedTier,
+        avatar:
+          provider === "github"
+            ? "https://github.com/github.png"
+            : "https://api.dicebear.com/7.x/bottts/svg?seed=google",
+        accessToken: `oauth_${provider}_${Date.now()}`,
+        byokConfigured: false,
+      };
+      localStorage.setItem("rostr_user_session", JSON.stringify(session));
+      onLogin(session);
+      setIsLoading(false);
+      setOauthProvider(null);
+      onClose();
+    }, 700);
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -46,8 +73,10 @@ export function AuthModal({ isOpen, onClose, onLogin, onOpenPricing }: AuthModal
       const session: UserSession = {
         email: email || "developer@rostr.ai",
         name: name || email.split("@")[0] || "ROSTR Developer",
+        provider: "email",
         tier: selectedTier,
         avatar: `https://api.dicebear.com/7.x/bottts/svg?seed=${email || "rostr"}`,
+        accessToken: `session_${Date.now()}`,
         byokConfigured: false,
       };
       localStorage.setItem("rostr_user_session", JSON.stringify(session));
@@ -55,23 +84,6 @@ export function AuthModal({ isOpen, onClose, onLogin, onOpenPricing }: AuthModal
       setIsLoading(false);
       onClose();
     }, 600);
-  };
-
-  const handleDemoLogin = (tier: "free" | "pro") => {
-    setIsLoading(true);
-    setTimeout(() => {
-      const session: UserSession = {
-        email: tier === "pro" ? "pro_architect@diamitani.com" : "developer@rostr.ai",
-        name: tier === "pro" ? "Pro Architect" : "Community Developer",
-        tier: tier,
-        avatar: `https://api.dicebear.com/7.x/bottts/svg?seed=${tier}`,
-        byokConfigured: true,
-      };
-      localStorage.setItem("rostr_user_session", JSON.stringify(session));
-      onLogin(session);
-      setIsLoading(false);
-      onClose();
-    }, 400);
   };
 
   return (
@@ -84,7 +96,7 @@ export function AuthModal({ isOpen, onClose, onLogin, onOpenPricing }: AuthModal
         {/* Header */}
         <div className="flex items-center justify-between pb-4 border-b border-white/10">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-cyan-500 to-purple-600 flex items-center justify-center text-white shadow-md shadow-cyan-500/20">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center text-white shadow-md shadow-cyan-500/20">
               <Sparkles className="w-4 h-4" />
             </div>
             <div>
@@ -102,49 +114,66 @@ export function AuthModal({ isOpen, onClose, onLogin, onOpenPricing }: AuthModal
           </button>
         </div>
 
-        {/* Plan Selection Badge */}
-        <div className="mt-4 grid grid-cols-2 gap-2">
+        {/* OAuth Buttons */}
+        <div className="mt-5 space-y-2.5">
           <button
             type="button"
-            onClick={() => setSelectedTier("free")}
-            className={`p-3 rounded-xl border text-left transition-all ${
-              selectedTier === "free"
-                ? "bg-cyan-500/10 border-cyan-500/50 shadow-md shadow-cyan-500/10"
-                : "bg-slate-900/50 border-white/5 opacity-60 hover:opacity-100"
-            }`}
+            onClick={() => handleOAuthLogin("github")}
+            disabled={isLoading}
+            className="w-full py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 border border-white/15 text-xs font-semibold text-white transition-all flex items-center justify-center gap-2.5 cursor-pointer shadow-sm hover:border-cyan-500/40 disabled:opacity-50"
           >
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-bold text-white">Free Tier</span>
-              <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-950 text-cyan-300">
-                $0/mo
-              </span>
-            </div>
-            <p className="text-[10px] text-slate-400 mt-1">50 runs/day + BYOK</p>
+            <Github className="w-4 h-4" />
+            <span>
+              {isLoading && oauthProvider === "github"
+                ? "Connecting GitHub OAuth..."
+                : "Continue with GitHub"}
+            </span>
           </button>
 
           <button
             type="button"
-            onClick={() => setSelectedTier("pro")}
-            className={`p-3 rounded-xl border text-left transition-all ${
-              selectedTier === "pro"
-                ? "bg-purple-500/10 border-purple-500/50 shadow-md shadow-purple-500/10 ring-1 ring-purple-500/30"
-                : "bg-slate-900/50 border-white/5 opacity-60 hover:opacity-100"
-            }`}
+            onClick={() => handleOAuthLogin("google")}
+            disabled={isLoading}
+            className="w-full py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 border border-white/15 text-xs font-semibold text-white transition-all flex items-center justify-center gap-2.5 cursor-pointer shadow-sm hover:border-cyan-500/40 disabled:opacity-50"
           >
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-bold text-white flex items-center gap-1">
-                <Crown className="w-3 h-3 text-amber-400" /> Pro Tier
-              </span>
-              <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-purple-500/20 text-purple-300">
-                $19.99/mo
-              </span>
-            </div>
-            <p className="text-[10px] text-slate-400 mt-1">Unlimited + 9 Agents</p>
+            <svg className="w-4 h-4" viewBox="0 0 24 24">
+              <path
+                fill="#4285F4"
+                d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+              />
+              <path
+                fill="#34A853"
+                d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+              />
+              <path
+                fill="#FBBC05"
+                d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"
+              />
+              <path
+                fill="#EA4335"
+                d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"
+              />
+            </svg>
+            <span>
+              {isLoading && oauthProvider === "google"
+                ? "Connecting Google OAuth..."
+                : "Continue with Google"}
+            </span>
           </button>
         </div>
 
+        {/* Divider */}
+        <div className="relative my-4">
+          <div className="absolute inset-0 flex items-center">
+            <div className="w-full border-t border-white/10" />
+          </div>
+          <div className="relative flex justify-center text-[10px] uppercase">
+            <span className="bg-slate-950 px-2 text-slate-500 font-mono">Or use email</span>
+          </div>
+        </div>
+
         {/* Form */}
-        <form onSubmit={handleSubmit} className="mt-4 space-y-3">
+        <form onSubmit={handleSubmit} className="space-y-3">
           {isSignUp && (
             <div>
               <label className="text-[11px] font-medium text-slate-300 block mb-1">Full Name</label>
@@ -197,44 +226,13 @@ export function AuthModal({ isOpen, onClose, onLogin, onOpenPricing }: AuthModal
             disabled={isLoading}
             className="w-full py-2.5 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white text-xs font-semibold shadow-md shadow-cyan-600/20 flex items-center justify-center gap-2 cursor-pointer transition-all mt-2 disabled:opacity-50"
           >
-            {isLoading ? (
+            {isLoading && !oauthProvider ? (
               <span>Authenticating...</span>
             ) : (
-              <span>{isSignUp ? "Sign Up & Start Harness" : "Sign In to Console"}</span>
+              <span>{isSignUp ? "Sign Up & Access Harness" : "Sign In to Console"}</span>
             )}
           </button>
         </form>
-
-        {/* Divider */}
-        <div className="relative my-4">
-          <div className="absolute inset-0 flex items-center">
-            <div className="w-full border-t border-white/10" />
-          </div>
-          <div className="relative flex justify-center text-[10px] uppercase">
-            <span className="bg-slate-950 px-2 text-slate-500 font-mono">1-Click Instant Demo</span>
-          </div>
-        </div>
-
-        {/* Demo Login Buttons */}
-        <div className="grid grid-cols-2 gap-2">
-          <button
-            type="button"
-            onClick={() => handleDemoLogin("free")}
-            className="py-2 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-white/10 text-[11px] text-slate-300 font-medium transition-all flex items-center justify-center gap-1.5 cursor-pointer"
-          >
-            <Zap className="w-3.5 h-3.5 text-cyan-400" />
-            <span>Try Free Tier</span>
-          </button>
-
-          <button
-            type="button"
-            onClick={() => handleDemoLogin("pro")}
-            className="py-2 px-3 rounded-xl bg-purple-950/40 hover:bg-purple-900/40 border border-purple-500/30 text-[11px] text-purple-300 font-medium transition-all flex items-center justify-center gap-1.5 cursor-pointer"
-          >
-            <Crown className="w-3.5 h-3.5 text-amber-400" />
-            <span>Try Pro Tier</span>
-          </button>
-        </div>
 
         {/* Toggle Sign In / Sign Up */}
         <div className="mt-4 pt-3 border-t border-white/10 text-center text-xs text-slate-400">
