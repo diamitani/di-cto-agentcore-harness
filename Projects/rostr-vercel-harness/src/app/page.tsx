@@ -20,11 +20,14 @@ import {
   Github,
   Zap,
   MessageSquare,
+  Users,
+  Home as HomeIcon,
 } from "lucide-react";
 import { compilePALIntent, PALCompilation } from "@/lib/pal/compiler";
 import { SUB_AGENTS_REGISTRY } from "@/lib/pal/subagents";
+import { HomeOverview } from "@/components/home-overview";
+import { AgencyManagers } from "@/components/agency-managers";
 import { PALInspector } from "@/components/pal-inspector";
-import { VideoShowcase } from "@/components/video-showcase";
 import { SandboxConsole } from "@/components/sandbox-console";
 import { EvalsDashboard } from "@/components/evals-dashboard";
 import { GatewayMonitor } from "@/components/gateway-monitor";
@@ -41,10 +44,10 @@ interface ChatMessage {
   pal?: PALCompilation;
 }
 
-type TabType = "chat" | "studio" | "pal" | "video" | "sandbox" | "evals";
+type TabType = "home" | "chat" | "agency" | "studio" | "pal" | "sandbox" | "evals";
 
 export default function HomePage() {
-  const [activeTab, setActiveTab] = useState<TabType>("chat");
+  const [activeTab, setActiveTab] = useState<TabType>("home");
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -178,8 +181,10 @@ export default function HomePage() {
     }
   };
 
-  const handleSelectPrompt = (promptText: string) => {
-    setInput(promptText);
+  const handleOpenAgent = (promptText?: string) => {
+    if (promptText) {
+      setInput(promptText);
+    }
     setActiveTab("chat");
   };
 
@@ -191,166 +196,160 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#07090e] text-slate-100 selection:bg-cyan-500/30 selection:text-cyan-200">
-      {/* Signature ROSTR Header */}
-      <header className="h-16 border-b border-white/10 bg-slate-950/80 backdrop-blur-xl px-4 md:px-6 flex items-center justify-between sticky top-0 z-40">
-        {/* Brand Lockup */}
-        <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-cyan-500 via-indigo-500 to-purple-600 flex items-center justify-center text-white shadow-lg shadow-cyan-500/20">
+    <div className="min-h-screen flex flex-col bg-[#f8fafc] text-slate-900 selection:bg-cyan-500/20 selection:text-cyan-800 relative">
+      {/* Ambient Mesh Glows */}
+      <div className="ambient-bg">
+        <div className="glow-orb glow-orb-1" />
+        <div className="glow-orb glow-orb-2" />
+      </div>
+
+      {/* Floating Framer Navigation */}
+      <header className="h-16 border-b border-slate-200/80 bg-white/85 backdrop-blur-xl px-4 md:px-6 flex items-center justify-between sticky top-0 z-40 shadow-xs">
+        {/* Brand Logo */}
+        <div className="flex items-center gap-3 cursor-pointer" onClick={() => setActiveTab("home")}>
+          <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-cyan-600 via-indigo-600 to-purple-600 flex items-center justify-center text-white shadow-md shadow-cyan-600/20">
             <Sparkles className="w-4 h-4" />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-sm font-bold text-white tracking-tight">ROSTR</span>
-              <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
-                Vercel Tech Stack
+              <span className="text-base font-extrabold text-slate-900 tracking-tight">ROSTR</span>
+              <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-cyan-50 text-cyan-700 border border-cyan-200 font-semibold">
+                Multi-Site Edition
               </span>
-            </div>
-            <div className="text-[11px] text-slate-400 hidden sm:block">
-              DI-CTO Governed Multi-Agent Harness
             </div>
           </div>
         </div>
 
-        {/* Navigation Tabs */}
-        <nav className="hidden lg:flex items-center gap-1.5 bg-slate-900/80 p-1 rounded-xl border border-white/10">
+        {/* Multi-Site Navigation Menu */}
+        <nav className="hidden lg:flex items-center gap-1 bg-slate-100/80 p-1 rounded-xl border border-slate-200/80">
           <button
-            onClick={() => setActiveTab("chat")}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all cursor-pointer ${
-              activeTab === "chat"
-                ? "bg-cyan-500/20 text-cyan-300 shadow-sm border border-cyan-500/30 font-bold"
-                : "text-slate-400 hover:text-slate-200"
+            onClick={() => setActiveTab("home")}
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+              activeTab === "home"
+                ? "bg-white text-slate-900 shadow-xs font-bold"
+                : "text-slate-600 hover:text-slate-900"
             }`}
           >
-            <MessageSquare className="w-3.5 h-3.5" />
+            <HomeIcon className="w-3.5 h-3.5" />
+            <span>Home</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab("chat")}
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+              activeTab === "chat"
+                ? "bg-white text-cyan-700 shadow-xs font-bold"
+                : "text-slate-600 hover:text-slate-900"
+            }`}
+          >
+            <MessageSquare className="w-3.5 h-3.5 text-cyan-600" />
             <span>Agent Console</span>
           </button>
 
           <button
-            onClick={() => setActiveTab("studio")}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all cursor-pointer ${
-              activeTab === "studio"
-                ? "bg-emerald-500/20 text-emerald-300 shadow-sm border border-emerald-500/30 font-bold"
-                : "text-slate-400 hover:text-slate-200"
+            onClick={() => setActiveTab("agency")}
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+              activeTab === "agency"
+                ? "bg-white text-indigo-700 shadow-xs font-bold"
+                : "text-slate-600 hover:text-slate-900"
             }`}
           >
-            <Cpu className="w-3.5 h-3.5" />
+            <Users className="w-3.5 h-3.5 text-indigo-600" />
+            <span>AI Agency</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab("studio")}
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+              activeTab === "studio"
+                ? "bg-white text-emerald-700 shadow-xs font-bold"
+                : "text-slate-600 hover:text-slate-900"
+            }`}
+          >
+            <Cpu className="w-3.5 h-3.5 text-emerald-600" />
             <span>Runtime Studio</span>
           </button>
 
           <button
-            onClick={() => setActiveTab("video")}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all cursor-pointer ${
-              activeTab === "video"
-                ? "bg-red-500/20 text-red-300 shadow-sm border border-red-500/30 font-bold"
-                : "text-slate-400 hover:text-slate-200"
-            }`}
-          >
-            <Youtube className="w-3.5 h-3.5" />
-            <span>YouTube Showcase</span>
-          </button>
-
-          <button
             onClick={() => setActiveTab("pal")}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all cursor-pointer ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
               activeTab === "pal"
-                ? "bg-purple-500/20 text-purple-300 shadow-sm border border-purple-500/30 font-bold"
-                : "text-slate-400 hover:text-slate-200"
+                ? "bg-white text-purple-700 shadow-xs font-bold"
+                : "text-slate-600 hover:text-slate-900"
             }`}
           >
-            <Layers className="w-3.5 h-3.5" />
-            <span>PAL & NPAO</span>
+            <Layers className="w-3.5 h-3.5 text-purple-600" />
+            <span>PAL Protocol</span>
           </button>
 
           <button
             onClick={() => setActiveTab("sandbox")}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all cursor-pointer ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
               activeTab === "sandbox"
-                ? "bg-amber-500/20 text-amber-300 shadow-sm border border-amber-500/30 font-bold"
-                : "text-slate-400 hover:text-slate-200"
+                ? "bg-white text-amber-700 shadow-xs font-bold"
+                : "text-slate-600 hover:text-slate-900"
             }`}
           >
-            <Terminal className="w-3.5 h-3.5" />
-            <span>Code Sandbox</span>
+            <Terminal className="w-3.5 h-3.5 text-amber-600" />
+            <span>Sandbox</span>
           </button>
 
           <button
             onClick={() => setActiveTab("evals")}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all cursor-pointer ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
               activeTab === "evals"
-                ? "bg-indigo-500/20 text-indigo-300 shadow-sm border border-indigo-500/30 font-bold"
-                : "text-slate-400 hover:text-slate-200"
+                ? "bg-white text-rose-700 shadow-xs font-bold"
+                : "text-slate-600 hover:text-slate-900"
             }`}
           >
-            <ShieldCheck className="w-3.5 h-3.5" />
-            <span>EVE Evals & Gateway</span>
+            <ShieldCheck className="w-3.5 h-3.5 text-rose-600" />
+            <span>Evals & Gateway</span>
           </button>
         </nav>
 
-        {/* Right Header Actions */}
+        {/* Right Actions */}
         <div className="flex items-center gap-2.5">
-          {/* Model Selector */}
-          <div className="hidden xl:flex items-center gap-2 bg-slate-900/90 px-2.5 py-1 rounded-lg border border-white/10 text-xs">
-            <span className="text-slate-400 text-[10px] font-mono uppercase">Model:</span>
-            <select
-              value={selectedModel}
-              onChange={(e) => setSelectedModel(e.target.value)}
-              aria-label="Select AI Model"
-              className="bg-transparent text-cyan-300 text-xs font-mono focus:outline-none cursor-pointer"
-            >
-              <option value="us.anthropic.claude-sonnet-4-6-v1:0" className="bg-slate-900 text-white">
-                Claude Sonnet 4.6 (Bedrock)
-              </option>
-              <option value="claude-3-5-sonnet-20241022" className="bg-slate-900 text-white">
-                Claude 3.5 Sonnet (Direct)
-              </option>
-              <option value="gpt-4o" className="bg-slate-900 text-white">
-                GPT-4o (OpenAI)
-              </option>
-            </select>
-          </div>
-
           {/* BYOK Button */}
           <button
             onClick={() => setIsBYOKOpen(true)}
-            className="px-2.5 py-1.5 rounded-lg bg-slate-900 border border-white/10 hover:border-amber-500/40 text-xs text-slate-300 hover:text-amber-300 flex items-center gap-1.5 transition-all cursor-pointer"
+            className="px-2.5 py-1.5 rounded-lg bg-white border border-slate-200 hover:border-amber-400 text-xs text-slate-700 hover:text-amber-700 flex items-center gap-1.5 transition-all cursor-pointer shadow-2xs"
           >
-            <Key className="w-3.5 h-3.5 text-amber-400" />
-            <span className="hidden sm:inline">BYOK</span>
+            <Key className="w-3.5 h-3.5 text-amber-500" />
+            <span className="hidden sm:inline font-medium">BYOK</span>
           </button>
 
-          {/* Pricing / Pro Button */}
+          {/* Pricing Button */}
           <button
             onClick={() => setIsPricingOpen(true)}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer shadow-xs ${
               userSession?.tier === "pro"
-                ? "bg-purple-500/20 text-purple-300 border border-purple-500/40"
-                : "bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white shadow-md shadow-purple-600/20"
+                ? "bg-purple-50 text-purple-700 border border-purple-200"
+                : "bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white"
             }`}
           >
             <Crown className="w-3.5 h-3.5 text-amber-300" />
-            <span>{userSession?.tier === "pro" ? "Pro Plan ($19.99)" : "Upgrade ($19.99)"}</span>
+            <span>{userSession?.tier === "pro" ? "Pro Active ($19.99)" : "Upgrade ($19.99)"}</span>
           </button>
 
-          {/* OAuth / User Profile Button */}
+          {/* OAuth User Button */}
           {userSession ? (
             <button
               onClick={() => setIsAuthOpen(true)}
-              className="flex items-center gap-2 p-1 pl-2 pr-3 rounded-xl bg-slate-900 border border-white/10 text-xs text-slate-200 hover:border-cyan-500/40 transition-all cursor-pointer"
+              className="flex items-center gap-2 p-1 pl-2 pr-3 rounded-xl bg-white border border-slate-200 text-xs text-slate-800 hover:border-cyan-500 transition-all cursor-pointer shadow-2xs"
             >
               {userSession.provider === "github" ? (
-                <Github className="w-3.5 h-3.5 text-white" />
+                <Github className="w-3.5 h-3.5 text-slate-900" />
               ) : (
-                <div className="w-5 h-5 rounded-full bg-gradient-to-tr from-cyan-400 to-blue-500 flex items-center justify-center text-[10px] font-bold text-slate-950">
+                <div className="w-5 h-5 rounded-full bg-cyan-600 flex items-center justify-center text-[10px] font-bold text-white">
                   {userSession.name[0]?.toUpperCase() || "U"}
                 </div>
               )}
-              <span className="font-medium max-w-[80px] truncate">{userSession.name}</span>
+              <span className="font-semibold max-w-[80px] truncate">{userSession.name}</span>
             </button>
           ) : (
             <button
               onClick={() => setIsAuthOpen(true)}
-              className="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-white/10 text-xs font-medium text-slate-200 hover:text-white transition-all cursor-pointer flex items-center gap-1.5"
+              className="px-3.5 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-xs font-semibold text-white transition-all cursor-pointer flex items-center gap-1.5 shadow-xs"
             >
               <Github className="w-3.5 h-3.5" />
               <span>Sign In with OAuth</span>
@@ -359,96 +358,112 @@ export default function HomePage() {
         </div>
       </header>
 
-      {/* Mobile Navigation Tabs */}
-      <div className="lg:hidden flex items-center gap-1 bg-slate-950 p-2 border-b border-white/10 overflow-x-auto">
+      {/* Mobile Tab Strip */}
+      <div className="lg:hidden flex items-center gap-1 bg-white p-2 border-b border-slate-200 overflow-x-auto">
+        <button
+          onClick={() => setActiveTab("home")}
+          className={`px-3 py-1 rounded-lg text-xs font-semibold shrink-0 ${
+            activeTab === "home" ? "bg-slate-900 text-white" : "text-slate-600"
+          }`}
+        >
+          Home
+        </button>
         <button
           onClick={() => setActiveTab("chat")}
-          className={`px-3 py-1 rounded-lg text-xs shrink-0 ${
-            activeTab === "chat" ? "bg-cyan-500/20 text-cyan-300 font-bold" : "text-slate-400"
+          className={`px-3 py-1 rounded-lg text-xs font-semibold shrink-0 ${
+            activeTab === "chat" ? "bg-cyan-600 text-white" : "text-slate-600"
           }`}
         >
           Agent Console
         </button>
         <button
-          onClick={() => setActiveTab("studio")}
-          className={`px-3 py-1 rounded-lg text-xs shrink-0 ${
-            activeTab === "studio" ? "bg-emerald-500/20 text-emerald-300 font-bold" : "text-slate-400"
+          onClick={() => setActiveTab("agency")}
+          className={`px-3 py-1 rounded-lg text-xs font-semibold shrink-0 ${
+            activeTab === "agency" ? "bg-indigo-600 text-white" : "text-slate-600"
           }`}
         >
-          Runtime Studio
+          AI Agency
         </button>
         <button
-          onClick={() => setActiveTab("video")}
-          className={`px-3 py-1 rounded-lg text-xs shrink-0 ${
-            activeTab === "video" ? "bg-red-500/20 text-red-300 font-bold" : "text-slate-400"
+          onClick={() => setActiveTab("studio")}
+          className={`px-3 py-1 rounded-lg text-xs font-semibold shrink-0 ${
+            activeTab === "studio" ? "bg-emerald-600 text-white" : "text-slate-600"
           }`}
         >
-          YouTube Demo
+          Studio
         </button>
         <button
           onClick={() => setActiveTab("pal")}
-          className={`px-3 py-1 rounded-lg text-xs shrink-0 ${
-            activeTab === "pal" ? "bg-purple-500/20 text-purple-300 font-bold" : "text-slate-400"
+          className={`px-3 py-1 rounded-lg text-xs font-semibold shrink-0 ${
+            activeTab === "pal" ? "bg-purple-600 text-white" : "text-slate-600"
           }`}
         >
-          PAL & NPAO
+          PAL Protocol
         </button>
         <button
           onClick={() => setActiveTab("sandbox")}
-          className={`px-3 py-1 rounded-lg text-xs shrink-0 ${
-            activeTab === "sandbox" ? "bg-amber-500/20 text-amber-300 font-bold" : "text-slate-400"
+          className={`px-3 py-1 rounded-lg text-xs font-semibold shrink-0 ${
+            activeTab === "sandbox" ? "bg-amber-600 text-white" : "text-slate-600"
           }`}
         >
-          Code Sandbox
-        </button>
-        <button
-          onClick={() => setActiveTab("evals")}
-          className={`px-3 py-1 rounded-lg text-xs shrink-0 ${
-            activeTab === "evals" ? "bg-indigo-500/20 text-indigo-300 font-bold" : "text-slate-400"
-          }`}
-        >
-          Evals & Gateway
+          Sandbox
         </button>
       </div>
 
-      {/* Main Content Area */}
-      <main className="flex-1 max-w-7xl w-full mx-auto p-4 md:p-6 flex flex-col min-h-0">
+      {/* Main Container */}
+      <main className="flex-1 max-w-7xl w-full mx-auto p-4 md:p-6 flex flex-col min-h-0 relative z-10">
+        {activeTab === "home" && (
+          <HomeOverview
+            onOpenAgent={(p) => handleOpenAgent(p)}
+            onOpenAgency={() => setActiveTab("agency")}
+          />
+        )}
+
+        {activeTab === "agency" && (
+          <AgencyManagers
+            onSelectAgent={(agentId, prompt) => {
+              if (prompt) setInput(prompt);
+              setActiveTab("chat");
+            }}
+          />
+        )}
+
         {activeTab === "chat" && (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 flex-1 min-h-0">
             {/* Left 8-Columns: Main Agent Console */}
-            <div className="lg:col-span-8 flex flex-col h-[calc(100vh-140px)] glass-panel overflow-hidden">
+            <div className="lg:col-span-8 flex flex-col h-[calc(100vh-140px)] glass-panel overflow-hidden border border-slate-200">
               {/* Console Header Bar */}
-              <div className="px-4 py-3 bg-slate-950/80 border-b border-white/10 flex items-center justify-between">
+              <div className="px-4 py-3 bg-white border-b border-slate-200 flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
-                  <span className="text-xs font-semibold text-white">
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
+                  <span className="text-xs font-bold text-slate-900">
                     Governed Agent Session (ROSTR PAL / NPAO Active)
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
                   {userSession && (
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-900 text-cyan-300 border border-white/5">
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-700 font-semibold border border-slate-200">
                       OAuth: {userSession.provider}
                     </span>
                   )}
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">
-                    Live Vercel Stream
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 font-semibold border border-emerald-200">
+                    Vercel AI SDK Streaming
                   </span>
                 </div>
               </div>
 
               {/* Message History Area */}
-              <div className="flex-1 p-4 overflow-y-auto space-y-4">
+              <div className="flex-1 p-4 overflow-y-auto space-y-4 bg-slate-50/50">
                 {messages.length === 0 ? (
                   <div className="h-full flex flex-col items-center justify-center text-center p-6 space-y-4">
-                    <div className="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 shadow-lg shadow-cyan-500/10">
+                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-cyan-500 to-indigo-600 flex items-center justify-center text-white shadow-md shadow-cyan-500/20">
                       <Sparkles className="w-6 h-6" />
                     </div>
                     <div>
-                      <h2 className="text-base font-semibold text-white">
+                      <h2 className="text-base font-bold text-slate-900">
                         ROSTR Governed CTO Agent Core
                       </h2>
-                      <p className="text-xs text-slate-400 mt-1 max-w-sm mx-auto">
+                      <p className="text-xs text-slate-600 mt-1 max-w-sm mx-auto">
                         State-of-the-art outcome-driven agent compiler. Combines PAL 5-stage orchestration, NPAO 4D priority scoring, and Vercel Code Sandbox execution.
                       </p>
                     </div>
@@ -462,10 +477,10 @@ export default function HomePage() {
                         <button
                           key={idx}
                           onClick={() => setInput(starter)}
-                          className="w-full p-2.5 rounded-lg bg-slate-950/60 hover:bg-cyan-500/10 border border-white/5 hover:border-cyan-500/30 text-xs text-slate-300 hover:text-cyan-200 transition-all text-left flex items-center justify-between group cursor-pointer"
+                          className="w-full p-2.5 rounded-xl bg-white hover:bg-cyan-50 border border-slate-200 hover:border-cyan-300 text-xs text-slate-700 hover:text-cyan-800 transition-all text-left flex items-center justify-between group cursor-pointer shadow-2xs"
                         >
-                          <span className="truncate">{starter}</span>
-                          <span className="text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity">
+                          <span className="truncate font-medium">{starter}</span>
+                          <span className="text-cyan-600 opacity-0 group-hover:opacity-100 transition-opacity font-bold">
                             →
                           </span>
                         </button>
@@ -481,7 +496,7 @@ export default function HomePage() {
                         className={`flex gap-3 ${isUser ? "justify-end" : "justify-start"}`}
                       >
                         {!isUser && (
-                          <div className="w-7 h-7 rounded-lg bg-gradient-to-tr from-cyan-500 to-purple-600 flex items-center justify-center text-white text-xs font-bold shrink-0 shadow-md shadow-cyan-500/20 mt-0.5">
+                          <div className="w-7 h-7 rounded-lg bg-gradient-to-tr from-cyan-600 to-indigo-600 flex items-center justify-center text-white text-xs font-bold shrink-0 shadow-xs mt-0.5">
                             AI
                           </div>
                         )}
@@ -490,19 +505,19 @@ export default function HomePage() {
                           className={`max-w-[85%] rounded-2xl p-4 text-xs leading-relaxed ${
                             isUser
                               ? "bg-cyan-600 text-white shadow-md shadow-cyan-600/15"
-                              : "glass-card text-slate-200"
+                              : "glass-card bg-white text-slate-800 border border-slate-200 shadow-xs"
                           }`}
                         >
                           {/* PAL Header Tag */}
                           {!isUser && m.pal && (
-                            <div className="mb-2.5 pb-2 border-b border-white/10 flex flex-wrap items-center gap-2 text-[10px] font-mono text-cyan-300">
-                              <span className="px-1.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300 font-semibold">
+                            <div className="mb-2.5 pb-2 border-b border-slate-200 flex flex-wrap items-center gap-2 text-[10px] font-mono">
+                              <span className="px-1.5 py-0.5 rounded bg-cyan-50 text-cyan-700 font-bold border border-cyan-200">
                                 Phase: {m.pal.phase}
                               </span>
-                              <span className="px-1.5 py-0.5 rounded bg-purple-500/20 text-purple-300 font-semibold">
+                              <span className="px-1.5 py-0.5 rounded bg-purple-50 text-purple-700 font-bold border border-purple-200">
                                 NPAO: {m.pal.priorityScore}/10
                               </span>
-                              <span className="text-slate-400">
+                              <span className="text-slate-500">
                                 Sub-Agents: {m.pal.subAgents.join(", ")}
                               </span>
                             </div>
@@ -511,24 +526,24 @@ export default function HomePage() {
                           <div className="whitespace-pre-wrap font-sans">{m.content}</div>
 
                           {!isUser && (
-                            <div className="mt-3 pt-2 border-t border-white/5 flex items-center justify-between text-[10px] text-slate-400">
+                            <div className="mt-3 pt-2 border-t border-slate-200 flex items-center justify-between text-[10px] text-slate-500">
                               <span className="font-mono">ROSTR PAL Streamed</span>
                               <div className="flex items-center gap-2">
                                 {m.content.includes("```") && (
                                   <button
                                     onClick={() => setActiveTab("sandbox")}
-                                    className="hover:text-emerald-300 text-emerald-400 flex items-center gap-1 cursor-pointer"
+                                    className="hover:text-emerald-700 text-emerald-600 font-semibold flex items-center gap-1 cursor-pointer"
                                   >
                                     <Play className="w-2.5 h-2.5 fill-current" /> Run in Sandbox
                                   </button>
                                 )}
                                 <button
                                   onClick={() => handleCopy(m.content, m.id)}
-                                  className="hover:text-cyan-300 flex items-center gap-1 cursor-pointer"
+                                  className="hover:text-cyan-700 flex items-center gap-1 cursor-pointer font-medium"
                                 >
                                   {copiedId === m.id ? (
                                     <>
-                                      <Check className="w-3 h-3 text-emerald-400" /> Copied
+                                      <Check className="w-3 h-3 text-emerald-600" /> Copied
                                     </>
                                   ) : (
                                     <>
@@ -542,7 +557,7 @@ export default function HomePage() {
                         </div>
 
                         {isUser && (
-                          <div className="w-7 h-7 rounded-lg bg-slate-800 border border-white/10 flex items-center justify-center text-slate-300 text-xs font-bold shrink-0 mt-0.5">
+                          <div className="w-7 h-7 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-white text-xs font-bold shrink-0 mt-0.5">
                             You
                           </div>
                         )}
@@ -551,8 +566,8 @@ export default function HomePage() {
                   })
                 )}
                 {isLoading && (
-                  <div className="flex items-center gap-2 text-xs text-cyan-400 font-mono">
-                    <div className="w-3.5 h-3.5 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin" />
+                  <div className="flex items-center gap-2 text-xs text-cyan-600 font-mono font-medium">
+                    <div className="w-3.5 h-3.5 border-2 border-cyan-600 border-t-transparent rounded-full animate-spin" />
                     <span>Compiling PAL Intent & Streaming response...</span>
                   </div>
                 )}
@@ -560,7 +575,7 @@ export default function HomePage() {
               </div>
 
               {/* Chat Input Bar */}
-              <form onSubmit={handleSendMessage} className="p-3 bg-slate-950/80 border-t border-white/10">
+              <form onSubmit={handleSendMessage} className="p-3 bg-white border-t border-slate-200">
                 <div className="relative flex items-center">
                   <input
                     type="text"
@@ -572,7 +587,7 @@ export default function HomePage() {
                   <button
                     type="submit"
                     disabled={isLoading || !input.trim()}
-                    className="absolute right-1.5 px-3 py-1.5 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white text-xs font-medium transition-all shadow-md shadow-cyan-600/20 disabled:opacity-40 cursor-pointer flex items-center gap-1.5"
+                    className="absolute right-1.5 px-3 py-1.5 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white text-xs font-semibold transition-all shadow-md shadow-cyan-600/20 disabled:opacity-40 cursor-pointer flex items-center gap-1.5"
                   >
                     <span>Send</span>
                     <Send className="w-3 h-3" />
@@ -584,34 +599,34 @@ export default function HomePage() {
             {/* Right 4-Columns: Live PAL & Sub-Agent Trace Widget */}
             <div className="lg:col-span-4 space-y-4 flex flex-col h-[calc(100vh-140px)] overflow-y-auto">
               {/* Active PAL Compilation Widget */}
-              <div className="glass-panel p-4">
+              <div className="glass-panel p-4 bg-white border border-slate-200">
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-2">
-                    <Layers className="w-4 h-4 text-cyan-400" />
-                    <span className="text-xs font-semibold text-white">Live PAL Compiler State</span>
+                    <Layers className="w-4 h-4 text-cyan-600" />
+                    <span className="text-xs font-bold text-slate-900">Live PAL Compiler State</span>
                   </div>
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-300">
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-50 text-cyan-700 font-bold border border-cyan-200">
                     Phase: {currentPal?.phase || "Development"}
                   </span>
                 </div>
 
                 <div className="space-y-2 text-xs">
-                  <div className="p-2.5 rounded-lg bg-slate-950/60 border border-white/5">
-                    <div className="text-[10px] text-slate-500 uppercase">NPAO Priority</div>
-                    <div className="text-lg font-bold text-cyan-400 font-mono">
+                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
+                    <div className="text-[10px] text-slate-500 uppercase font-mono">NPAO Priority</div>
+                    <div className="text-lg font-bold text-cyan-700 font-mono">
                       {currentPal?.priorityScore || 6.75}{" "}
                       <span className="text-xs font-normal text-slate-500">/ 10</span>
                     </div>
                   </div>
 
-                  <div className="p-2.5 rounded-lg bg-slate-950/60 border border-white/5">
-                    <div className="text-[10px] text-slate-500 uppercase mb-1">Dispatched Sub-Agents</div>
+                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
+                    <div className="text-[10px] text-slate-500 uppercase mb-1 font-mono">Dispatched Sub-Agents</div>
                     <div className="flex flex-wrap gap-1">
                       {(currentPal?.subAgents || ["application-engineer", "quality-engineer"]).map(
                         (sa) => (
                           <span
                             key={sa}
-                            className="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-500/20 text-purple-300"
+                            className="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-50 text-purple-700 font-semibold border border-purple-200"
                           >
                             {sa}
                           </span>
@@ -620,10 +635,10 @@ export default function HomePage() {
                     </div>
                   </div>
 
-                  <div className="p-2.5 rounded-lg bg-slate-950/60 border border-white/5">
-                    <div className="text-[10px] text-slate-500 uppercase mb-1">Approval Boundary</div>
-                    <span className="text-[11px] text-emerald-400 flex items-center gap-1 font-medium">
-                      <CheckCircle2 className="w-3.5 h-3.5" />
+                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
+                    <div className="text-[10px] text-slate-500 uppercase mb-1 font-mono">Approval Boundary</div>
+                    <span className="text-[11px] text-emerald-700 flex items-center gap-1 font-semibold">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
                       {currentPal?.approvalGates.length
                         ? currentPal.approvalGates.join(", ")
                         : "No blocking approval gates required"}
@@ -634,34 +649,34 @@ export default function HomePage() {
 
               {/* YouTube Showcase Mini-Card */}
               <div
-                onClick={() => setActiveTab("video")}
-                className="glass-panel p-4 hover:border-red-500/30 transition-all cursor-pointer group"
+                onClick={() => setActiveTab("home")}
+                className="glass-panel p-4 bg-white border border-slate-200 hover:border-red-400 transition-all cursor-pointer group shadow-2xs"
               >
                 <div className="flex items-center justify-between mb-1.5">
-                  <span className="text-xs font-semibold text-white group-hover:text-red-300 flex items-center gap-1.5">
+                  <span className="text-xs font-bold text-slate-900 group-hover:text-red-600 flex items-center gap-1.5">
                     <Youtube className="w-3.5 h-3.5 text-red-500" />
                     Patrick Diamitani Demo Video
                   </span>
-                  <ExternalLink className="w-3 h-3 text-slate-500 group-hover:text-red-400" />
+                  <ExternalLink className="w-3 h-3 text-slate-400 group-hover:text-red-500" />
                 </div>
-                <p className="text-[11px] text-slate-400 line-clamp-2">
+                <p className="text-[11px] text-slate-600 line-clamp-2">
                   Watch Patrick Diamitani demonstrate the ROSTR framework, PAL compiler, and Bedrock AgentCore.
                 </p>
               </div>
 
               {/* Sub-Agents Quick Status */}
-              <div className="glass-panel p-4 flex-1">
-                <div className="text-xs font-semibold text-white mb-2 flex items-center gap-2">
-                  <Cpu className="w-4 h-4 text-purple-400" />
+              <div className="glass-panel p-4 flex-1 bg-white border border-slate-200">
+                <div className="text-xs font-bold text-slate-900 mb-2 flex items-center gap-2">
+                  <Users className="w-4 h-4 text-indigo-600" />
                   Specialist Sub-Agents Registry (9)
                 </div>
                 <div className="space-y-1.5 max-h-[180px] overflow-y-auto pr-1">
                   {SUB_AGENTS_REGISTRY.map((agent) => (
                     <div
                       key={agent.id}
-                      className="p-2 rounded bg-slate-950/40 border border-white/5 flex items-center justify-between text-[11px]"
+                      className="p-2 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-between text-[11px]"
                     >
-                      <span className="text-slate-200 font-medium">{agent.name}</span>
+                      <span className="text-slate-800 font-medium">{agent.name}</span>
                       <span className="text-[10px] font-mono text-slate-500">
                         {agent.phases.join(", ")}
                       </span>
@@ -674,8 +689,7 @@ export default function HomePage() {
         )}
 
         {activeTab === "studio" && <RuntimeStudio />}
-        {activeTab === "video" && <VideoShowcase onSelectPrompt={handleSelectPrompt} />}
-        {activeTab === "pal" && <PALInspector onDispatchToChat={handleSelectPrompt} />}
+        {activeTab === "pal" && <PALInspector onDispatchToChat={handleOpenAgent} />}
         {activeTab === "sandbox" && <SandboxConsole />}
         {activeTab === "evals" && (
           <div className="space-y-8">
