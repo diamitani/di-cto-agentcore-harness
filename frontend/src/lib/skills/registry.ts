@@ -1,5 +1,5 @@
 /**
- * ROSTR / Artispreneur Skills Inventory
+ * ROSTR Platform Skills Inventory
  */
 
 export interface SkillDefinition {
