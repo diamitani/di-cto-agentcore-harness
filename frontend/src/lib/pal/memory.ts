@@ -12,6 +12,8 @@ export interface MemoryEntry {
   metadata?: Record<string, any>;
 }
 
+export type EpisodicMemory = MemoryEntry;
+
 // In-memory persistent session store
 class MemoryStore {
   private entries: MemoryEntry[] = [
@@ -45,15 +47,23 @@ class MemoryStore {
     return [...this.entries];
   }
 
+  public getMemories(): MemoryEntry[] {
+    return this.getAll();
+  }
+
   public getByNamespace(namespace: MemoryEntry["namespace"]): MemoryEntry[] {
     return this.entries.filter((e) => e.namespace === namespace);
   }
 
-  public add(entry: Omit<MemoryEntry, "id" | "timestamp">): MemoryEntry {
+  public add(entry: Partial<MemoryEntry> & { content: string; phase: string }): MemoryEntry {
     const newEntry: MemoryEntry = {
-      ...entry,
-      id: `mem-${Date.now().toString(36)}`,
-      timestamp: new Date().toISOString(),
+      id: entry.id || `mem-${Date.now().toString(36)}`,
+      namespace: entry.namespace || "rostr_decisions",
+      content: entry.content,
+      phase: entry.phase,
+      tags: entry.tags || [],
+      timestamp: entry.timestamp || new Date().toISOString(),
+      metadata: entry.metadata,
     };
     this.entries.unshift(newEntry);
     return newEntry;

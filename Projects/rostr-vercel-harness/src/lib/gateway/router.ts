@@ -78,35 +78,47 @@ export const AVAILABLE_MODELS: ModelProviderConfig[] = [
 ];
 
 export function resolveAIModel(preferredModelId?: string) {
-  const provider = process.env.AI_PROVIDER || "mock";
-  const modelId = process.env.AI_MODEL || preferredModelId || "us.anthropic.claude-sonnet-4-6-v1:0";
+  const modelId = preferredModelId || process.env.AI_MODEL || "us.anthropic.claude-sonnet-4-6-v1:0";
 
-  // Check if API keys exist; if not, return null to trigger mock/simulator stream
-  if (provider === "bedrock" && (process.env.AWS_ACCESS_KEY_ID || process.env.AWS_REGION)) {
+  // Check direct Anthropic
+  if (
+    (modelId.includes("claude") && process.env.ANTHROPIC_API_KEY) ||
+    process.env.AI_PROVIDER === "anthropic"
+  ) {
+    try {
+      if (process.env.ANTHROPIC_API_KEY) {
+        return anthropic(modelId.includes("sonnet") ? "claude-3-5-sonnet-20241022" : modelId);
+      }
+    } catch {
+      // Fall through to other providers or simulator
+    }
+  }
+
+  // Check AWS Bedrock
+  if (
+    (process.env.AWS_ACCESS_KEY_ID || process.env.AWS_REGION) &&
+    (process.env.AI_PROVIDER === "bedrock" || modelId.includes("bedrock") || modelId.includes("anthropic.claude"))
+  ) {
     try {
       return bedrock(modelId);
     } catch {
-      return null;
+      // Fall through to simulator
     }
   }
 
-  if (provider === "anthropic" && process.env.ANTHROPIC_API_KEY) {
+  // Check OpenAI
+  if (
+    process.env.OPENAI_API_KEY &&
+    (process.env.AI_PROVIDER === "openai" || modelId.includes("gpt"))
+  ) {
     try {
-      return anthropic(modelId);
+      return openai(modelId.includes("gpt-4o") ? "gpt-4o" : modelId);
     } catch {
-      return null;
+      // Fall through to simulator
     }
   }
 
-  if (provider === "openai" && process.env.OPENAI_API_KEY) {
-    try {
-      return openai(modelId);
-    } catch {
-      return null;
-    }
-  }
-
-  return null; // Signals mock/simulator mode
+  return null; // Signals high-speed zero-config simulator mode
 }
 
 export function getGatewayStats() {

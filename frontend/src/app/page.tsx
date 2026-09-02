@@ -19,16 +19,18 @@ import {
   Clock,
   ExternalLink,
   MessageSquare,
+  Wrench,
 } from "lucide-react";
 import { PALInspector } from "@/components/pal-inspector";
 import { VideoShowcase } from "@/components/video-showcase";
 import { SandboxConsole } from "@/components/sandbox-console";
 import { EvalsDashboard } from "@/components/evals-dashboard";
 import { GatewayMonitor } from "@/components/gateway-monitor";
+import { RuntimeStudio } from "@/components/runtime-studio";
 import { compilePALIntent, PALCompilation } from "@/lib/pal/compiler";
 import { SUB_AGENTS_REGISTRY } from "@/lib/pal/subagents";
 
-type TabType = "chat" | "pal" | "video" | "sandbox" | "evals";
+type TabType = "chat" | "pal" | "studio" | "video" | "sandbox" | "evals";
 
 interface ChatMessage {
   id: string;
@@ -174,10 +176,10 @@ export default function HomePage() {
         </div>
 
         {/* Navigation Tabs */}
-        <nav className="flex items-center gap-1.5 bg-slate-900/80 p-1 rounded-xl border border-white/10">
+        <nav className="flex items-center gap-1.5 bg-slate-900/80 p-1 rounded-xl border border-white/10 overflow-x-auto max-w-full">
           <button
             onClick={() => setActiveTab("chat")}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all shrink-0 ${
               activeTab === "chat"
                 ? "bg-cyan-500/20 text-cyan-300 shadow-sm border border-cyan-500/30"
                 : "text-slate-400 hover:text-slate-200"
@@ -188,8 +190,20 @@ export default function HomePage() {
           </button>
 
           <button
+            onClick={() => setActiveTab("studio")}
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all shrink-0 ${
+              activeTab === "studio"
+                ? "bg-emerald-500/20 text-emerald-300 shadow-sm border border-emerald-500/30"
+                : "text-slate-400 hover:text-slate-200"
+            }`}
+          >
+            <Cpu className="w-3.5 h-3.5" />
+            <span>Runtime Studio</span>
+          </button>
+
+          <button
             onClick={() => setActiveTab("pal")}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all shrink-0 ${
               activeTab === "pal"
                 ? "bg-purple-500/20 text-purple-300 shadow-sm border border-purple-500/30"
                 : "text-slate-400 hover:text-slate-200"
@@ -201,7 +215,7 @@ export default function HomePage() {
 
           <button
             onClick={() => setActiveTab("video")}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all shrink-0 ${
               activeTab === "video"
                 ? "bg-red-500/20 text-red-300 shadow-sm border border-red-500/30"
                 : "text-slate-400 hover:text-slate-200"
@@ -213,19 +227,19 @@ export default function HomePage() {
 
           <button
             onClick={() => setActiveTab("sandbox")}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all shrink-0 ${
               activeTab === "sandbox"
-                ? "bg-emerald-500/20 text-emerald-300 shadow-sm border border-emerald-500/30"
+                ? "bg-amber-500/20 text-amber-300 shadow-sm border border-amber-500/30"
                 : "text-slate-400 hover:text-slate-200"
             }`}
           >
             <Terminal className="w-3.5 h-3.5" />
-            <span>Vercel Sandbox</span>
+            <span>Code Sandbox</span>
           </button>
 
           <button
             onClick={() => setActiveTab("evals")}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all shrink-0 ${
               activeTab === "evals"
                 ? "bg-indigo-500/20 text-indigo-300 shadow-sm border border-indigo-500/30"
                 : "text-slate-400 hover:text-slate-200"
@@ -325,7 +339,7 @@ export default function HomePage() {
                                 className="hover:text-cyan-300 flex items-center gap-1 cursor-pointer"
                               >
                                 {copiedId === m.id ? (
-                                  <>
+                                   <>
                                     <Check className="w-3 h-3 text-emerald-400" /> Copied
                                   </>
                                 ) : (
@@ -470,6 +484,7 @@ export default function HomePage() {
           </div>
         )}
 
+        {activeTab === "studio" && <RuntimeStudio />}
         {activeTab === "pal" && <PALInspector onDispatchToChat={handleSelectPrompt} />}
         {activeTab === "video" && <VideoShowcase onSelectPrompt={handleSelectPrompt} />}
         {activeTab === "sandbox" && <SandboxConsole />}

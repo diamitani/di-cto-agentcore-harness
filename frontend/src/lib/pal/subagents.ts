@@ -12,7 +12,10 @@ export interface SubAgentDef {
   approvalRequired: boolean;
   avatarColor: string;
   icon: string;
+  model?: string;
 }
+
+export type SubAgentConfig = SubAgentDef;
 
 export const SUB_AGENTS_REGISTRY: SubAgentDef[] = [
   {
@@ -24,6 +27,7 @@ export const SUB_AGENTS_REGISTRY: SubAgentDef[] = [
     approvalRequired: false,
     avatarColor: "from-sky-500 to-blue-600",
     icon: "Compass",
+    model: "claude-sonnet-4-6",
   },
   {
     id: "jtbd-npao-planner",
@@ -34,6 +38,7 @@ export const SUB_AGENTS_REGISTRY: SubAgentDef[] = [
     approvalRequired: false,
     avatarColor: "from-indigo-500 to-purple-600",
     icon: "Target",
+    model: "claude-sonnet-4-6",
   },
   {
     id: "experience-engineer",
@@ -44,6 +49,7 @@ export const SUB_AGENTS_REGISTRY: SubAgentDef[] = [
     approvalRequired: false,
     avatarColor: "from-fuchsia-500 to-pink-600",
     icon: "Palette",
+    model: "claude-sonnet-4-6",
   },
   {
     id: "application-engineer",
@@ -54,6 +60,7 @@ export const SUB_AGENTS_REGISTRY: SubAgentDef[] = [
     approvalRequired: false,
     avatarColor: "from-cyan-500 to-teal-600",
     icon: "Code2",
+    model: "claude-sonnet-4-6",
   },
   {
     id: "agent-runtime-engineer",
@@ -64,6 +71,7 @@ export const SUB_AGENTS_REGISTRY: SubAgentDef[] = [
     approvalRequired: false,
     avatarColor: "from-violet-500 to-indigo-600",
     icon: "Cpu",
+    model: "claude-sonnet-4-6",
   },
   {
     id: "identity-commerce-qa",
@@ -74,6 +82,7 @@ export const SUB_AGENTS_REGISTRY: SubAgentDef[] = [
     approvalRequired: true,
     avatarColor: "from-amber-500 to-orange-600",
     icon: "ShieldAlert",
+    model: "claude-sonnet-4-6",
   },
   {
     id: "quality-engineer",
@@ -84,6 +93,7 @@ export const SUB_AGENTS_REGISTRY: SubAgentDef[] = [
     approvalRequired: false,
     avatarColor: "from-emerald-500 to-green-600",
     icon: "CheckCircle2",
+    model: "claude-sonnet-4-6",
   },
   {
     id: "devops-release-engineer",
@@ -94,6 +104,7 @@ export const SUB_AGENTS_REGISTRY: SubAgentDef[] = [
     approvalRequired: true,
     avatarColor: "from-rose-500 to-red-600",
     icon: "Rocket",
+    model: "claude-sonnet-4-6",
   },
   {
     id: "security-reviewer",
@@ -104,5 +115,6 @@ export const SUB_AGENTS_REGISTRY: SubAgentDef[] = [
     approvalRequired: false,
     avatarColor: "from-red-500 to-orange-700",
     icon: "Lock",
+    model: "claude-sonnet-4-6",
   },
 ];
