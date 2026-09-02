@@ -8,85 +8,101 @@ import {
   Layers,
   Users,
   FileText,
-  DollarSign,
   Terminal,
   ShieldCheck,
   CheckCircle2,
   ExternalLink,
   Youtube,
   Cpu,
+  Database,
+  GitBranch,
+  Sliders,
+  Code2,
 } from "lucide-react";
 
 interface HomeOverviewProps {
   onOpenAgent: (prompt?: string) => void;
-  onOpenAgency: () => void;
+  onNavigateTab: (tab: string) => void;
 }
 
-export function HomeOverview({ onOpenAgent, onOpenAgency }: HomeOverviewProps) {
+export function HomeOverview({ onOpenAgent, onNavigateTab }: HomeOverviewProps) {
   const platformChips = [
-    { label: "Day-to-Day Manager", prompt: "Activate Day-to-Day Manager: Draft weekly release schedule and task priorities." },
-    { label: "P.R.O. & Royalty Setup", prompt: "Set up ASCAP/BMI work registration metadata and split percentages." },
-    { label: "Contract Generation", prompt: "Generate production master sync license and artist split sheet agreement." },
-    { label: "Booking & Venues", prompt: "Draft tour booking inquiry email for regional music venues." },
-    { label: "78K+ Contact Directory", prompt: "Query industry directory for indie music supervisors and playlist curators." },
-    { label: "19 Academy Courses", prompt: "Summarize music business academy course on sync licensing and publishing." },
-    { label: "Catalog & Split Sheets", prompt: "Create split sheet ledger with 50/50 songwriter and publisher splits." },
+    { label: "5-Stage PAL Compiler", prompt: "Compile intent through PAL: Scaffold Next.js 15 App Router landing page with Stripe pricing." },
+    { label: "NPAO 4D Priority Calculation", prompt: "Calculate NPAO 4D score for mission-critical production deployment gate." },
+    { label: "RAG-DAL Episodic Memory", prompt: "Query episodic memory vector store in namespace 'rostr_decisions' for architecture rules." },
+    { label: "9-Specialist Sub-Agent Dispatch", prompt: "Dispatch Product Architect and Application Engineer to design multi-agent workflow." },
+    { label: "AWS Bedrock AgentCore Routing", prompt: "Route multi-agent task to AWS Bedrock Claude Sonnet 4.6 with low-latency streaming." },
+    { label: "Vercel Code Sandbox", prompt: "Execute sandboxed TypeScript test suite and return execution traces." },
+    { label: "EVE Evaluation Benchmark", prompt: "Run 10-benchmark EVE evaluation suite to verify deterministic governance compliance." },
   ];
 
-  const features = [
+  const pillars = [
     {
-      icon: <Users className="w-5 h-5 text-cyan-600" />,
-      title: "9 AI Specialist Managers",
-      desc: "Dedicated autonomous agents for artist management, legal contracts, marketing, release ops, and live bookings.",
+      icon: <Layers className="w-5 h-5 text-cyan-600" />,
+      title: "1. PAL (Prompt Abstraction Layer)",
+      desc: "Deterministic 5-stage compiler: Intent Decomposition, Soul Governance, NPAO Weighting, Approval Gate Check, and State Vector Write.",
+      tag: "Deterministic Synthesis",
     },
     {
-      icon: <FileText className="w-5 h-5 text-indigo-600" />,
-      title: "Automated Legal Contracts",
-      desc: "Instant generation of work-for-hire, master sync licenses, split sheets, and non-disclosure agreements.",
+      icon: <Database className="w-5 h-5 text-indigo-600" />,
+      title: "2. RAG-DAL (Dynamic Acquisition)",
+      desc: "Semantic episodic memory persistence across 'rostr_decisions' and 'rostr_learnings' with zero hallucination rate.",
+      tag: "Memory Compounding",
     },
     {
-      icon: <DollarSign className="w-5 h-5 text-emerald-600" />,
-      title: "Royalty Collection Infrastructure",
-      desc: "Streamlined metadata formatting for ASCAP, BMI, SoundExchange, and international collection societies.",
+      icon: <Sliders className="w-5 h-5 text-purple-600" />,
+      title: "3. NPAO (Dynamic 4D Scoring)",
+      desc: "Mathematical prioritization: (Phase × 0.35) + (Dependency × 0.30) + (Business × 0.25) + (Resource × 0.10).",
+      tag: "Prioritization Engine",
     },
     {
-      icon: <Terminal className="w-5 h-5 text-amber-600" />,
-      title: "Vercel Code & Prompt Sandbox",
-      desc: "Run and evaluate agent scripts, automation workflows, and vertical slices in an isolated environment.",
+      icon: <Users className="w-5 h-5 text-emerald-600" />,
+      title: "4. 9 Specialist Sub-Agents",
+      desc: "Orchestration across Product Architect, Application Engineer, JTBD Planner, Experience Engineer, and Security Reviewers.",
+      tag: "Autonomous Roster",
+    },
+  ];
+
+  const keyInnovations = [
+    {
+      title: "Zero Phase Drift",
+      desc: "Guarantees tasks stay within PreD, Design, Development, or Deployment phases without scope creep.",
     },
     {
-      icon: <Cpu className="w-5 h-5 text-purple-600" />,
-      title: "Multi-Model AI Gateway",
-      desc: "Dynamic low-latency routing across Anthropic Claude 3.7/3.5, OpenAI GPT-4o, and AWS Bedrock AgentCore.",
+      title: "Soul Governance Boundaries",
+      desc: "Immutable operating principles preventing unauthorized production pushes, secret exposures, or breaking changes.",
     },
     {
-      icon: <ShieldCheck className="w-5 h-5 text-rose-600" />,
-      title: "Soul Governance & PAL Protocol",
-      desc: "5-stage intent compilation, NPAO 4D priority weighting, and human-in-the-loop approval boundaries.",
+      title: "Vercel AI SDK Core Substrate",
+      desc: "Native Next.js 15 App Router streaming, tool invocations, and multi-model gateway load balancing.",
+    },
+    {
+      title: "Sandboxed Vertical Slices",
+      desc: "Isolates execution of AI-generated TypeScript, Node.js, and Python code before state commit.",
     },
   ];
 
   return (
     <div className="space-y-12 animate-fade-in pb-12">
       {/* Hero Section */}
-      <section className="text-center max-w-4xl mx-auto pt-6 space-y-6">
+      <section className="text-center max-w-4xl mx-auto pt-4 space-y-5">
         {/* Pill Badge */}
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-700 text-xs font-semibold shadow-xs">
           <span className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse" />
-          <span>The AI Music Business OS • ROSTR Platform</span>
+          <span>ROSTR AI Agent Platform • Diamitani Industries</span>
         </div>
 
         {/* Hero Title */}
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.1]">
-          Build your music business{" "}
+          Your Models,{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 via-indigo-600 to-purple-600">
-            operating system.
+            Your Rules.
           </span>
         </h1>
 
         {/* Hero Subtitle */}
         <p className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-          Artispreneur gives independent artists and developers an autonomous AI management team, 78,000+ verified industry contacts, legal contract automation, and royalty collection infrastructure. Keep 100% of what you create.
+          Production multi-agent engineering harness. Powered by the <strong>PAL Prompt Abstraction Layer</strong>, <strong>NPAO 4D scoring</strong>, persistent episodic memory, and Vercel AI Gateway.
         </p>
 
         {/* CTA Buttons */}
@@ -100,11 +116,11 @@ export function HomeOverview({ onOpenAgent, onOpenAgency }: HomeOverviewProps) {
           </button>
 
           <button
-            onClick={onOpenAgency}
+            onClick={() => onNavigateTab("pal")}
             className="px-6 py-3 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 font-semibold text-sm shadow-xs flex items-center gap-2 transition-all cursor-pointer"
           >
             <PlayCircle className="w-4 h-4 text-cyan-600" />
-            <span>Meet the AI Agency</span>
+            <span>Explore PAL Architecture</span>
           </button>
         </div>
       </section>
@@ -119,12 +135,12 @@ export function HomeOverview({ onOpenAgent, onOpenAgency }: HomeOverviewProps) {
               <div className="w-3 h-3 rounded-full bg-amber-400" />
               <div className="w-3 h-3 rounded-full bg-emerald-400" />
               <span className="text-xs font-semibold text-slate-700 ml-2">
-                ROSTR & Artispreneur • Architecture & Unified Agent Demo • Patrick Diamitani
+                ROSTR Agent Demo — Architecture & PAL Protocol • Patrick Diamitani
               </span>
             </div>
             <div className="flex items-center gap-1.5 text-xs text-cyan-700 bg-cyan-50 border border-cyan-200 px-2.5 py-0.5 rounded-full font-medium">
               <Sparkles className="w-3 h-3 text-cyan-600" />
-              <span>Official Video Showcase</span>
+              <span>Official Video Walkthrough</span>
             </div>
           </div>
 
@@ -142,7 +158,7 @@ export function HomeOverview({ onOpenAgent, onOpenAgency }: HomeOverviewProps) {
           {/* Platform Clickable Chips */}
           <div className="p-4 bg-slate-50/80 border-t border-slate-200 flex flex-wrap items-center gap-2">
             <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider mr-1">
-              Click to Run:
+              Test Video Workflows:
             </span>
             {platformChips.map((chip, idx) => (
               <button
@@ -158,48 +174,73 @@ export function HomeOverview({ onOpenAgent, onOpenAgency }: HomeOverviewProps) {
         </div>
       </section>
 
-      {/* Trust & Proof Bar */}
+      {/* Trust & Metric Proof Bar */}
       <section className="max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
         <div className="p-4 rounded-xl bg-white border border-slate-200/80 shadow-xs">
-          <div className="text-2xl font-bold text-slate-900 font-mono">78,000+</div>
-          <div className="text-xs text-slate-500 mt-0.5">Industry Contacts</div>
+          <div className="text-2xl font-bold text-slate-900 font-mono">5-Stage</div>
+          <div className="text-xs text-slate-500 mt-0.5">PAL Compiler</div>
         </div>
         <div className="p-4 rounded-xl bg-white border border-slate-200/80 shadow-xs">
           <div className="text-2xl font-bold text-cyan-600 font-mono">9</div>
-          <div className="text-xs text-slate-500 mt-0.5">Specialist Agents</div>
+          <div className="text-xs text-slate-500 mt-0.5">Specialist Sub-Agents</div>
         </div>
         <div className="p-4 rounded-xl bg-white border border-slate-200/80 shadow-xs">
-          <div className="text-2xl font-bold text-emerald-600 font-mono">100%</div>
-          <div className="text-xs text-slate-500 mt-0.5">Rights Retained</div>
+          <div className="text-2xl font-bold text-emerald-600 font-mono">10 / 10</div>
+          <div className="text-xs text-slate-500 mt-0.5">EVE Evals Passed</div>
         </div>
         <div className="p-4 rounded-xl bg-white border border-slate-200/80 shadow-xs">
-          <div className="text-2xl font-bold text-purple-600 font-mono">5-Stage</div>
-          <div className="text-xs text-slate-500 mt-0.5">PAL Intent Pipeline</div>
+          <div className="text-2xl font-bold text-purple-600 font-mono">0%</div>
+          <div className="text-xs text-slate-500 mt-0.5">Phase Drift Rate</div>
         </div>
       </section>
 
-      {/* Features Grid */}
+      {/* 4 Core Pillars Section */}
       <section className="max-w-5xl mx-auto space-y-6">
         <div className="text-center space-y-2">
           <h2 className="text-2xl font-bold text-slate-900">
-            Autonomous Music Business Infrastructure
+            The 4 Architectural Pillars of ROSTR
           </h2>
           <p className="text-sm text-slate-600 max-w-xl mx-auto">
-            Everything independent creators and founders need to manage catalogs, register royalties, negotiate deals, and execute high-converting marketing campaigns.
+            Engineered to replace fragile prompt chains with deterministic state machines and mathematical task allocation.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {features.map((feat, idx) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {pillars.map((pillar, idx) => (
             <div
               key={idx}
-              className="p-5 rounded-2xl bg-white border border-slate-200/80 hover:border-cyan-300 shadow-xs hover:shadow-md transition-all space-y-2.5"
+              className="p-6 rounded-2xl bg-white border border-slate-200/80 hover:border-cyan-300 shadow-xs hover:shadow-md transition-all space-y-3"
             >
-              <div className="w-10 h-10 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center">
-                {feat.icon}
+              <div className="flex items-center justify-between">
+                <div className="w-10 h-10 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center">
+                  {pillar.icon}
+                </div>
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-cyan-50 text-cyan-700 font-bold border border-cyan-200">
+                  {pillar.tag}
+                </span>
               </div>
-              <h3 className="text-base font-bold text-slate-900">{feat.title}</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">{feat.desc}</p>
+              <h3 className="text-base font-bold text-slate-900">{pillar.title}</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">{pillar.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Key Innovations Grid */}
+      <section className="max-w-5xl mx-auto p-6 rounded-2xl bg-slate-100/70 border border-slate-200 space-y-6">
+        <div className="text-center space-y-1">
+          <h3 className="text-lg font-bold text-slate-900">Why CTOs & Developers Choose ROSTR</h3>
+          <p className="text-xs text-slate-500">Autonomous execution governed by strict approval boundaries.</p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {keyInnovations.map((item, idx) => (
+            <div key={idx} className="p-4 rounded-xl bg-white border border-slate-200/80 space-y-1.5 shadow-2xs">
+              <div className="text-xs font-bold text-slate-900 flex items-center gap-1.5">
+                <CheckCircle2 className="w-3.5 h-3.5 text-cyan-600 shrink-0" />
+                <span>{item.title}</span>
+              </div>
+              <p className="text-[11px] text-slate-600 leading-relaxed">{item.desc}</p>
             </div>
           ))}
         </div>

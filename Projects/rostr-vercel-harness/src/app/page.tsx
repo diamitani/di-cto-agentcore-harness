@@ -20,14 +20,11 @@ import {
   Github,
   Zap,
   MessageSquare,
-  Users,
-  Home as HomeIcon,
 } from "lucide-react";
 import { compilePALIntent, PALCompilation } from "@/lib/pal/compiler";
 import { SUB_AGENTS_REGISTRY } from "@/lib/pal/subagents";
-import { HomeOverview } from "@/components/home-overview";
-import { AgencyManagers } from "@/components/agency-managers";
 import { PALInspector } from "@/components/pal-inspector";
+import { VideoShowcase } from "@/components/video-showcase";
 import { SandboxConsole } from "@/components/sandbox-console";
 import { EvalsDashboard } from "@/components/evals-dashboard";
 import { GatewayMonitor } from "@/components/gateway-monitor";
@@ -44,10 +41,10 @@ interface ChatMessage {
   pal?: PALCompilation;
 }
 
-type TabType = "home" | "chat" | "agency" | "studio" | "pal" | "sandbox" | "evals";
+type TabType = "chat" | "studio" | "video" | "pal" | "sandbox" | "evals";
 
 export default function HomePage() {
-  const [activeTab, setActiveTab] = useState<TabType>("home");
+  const [activeTab, setActiveTab] = useState<TabType>("chat");
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -181,10 +178,8 @@ export default function HomePage() {
     }
   };
 
-  const handleOpenAgent = (promptText?: string) => {
-    if (promptText) {
-      setInput(promptText);
-    }
+  const handleSelectPrompt = (promptText: string) => {
+    setInput(promptText);
     setActiveTab("chat");
   };
 
@@ -196,49 +191,34 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#f8fafc] text-slate-900 selection:bg-cyan-500/20 selection:text-cyan-800 relative">
-      {/* Ambient Mesh Glows */}
-      <div className="ambient-bg">
-        <div className="glow-orb glow-orb-1" />
-        <div className="glow-orb glow-orb-2" />
-      </div>
-
-      {/* Floating Framer Navigation */}
-      <header className="h-16 border-b border-slate-200/80 bg-white/85 backdrop-blur-xl px-4 md:px-6 flex items-center justify-between sticky top-0 z-40 shadow-xs">
-        {/* Brand Logo */}
-        <div className="flex items-center gap-3 cursor-pointer" onClick={() => setActiveTab("home")}>
-          <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-cyan-600 via-indigo-600 to-purple-600 flex items-center justify-center text-white shadow-md shadow-cyan-600/20">
+    <div className="min-h-screen flex flex-col bg-[#f8fafc] text-slate-900 selection:bg-cyan-500/20 selection:text-cyan-800">
+      {/* Signature ROSTR Header */}
+      <header className="h-16 border-b border-slate-200 bg-white/90 backdrop-blur-xl px-4 md:px-6 flex items-center justify-between sticky top-0 z-40 shadow-xs">
+        {/* Brand Lockup */}
+        <div className="flex items-center gap-3">
+          <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-cyan-600 via-blue-600 to-indigo-600 flex items-center justify-center text-white shadow-md shadow-cyan-600/20">
             <Sparkles className="w-4 h-4" />
           </div>
           <div>
             <div className="flex items-center gap-2">
               <span className="text-base font-extrabold text-slate-900 tracking-tight">ROSTR</span>
               <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-cyan-50 text-cyan-700 border border-cyan-200 font-semibold">
-                Multi-Site Edition
+                Vercel Tech Stack
               </span>
+            </div>
+            <div className="text-[11px] text-slate-500 hidden sm:block">
+              DI-CTO Governed Multi-Agent Harness
             </div>
           </div>
         </div>
 
-        {/* Multi-Site Navigation Menu */}
-        <nav className="hidden lg:flex items-center gap-1 bg-slate-100/80 p-1 rounded-xl border border-slate-200/80">
-          <button
-            onClick={() => setActiveTab("home")}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
-              activeTab === "home"
-                ? "bg-white text-slate-900 shadow-xs font-bold"
-                : "text-slate-600 hover:text-slate-900"
-            }`}
-          >
-            <HomeIcon className="w-3.5 h-3.5" />
-            <span>Home</span>
-          </button>
-
+        {/* Navigation Tabs */}
+        <nav className="hidden lg:flex items-center gap-1 bg-slate-100 p-1 rounded-xl border border-slate-200">
           <button
             onClick={() => setActiveTab("chat")}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
               activeTab === "chat"
-                ? "bg-white text-cyan-700 shadow-xs font-bold"
+                ? "bg-white text-cyan-700 shadow-xs font-bold border border-slate-200/60"
                 : "text-slate-600 hover:text-slate-900"
             }`}
           >
@@ -247,22 +227,10 @@ export default function HomePage() {
           </button>
 
           <button
-            onClick={() => setActiveTab("agency")}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
-              activeTab === "agency"
-                ? "bg-white text-indigo-700 shadow-xs font-bold"
-                : "text-slate-600 hover:text-slate-900"
-            }`}
-          >
-            <Users className="w-3.5 h-3.5 text-indigo-600" />
-            <span>AI Agency</span>
-          </button>
-
-          <button
             onClick={() => setActiveTab("studio")}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
               activeTab === "studio"
-                ? "bg-white text-emerald-700 shadow-xs font-bold"
+                ? "bg-white text-emerald-700 shadow-xs font-bold border border-slate-200/60"
                 : "text-slate-600 hover:text-slate-900"
             }`}
           >
@@ -271,44 +239,77 @@ export default function HomePage() {
           </button>
 
           <button
+            onClick={() => setActiveTab("video")}
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+              activeTab === "video"
+                ? "bg-white text-red-700 shadow-xs font-bold border border-slate-200/60"
+                : "text-slate-600 hover:text-slate-900"
+            }`}
+          >
+            <Youtube className="w-3.5 h-3.5 text-red-600" />
+            <span>YouTube Showcase</span>
+          </button>
+
+          <button
             onClick={() => setActiveTab("pal")}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
               activeTab === "pal"
-                ? "bg-white text-purple-700 shadow-xs font-bold"
+                ? "bg-white text-purple-700 shadow-xs font-bold border border-slate-200/60"
                 : "text-slate-600 hover:text-slate-900"
             }`}
           >
             <Layers className="w-3.5 h-3.5 text-purple-600" />
-            <span>PAL Protocol</span>
+            <span>PAL & NPAO</span>
           </button>
 
           <button
             onClick={() => setActiveTab("sandbox")}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
               activeTab === "sandbox"
-                ? "bg-white text-amber-700 shadow-xs font-bold"
+                ? "bg-white text-amber-700 shadow-xs font-bold border border-slate-200/60"
                 : "text-slate-600 hover:text-slate-900"
             }`}
           >
             <Terminal className="w-3.5 h-3.5 text-amber-600" />
-            <span>Sandbox</span>
+            <span>Code Sandbox</span>
           </button>
 
           <button
             onClick={() => setActiveTab("evals")}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
               activeTab === "evals"
-                ? "bg-white text-rose-700 shadow-xs font-bold"
+                ? "bg-white text-indigo-700 shadow-xs font-bold border border-slate-200/60"
                 : "text-slate-600 hover:text-slate-900"
             }`}
           >
-            <ShieldCheck className="w-3.5 h-3.5 text-rose-600" />
-            <span>Evals & Gateway</span>
+            <ShieldCheck className="w-3.5 h-3.5 text-indigo-600" />
+            <span>EVE Evals & Gateway</span>
           </button>
         </nav>
 
-        {/* Right Actions */}
+        {/* Right Header Actions */}
         <div className="flex items-center gap-2.5">
+          {/* Model Selector */}
+          <div className="hidden xl:flex items-center gap-2 bg-slate-50 px-2.5 py-1 rounded-lg border border-slate-200 text-xs">
+            <span className="text-slate-500 text-[10px] font-mono uppercase">Model:</span>
+            <select
+              value={selectedModel}
+              onChange={(e) => setSelectedModel(e.target.value)}
+              aria-label="Select AI Model"
+              className="bg-transparent text-cyan-700 text-xs font-semibold font-mono focus:outline-none cursor-pointer"
+            >
+              <option value="us.anthropic.claude-sonnet-4-6-v1:0" className="bg-white text-slate-900">
+                Claude Sonnet 4.6 (Bedrock)
+              </option>
+              <option value="claude-3-5-sonnet-20241022" className="bg-white text-slate-900">
+                Claude 3.5 Sonnet (Direct)
+              </option>
+              <option value="gpt-4o" className="bg-white text-slate-900">
+                GPT-4o (OpenAI)
+              </option>
+            </select>
+          </div>
+
           {/* BYOK Button */}
           <button
             onClick={() => setIsBYOKOpen(true)}
@@ -318,20 +319,20 @@ export default function HomePage() {
             <span className="hidden sm:inline font-medium">BYOK</span>
           </button>
 
-          {/* Pricing Button */}
+          {/* Pricing / Pro Button */}
           <button
             onClick={() => setIsPricingOpen(true)}
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer shadow-xs ${
               userSession?.tier === "pro"
                 ? "bg-purple-50 text-purple-700 border border-purple-200"
-                : "bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white"
+                : "bg-gradient-to-r from-purple-600 via-indigo-600 to-cyan-600 hover:from-purple-500 hover:to-cyan-500 text-white shadow-md shadow-purple-600/20"
             }`}
           >
             <Crown className="w-3.5 h-3.5 text-amber-300" />
-            <span>{userSession?.tier === "pro" ? "Pro Active ($19.99)" : "Upgrade ($19.99)"}</span>
+            <span>{userSession?.tier === "pro" ? "Pro Plan ($19.99)" : "Upgrade ($19.99)"}</span>
           </button>
 
-          {/* OAuth User Button */}
+          {/* OAuth / User Profile Button */}
           {userSession ? (
             <button
               onClick={() => setIsAuthOpen(true)}
@@ -349,7 +350,7 @@ export default function HomePage() {
           ) : (
             <button
               onClick={() => setIsAuthOpen(true)}
-              className="px-3.5 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-xs font-semibold text-white transition-all cursor-pointer flex items-center gap-1.5 shadow-xs"
+              className="px-3.5 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-800 text-xs font-semibold text-white transition-all cursor-pointer flex items-center gap-1.5 shadow-xs"
             >
               <Github className="w-3.5 h-3.5" />
               <span>Sign In with OAuth</span>
@@ -358,16 +359,8 @@ export default function HomePage() {
         </div>
       </header>
 
-      {/* Mobile Tab Strip */}
+      {/* Mobile Navigation Tabs */}
       <div className="lg:hidden flex items-center gap-1 bg-white p-2 border-b border-slate-200 overflow-x-auto">
-        <button
-          onClick={() => setActiveTab("home")}
-          className={`px-3 py-1 rounded-lg text-xs font-semibold shrink-0 ${
-            activeTab === "home" ? "bg-slate-900 text-white" : "text-slate-600"
-          }`}
-        >
-          Home
-        </button>
         <button
           onClick={() => setActiveTab("chat")}
           className={`px-3 py-1 rounded-lg text-xs font-semibold shrink-0 ${
@@ -377,20 +370,20 @@ export default function HomePage() {
           Agent Console
         </button>
         <button
-          onClick={() => setActiveTab("agency")}
-          className={`px-3 py-1 rounded-lg text-xs font-semibold shrink-0 ${
-            activeTab === "agency" ? "bg-indigo-600 text-white" : "text-slate-600"
-          }`}
-        >
-          AI Agency
-        </button>
-        <button
           onClick={() => setActiveTab("studio")}
           className={`px-3 py-1 rounded-lg text-xs font-semibold shrink-0 ${
             activeTab === "studio" ? "bg-emerald-600 text-white" : "text-slate-600"
           }`}
         >
-          Studio
+          Runtime Studio
+        </button>
+        <button
+          onClick={() => setActiveTab("video")}
+          className={`px-3 py-1 rounded-lg text-xs font-semibold shrink-0 ${
+            activeTab === "video" ? "bg-red-600 text-white" : "text-slate-600"
+          }`}
+        >
+          YouTube Demo
         </button>
         <button
           onClick={() => setActiveTab("pal")}
@@ -398,7 +391,7 @@ export default function HomePage() {
             activeTab === "pal" ? "bg-purple-600 text-white" : "text-slate-600"
           }`}
         >
-          PAL Protocol
+          PAL & NPAO
         </button>
         <button
           onClick={() => setActiveTab("sandbox")}
@@ -406,28 +399,20 @@ export default function HomePage() {
             activeTab === "sandbox" ? "bg-amber-600 text-white" : "text-slate-600"
           }`}
         >
-          Sandbox
+          Code Sandbox
+        </button>
+        <button
+          onClick={() => setActiveTab("evals")}
+          className={`px-3 py-1 rounded-lg text-xs font-semibold shrink-0 ${
+            activeTab === "evals" ? "bg-indigo-600 text-white" : "text-slate-600"
+          }`}
+        >
+          Evals & Gateway
         </button>
       </div>
 
-      {/* Main Container */}
-      <main className="flex-1 max-w-7xl w-full mx-auto p-4 md:p-6 flex flex-col min-h-0 relative z-10">
-        {activeTab === "home" && (
-          <HomeOverview
-            onOpenAgent={(p) => handleOpenAgent(p)}
-            onOpenAgency={() => setActiveTab("agency")}
-          />
-        )}
-
-        {activeTab === "agency" && (
-          <AgencyManagers
-            onSelectAgent={(agentId, prompt) => {
-              if (prompt) setInput(prompt);
-              setActiveTab("chat");
-            }}
-          />
-        )}
-
+      {/* Main Content Area */}
+      <main className="flex-1 max-w-7xl w-full mx-auto p-4 md:p-6 flex flex-col min-h-0">
         {activeTab === "chat" && (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 flex-1 min-h-0">
             {/* Left 8-Columns: Main Agent Console */}
@@ -447,16 +432,16 @@ export default function HomePage() {
                     </span>
                   )}
                   <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 font-semibold border border-emerald-200">
-                    Vercel AI SDK Streaming
+                    Live Vercel Stream
                   </span>
                 </div>
               </div>
 
               {/* Message History Area */}
-              <div className="flex-1 p-4 overflow-y-auto space-y-4 bg-slate-50/50">
+              <div className="flex-1 p-4 overflow-y-auto space-y-4 bg-slate-50/40">
                 {messages.length === 0 ? (
                   <div className="h-full flex flex-col items-center justify-center text-center p-6 space-y-4">
-                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-cyan-500 to-indigo-600 flex items-center justify-center text-white shadow-md shadow-cyan-500/20">
+                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-cyan-600 to-blue-600 flex items-center justify-center text-white shadow-md shadow-cyan-600/20">
                       <Sparkles className="w-6 h-6" />
                     </div>
                     <div>
@@ -496,7 +481,7 @@ export default function HomePage() {
                         className={`flex gap-3 ${isUser ? "justify-end" : "justify-start"}`}
                       >
                         {!isUser && (
-                          <div className="w-7 h-7 rounded-lg bg-gradient-to-tr from-cyan-600 to-indigo-600 flex items-center justify-center text-white text-xs font-bold shrink-0 shadow-xs mt-0.5">
+                          <div className="w-7 h-7 rounded-lg bg-gradient-to-tr from-cyan-600 via-blue-600 to-indigo-600 flex items-center justify-center text-white text-xs font-bold shrink-0 shadow-xs mt-0.5">
                             AI
                           </div>
                         )}
@@ -649,7 +634,7 @@ export default function HomePage() {
 
               {/* YouTube Showcase Mini-Card */}
               <div
-                onClick={() => setActiveTab("home")}
+                onClick={() => setActiveTab("video")}
                 className="glass-panel p-4 bg-white border border-slate-200 hover:border-red-400 transition-all cursor-pointer group shadow-2xs"
               >
                 <div className="flex items-center justify-between mb-1.5">
@@ -667,7 +652,7 @@ export default function HomePage() {
               {/* Sub-Agents Quick Status */}
               <div className="glass-panel p-4 flex-1 bg-white border border-slate-200">
                 <div className="text-xs font-bold text-slate-900 mb-2 flex items-center gap-2">
-                  <Users className="w-4 h-4 text-indigo-600" />
+                  <Cpu className="w-4 h-4 text-blue-600" />
                   Specialist Sub-Agents Registry (9)
                 </div>
                 <div className="space-y-1.5 max-h-[180px] overflow-y-auto pr-1">
@@ -689,7 +674,8 @@ export default function HomePage() {
         )}
 
         {activeTab === "studio" && <RuntimeStudio />}
-        {activeTab === "pal" && <PALInspector onDispatchToChat={handleOpenAgent} />}
+        {activeTab === "video" && <VideoShowcase onSelectPrompt={handleSelectPrompt} />}
+        {activeTab === "pal" && <PALInspector onDispatchToChat={handleSelectPrompt} />}
         {activeTab === "sandbox" && <SandboxConsole />}
         {activeTab === "evals" && (
           <div className="space-y-8">
