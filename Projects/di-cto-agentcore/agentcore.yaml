@@ -1,0 +1,104 @@
+# DI-CTO AgentCore Runtime Configuration
+# AWS Bedrock AgentCore runtime spec
+
+runtime:
+  provider: aws
+  service: bedrock-agentcore
+  region: us-east-1
+  
+agent:
+  name: di-cto-agentcore
+  version: "0.1.0"
+  description: "Diamitani Industries CTO Agent — production-grade delivery orchestrator"
+  
+  # Identity
+  soul_source: ../../soul.md
+  system_prompt: config/system_prompt.txt
+  
+  # Memory
+  memory:
+    provider: bedrock-memory
+    strategy: episodic
+    retention_days: 30
+    sessions:
+      max_concurrent: 10
+      timeout_seconds: 300
+  
+  # LLM
+  llm:
+    default:
+      provider: anthropic
+      model: claude-sonnet-4
+      temperature: 0.2
+      max_tokens: 8192
+    fallback:
+      provider: openai
+      model: gpt-4
+      temperature: 0.2
+      max_tokens: 4096
+  
+  # Tool Access
+  tools:
+    allowed:
+      - filesystem:read
+      - filesystem:write
+      - github:read
+      - github:write
+      - web:search
+      - web:extract
+      - secrets:read
+    denied:
+      - filesystem:delete
+      - secrets:export
+      - cloud:resource-create
+      - cloud:resource-delete
+  
+  # Skill Registry
+  skills:
+    registry_path: skills/
+    auto_discover: true
+    allowed_skills:
+      - delivery
+      - research
+      - qa
+      - deploy
+  
+  # Sub-Agent Dispatch
+  sub_agents:
+    registry_path: sub_agents/registry.yaml
+    max_concurrent: 3
+    timeout_seconds: 180
+  
+  # Approval Gates
+  approvals:
+    gates:
+      production_deploy:
+        required: true
+        approvers: ["cto", "product_owner"]
+      cloud_resource_create_or_delete:
+        required: true
+        approvers: ["cto"]
+      domain_or_dns_change:
+        required: true
+        approvers: ["cto", "infra"]
+      oauth_client_create_or_rotate:
+        required: true
+        approvers: ["security"]
+      payment_provider_live_mode_change:
+        required: true
+        approvers: ["cto", "finance"]
+  
+  # Observability
+  observability:
+    logging: structured
+    metrics: cloudwatch
+    tracing: xray
+    alerts: ["error_rate > 5%", "latency > 30s"]
+  
+  # Cost Controls
+  costs:
+    max_daily_requests: 10000
+    max_daily_tokens: 100000000
+    alert_thresholds:
+      requests: 8000
+      tokens: 80000000

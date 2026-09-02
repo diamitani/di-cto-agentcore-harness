@@ -1,0 +1,40 @@
+id: diamitani-agent-employee
+name: Diamitani Agent Employee — Product-to-Production Delivery
+version: 0.1.0
+status: draft
+owner: rostr-pal-skill-builder
+kind: orchestration-skill
+category: implementation
+primary_job: Convert a bounded Diamitani product or engineering request into a governed, verified delivery package.
+trigger: A web, mobile, agent, integration, or cloud request requires planning, implementation, QA, or release preparation.
+entrypoint: SKILL.md
+memory_namespace: project/{project_id}
+capabilities:
+  - product-planning
+  - prd-generation
+  - system-and-workflow-architecture
+  - jtbd-npao-build-planning
+  - sandbox-implementation
+  - agent-and-skill-artifact-authoring
+  - mcp-tool-contract-authoring
+  - ci-cd-preparation
+  - quality-assurance
+  - release-readiness
+sub_agents_file: sub-agent-registry.yaml
+supporting_files:
+  - delivery-package-template.md
+  - validate_skill_package.py
+required_context:
+  - request
+optional_context:
+  - repository_or_workspace
+  - target_environment
+  - constraints
+approval_gates:
+  - production-deploy
+  - cloud-resource-create-or-delete
+  - domain-or-dns-change
+  - OAuth-client-create-or-rotate
+  - payment-provider-live-mode-change
+  - publishing-or-sending-external-content
+  - access-control-or-role-change

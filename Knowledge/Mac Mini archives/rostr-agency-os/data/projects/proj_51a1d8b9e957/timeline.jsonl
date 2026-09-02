@@ -1,0 +1,2 @@
+{"event_type": "agents_provisioned", "agent_count": 7, "agents": ["intake-strategist", "product-manager", "research-agent", "solution-architect", "ux-designer", "builder", "qa-reviewer"], "timestamp": "2026-07-28T18:07:17.488241+00:00", "event_id": "evt_8da658af"}
+{"event_type": "project_provisioned", "asana_project_gid": "1216963143673780", "section_count": 8, "task_count": 46, "timestamp": "2026-07-28T18:09:07.151170+00:00", "event_id": "evt_97951f9c"}

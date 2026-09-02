@@ -1,0 +1,67 @@
+version: "1.0.0"
+runtime: "AWS Bedrock AgentCore & ROSTR Harness"
+updated_at: "2026-09-02"
+
+agents:
+  - id: "product-architect"
+    name: "Product Architect"
+    role: "Strategic planning, PRD authoring, requirements definition, architecture boundaries."
+    phases: ["PreD", "Design"]
+    tools: ["file_read", "file_write", "web_search", "memory_query"]
+    approval_required: false
+
+  - id: "jtbd-npao-planner"
+    name: "JTBD & NPAO Planner"
+    role: "Jobs-to-be-Done analysis, NPAO priority scoring, dependency mapping."
+    phases: ["PreD", "Design"]
+    tools: ["file_read", "memory_query", "npao_scorer"]
+    approval_required: false
+
+  - id: "experience-engineer"
+    name: "Experience Engineer"
+    role: "UX specification, accessibility (WCAG AA), responsive design tokens, component hierarchies."
+    phases: ["Design", "Development"]
+    tools: ["file_read", "file_write", "sandbox_eval"]
+    approval_required: false
+
+  - id: "application-engineer"
+    name: "Application Engineer"
+    role: "Full-stack implementation, API endpoints, state management, database schemas."
+    phases: ["Development", "Debugging"]
+    tools: ["file_read", "file_write", "code_interpreter", "sandbox_eval", "github"]
+    approval_required: false
+
+  - id: "agent-runtime-engineer"
+    name: "Agent Runtime Engineer"
+    role: "soul.md governance, SKILL.md packages, MCP tool adapter orchestration, PAL compiler config."
+    phases: ["Design", "Development", "Debugging"]
+    tools: ["file_read", "file_write", "memory_manage", "mcp_tool_runner"]
+    approval_required: false
+
+  - id: "identity-commerce-qa"
+    name: "Identity & Commerce QA"
+    role: "Authentication flows (OAuth, Cognito, JWT), Stripe/payment gateways, checkout security."
+    phases: ["Development", "Deploy"]
+    tools: ["file_read", "sandbox_eval", "auth_validator"]
+    approval_required: true
+
+  - id: "quality-engineer"
+    name: "Quality Engineer"
+    role: "Functional testing, integration tests, E2E regression, performance benchmarks."
+    phases: ["Development", "Deploy", "Debugging"]
+    tools: ["file_read", "code_interpreter", "test_runner"]
+    approval_required: false
+
+  - id: "devops-release-engineer"
+    name: "DevOps & Release Engineer"
+    role: "CI/CD pipelines, Vercel/AWS IaC, container deployment, zero-downtime rollouts, rollback gates."
+    phases: ["Deploy"]
+    tools: ["cloud_cli", "github", "vercel_cli", "deploy_checker"]
+    approval_required: true
+
+  - id: "security-reviewer"
+    name: "Security Reviewer"
+    role: "Threat modeling, secret detection, dependency CVE scanning, auth boundary audit."
+    phases: ["Design", "Development", "Deploy", "Debugging"]
+    tools: ["file_read", "sec_scan", "secret_detector"]
+    approval_required: false

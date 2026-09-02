@@ -1,0 +1,67 @@
+version: 0.1.0
+policy:
+  coordinator: diamitani-agent-employee
+  invocation: Coordinator selects only agents needed for the approved scope.
+  execution_boundary: All work occurs in the resolved repository and approved environment.
+  common_denials:
+    - raw-secret-export
+    - production-write-without-approval
+    - external-communication-without-approval
+    - permission-change-without-approval
+    - destructive-operation-without-approval
+agents:
+  - id: product-architect
+    purpose: Produce project plan, PRD, workflow architecture, domain model, and acceptance criteria.
+    inputs: [request, repository-context, constraints]
+    outputs: [delivery-package-sections, decision-log]
+    allowed_tools: [workspace-file-read, rag-dal-research, taskskill-design, npao-ranking]
+    completion_evidence: Requirement-to-acceptance traceability and an explicit open-decisions list.
+  - id: jtbd-npao-planner
+    purpose: Convert desired user outcomes into a dependency-aware, NPAO-ranked build plan.
+    inputs: [prd, constraints, delivery-goal]
+    outputs: [jtbd-map, prioritized-backlog]
+    allowed_tools: [workspace-file-read, npao-ranking]
+    completion_evidence: Each work item has outcome, priority rationale, dependency, owner, and testable acceptance evidence.
+  - id: experience-engineer
+    purpose: Convert approved TaskSkill design output into accessible web/mobile flow and component specifications.
+    inputs: [prd, workflow-architecture, design-brief]
+    outputs: [ui-spec, accessibility-checklist, conversion-flow-tests]
+    allowed_tools: [taskskill-design, workspace-file-read]
+    completion_evidence: Responsive states, keyboard path, labels, errors, loading/empty states, and analytics events specified.
+  - id: application-engineer
+    purpose: Build frontend, backend, APIs, data contracts, migrations, and tests in sandbox.
+    inputs: [approved-architecture, task-slice, repository-context]
+    outputs: [source-changes, tests, implementation-notes]
+    allowed_tools: [workspace-file-read, sandbox-cli, git, endpoint-http-client, secrets-manager-read]
+    completion_evidence: Reproducible build plus relevant unit/integration tests pass.
+  - id: agent-runtime-engineer
+    purpose: Build soul.md, skill packages, provider-neutral tool contracts, MCP adapters, custom functions, and runtime adapters.
+    inputs: [behavior-contract, tool-contracts, selected-runtime]
+    outputs: [agent-artifacts, adapter-config, agent-tests]
+    allowed_tools: [workspace-file-read, sandbox-cli, git, approved-mcp-tools, rag-dal-research]
+    completion_evidence: Tool schemas validate; permission gates and adversarial prompt tests pass.
+  - id: identity-commerce-qa
+    purpose: Test authentication, authorization, OAuth, pricing, checkout, webhook, and account lifecycle flows.
+    inputs: [deployed-sandbox, test-accounts, product-rules]
+    outputs: [critical-journey-report, defects]
+    allowed_tools: [approved-browser-test, endpoint-http-client, workspace-file-read]
+    completion_evidence: Happy, cancellation, invalid-input, unauthorized, and recovery cases recorded using test providers only.
+  - id: quality-engineer
+    purpose: Validate functional, API, accessibility, performance, and regression quality.
+    inputs: [change-set, acceptance-criteria, test-plan]
+    outputs: [verification-report, defect-triage]
+    allowed_tools: [sandbox-cli, approved-browser-test, endpoint-http-client, workspace-file-read]
+    completion_evidence: Tests/results linked to each applicable requirement; failures reproduced or waived.
+  - id: devops-release-engineer
+    purpose: Create CI/CD, infrastructure, environment configuration, observability, migration, and rollback artifacts.
+    inputs: [architecture, change-set, target-environment]
+    outputs: [pipeline-config, infrastructure-config, release-plan]
+    allowed_tools: [workspace-file-read, sandbox-cli, git, ci-provider, deployment-provider, approved-cloud-cli]
+    completion_evidence: CI pipeline validates; immutable artifact, health check, environment promotion, and rollback steps documented.
+    approval_required_for: [production-deploy, cloud-resource-create-or-delete, domain-or-dns-change]
+  - id: security-reviewer
+    purpose: Review threat model, authorization boundary, data handling, secrets, dependencies, and risky integrations.
+    inputs: [architecture, change-set, data-classification]
+    outputs: [security-findings, remediation-plan]
+    allowed_tools: [workspace-file-read, sandbox-cli, rag-dal-research]
+    completion_evidence: Findings severity-rated and release blockers identified.

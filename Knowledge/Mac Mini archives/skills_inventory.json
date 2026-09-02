@@ -1,0 +1,2027 @@
+[
+  {
+    "name": "agent-architect",
+    "category": "agent-architect",
+    "description": "Full-Stack Agent Architect for system instructions, tech stacks, and infrastructure blueprints.",
+    "author": "",
+    "version": "",
+    "path": "agent-architect/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/agent-architect/SKILL.md"
+  },
+  {
+    "name": "apple-notes",
+    "category": "apple",
+    "description": "Manage Apple Notes via memo CLI: create, search, edit.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "apple/apple-notes/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/apple/apple-notes/SKILL.md"
+  },
+  {
+    "name": "apple-reminders",
+    "category": "apple",
+    "description": "Apple Reminders via remindctl: add, list, complete.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "apple/apple-reminders/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/apple/apple-reminders/SKILL.md"
+  },
+  {
+    "name": "findmy",
+    "category": "apple",
+    "description": "Track Apple devices/AirTags via FindMy.app on macOS.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "apple/findmy/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/apple/findmy/SKILL.md"
+  },
+  {
+    "name": "imessage",
+    "category": "apple",
+    "description": "Send and receive iMessages/SMS via the imsg CLI on macOS.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "apple/imessage/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/apple/imessage/SKILL.md"
+  },
+  {
+    "name": "claude-code",
+    "category": "autonomous-ai-agents",
+    "description": "Delegate coding to Claude Code CLI (features, PRs).",
+    "author": "Hermes Agent + Teknium",
+    "version": "2.2.0",
+    "path": "autonomous-ai-agents/claude-code/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/autonomous-ai-agents/claude-code/SKILL.md"
+  },
+  {
+    "name": "codex",
+    "category": "autonomous-ai-agents",
+    "description": "Delegate coding to OpenAI Codex CLI (features, PRs).",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "autonomous-ai-agents/codex/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/autonomous-ai-agents/codex/SKILL.md"
+  },
+  {
+    "name": "hermes-agent",
+    "category": "autonomous-ai-agents",
+    "description": "Configure, extend, or contribute to Hermes Agent.",
+    "author": "Hermes Agent + Teknium",
+    "version": "2.3.0",
+    "path": "autonomous-ai-agents/hermes-agent/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/autonomous-ai-agents/hermes-agent/SKILL.md"
+  },
+  {
+    "name": "opencode",
+    "category": "autonomous-ai-agents",
+    "description": "Delegate coding to OpenCode CLI (features, PR review).",
+    "author": "Hermes Agent",
+    "version": "1.2.0",
+    "path": "autonomous-ai-agents/opencode/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/autonomous-ai-agents/opencode/SKILL.md"
+  },
+  {
+    "name": "rostr-deploy-agent",
+    "category": "autonomous-ai-agents",
+    "description": "One-click deploy agent for ROSTR framework web apps. Builds taste-designed Next.js 15 deploy pages and ships to Vercel.",
+    "author": "PAL-compiled from user intent",
+    "version": "1.0.0",
+    "path": "autonomous-ai-agents/rostr-deploy-agent/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/autonomous-ai-agents/rostr-deploy-agent/SKILL.md"
+  },
+  {
+    "name": "rostr-framework",
+    "category": "autonomous-ai-agents",
+    "description": "Build the complete ROSTR billion-dollar open-source ecosystem \u2014 architecture diagram, core Python package, individual skill repos per component, and Next.js dashboard.",
+    "author": "Pat Diamitani",
+    "version": "1.0.0",
+    "path": "autonomous-ai-agents/rostr-framework/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/autonomous-ai-agents/rostr-framework/SKILL.md"
+  },
+  {
+    "name": "computer-use",
+    "category": "computer-use",
+    "description": "|",
+    "author": "",
+    "version": "2.0.0",
+    "path": "computer-use/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/computer-use/SKILL.md"
+  },
+  {
+    "name": "architecture-diagram",
+    "category": "creative",
+    "description": "Dark-themed SVG architecture/cloud/infra diagrams as HTML.",
+    "author": "Cocoon AI (hello@cocoon-ai.com), ported by Hermes Agent",
+    "version": "1.0.0",
+    "path": "creative/architecture-diagram/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/creative/architecture-diagram/SKILL.md"
+  },
+  {
+    "name": "ascii-art",
+    "category": "creative",
+    "description": "ASCII art: pyfiglet, cowsay, boxes, image-to-ascii.",
+    "author": "0xbyt4, Hermes Agent",
+    "version": "4.0.0",
+    "path": "creative/ascii-art/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/creative/ascii-art/SKILL.md"
+  },
+  {
+    "name": "ascii-video",
+    "category": "creative",
+    "description": "ASCII video: convert video/audio to colored ASCII MP4/GIF.",
+    "author": "",
+    "version": "",
+    "path": "creative/ascii-video/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/creative/ascii-video/SKILL.md"
+  },
+  {
+    "name": "baoyu-infographic",
+    "category": "creative",
+    "description": "Infographics: 21 layouts x 21 styles (\u4fe1\u606f\u56fe, \u53ef\u89c6\u5316).",
+    "author": "\u5b9d\u7389 (JimLiu)",
+    "version": "1.56.1",
+    "path": "creative/baoyu-infographic/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/creative/baoyu-infographic/SKILL.md"
+  },
+  {
+    "name": "claude-design",
+    "category": "creative",
+    "description": "Design one-off HTML artifacts (landing, deck, prototype).",
+    "author": "BadTechBandit",
+    "version": "1.0.0",
+    "path": "creative/claude-design/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/creative/claude-design/SKILL.md"
+  },
+  {
+    "name": "comfyui",
+    "category": "creative",
+    "description": "Generate images, video, and audio with ComfyUI \u2014 install, launch, manage nodes/models, run workflows with parameter injection. Uses the official comfy-cli for lifecycle and direct REST/WebSocket API for execution.",
+    "author": "[kshitijk4poor, alt-glitch, purzbeats]",
+    "version": "5.1.0",
+    "path": "creative/comfyui/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/creative/comfyui/SKILL.md"
+  },
+  {
+    "name": "design-md",
+    "category": "creative",
+    "description": "Author/validate/export Google's DESIGN.md token spec files.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "creative/design-md/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/creative/design-md/SKILL.md"
+  },
+  {
+    "name": "docuscript",
+    "category": "creative",
+    "description": "Use when guiding users in creating documentaries, scripts, and storyboards from concept to completion.",
+    "author": "",
+    "version": "",
+    "path": "creative/docuscript/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/creative/docuscript/SKILL.md"
+  },
+  {
+    "name": "educational-content-social-media",
+    "category": "creative",
+    "description": "Create social media content strategies for educational courses by chunking curriculum into digestible, beautifully designed posts.",
+    "author": "",
+    "version": "",
+    "path": "creative/educational-content-social-media/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/creative/educational-content-social-media/SKILL.md"
+  },
+  {
+    "name": "elite-design-studio",
+    "category": "creative",
+    "description": "Use when creating agency-level branding, visual identity systems, and design direction.",
+    "author": "",
+    "version": "",
+    "path": "creative/elite-design-studio/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/creative/elite-design-studio/SKILL.md"
+  },
+  {
+    "name": "excalidraw",
+    "category": "creative",
+    "description": "Hand-drawn Excalidraw JSON diagrams (arch, flow, seq).",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "creative/excalidraw/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/creative/excalidraw/SKILL.md"
+  },
+  {
+    "name": "humanizer",
+    "category": "creative",
+    "description": "Humanize text: strip AI-isms and add real voice.",
+    "author": "Siqi Chen (@blader, https://github.com/blader/humanizer), ported by Hermes Agent",
+    "version": "2.5.1",
+    "path": "creative/humanizer/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/creative/humanizer/SKILL.md"
+  },
+  {
+    "name": "manim-video",
+    "category": "creative",
+    "description": "Manim CE animations: 3Blue1Brown math/algo videos.",
+    "author": "",
+    "version": "1.0.0",
+    "path": "creative/manim-video/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/creative/manim-video/SKILL.md"
+  },
+  {
+    "name": "p5js",
+    "category": "creative",
+    "description": "p5.js sketches: gen art, shaders, interactive, 3D.",
+    "author": "",
+    "version": "1.0.0",
+    "path": "creative/p5js/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/creative/p5js/SKILL.md"
+  },
+  {
+    "name": "popular-web-designs",
+    "category": "creative",
+    "description": "54 real design systems (Stripe, Linear, Vercel) as HTML/CSS.",
+    "author": "Hermes Agent + Teknium (design systems sourced from VoltAgent/awesome-design-md)",
+    "version": "1.0.0",
+    "path": "creative/popular-web-designs/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/creative/popular-web-designs/SKILL.md"
+  },
+  {
+    "name": "pretext",
+    "category": "creative",
+    "description": "Use when building creative browser demos with @chenglou/pretext \u2014 DOM-free text layout for ASCII art, typographic flow around obstacles, text-as-geometry games, kinetic typography, and text-powered generative art. Produces single-file HTML demos by default.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "creative/pretext/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/creative/pretext/SKILL.md"
+  },
+  {
+    "name": "saas-landing-pages",
+    "category": "creative",
+    "description": "Build marketing/landing pages for niche SaaS products. Hybridize design templates for industry-specific branding.",
+    "author": "Hermes Agent + Pat",
+    "version": "1.0.0",
+    "path": "creative/saas-landing-pages/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/creative/saas-landing-pages/SKILL.md"
+  },
+  {
+    "name": "sketch",
+    "category": "creative",
+    "description": "Throwaway HTML mockups: 2-3 design variants to compare.",
+    "author": "Hermes Agent (adapted from gsd-build/get-shit-done)",
+    "version": "1.0.0",
+    "path": "creative/sketch/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/creative/sketch/SKILL.md"
+  },
+  {
+    "name": "songwriting-and-ai-music",
+    "category": "creative",
+    "description": "Songwriting craft and Suno AI music prompts.",
+    "author": "",
+    "version": "",
+    "path": "creative/songwriting-and-ai-music/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/creative/songwriting-and-ai-music/SKILL.md"
+  },
+  {
+    "name": "taste-frontend-redesign",
+    "category": "creative",
+    "description": "Taste-driven frontend redesign with dual quality-control agents. Use when the user asks to redesign, restyle, or apply \"taste\", \"taste-skill\", \"high-end\", or \"aesthetic\" directives to an existing frontend project.",
+    "author": "",
+    "version": "1.0.0",
+    "path": "creative/taste-frontend-redesign/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/creative/taste-frontend-redesign/SKILL.md"
+  },
+  {
+    "name": "touchdesigner-mcp",
+    "category": "creative",
+    "description": "Control a running TouchDesigner instance via twozero MCP \u2014 create operators, set parameters, wire connections, execute Python, build real-time visuals. 36 native tools.",
+    "author": "kshitijk4poor",
+    "version": "1.1.0",
+    "path": "creative/touchdesigner-mcp/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/creative/touchdesigner-mcp/SKILL.md"
+  },
+  {
+    "name": "visual-content-studio",
+    "category": "creative",
+    "description": "Use when converting text into visual formats, automating creative workflows, or generating videos.",
+    "author": "",
+    "version": "",
+    "path": "creative/visual-content-studio/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/creative/visual-content-studio/SKILL.md"
+  },
+  {
+    "name": "jupyter-live-kernel",
+    "category": "data-science",
+    "description": "Iterative Python via live Jupyter kernel (hamelnb).",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "data-science/jupyter-live-kernel/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/data-science/jupyter-live-kernel/SKILL.md"
+  },
+  {
+    "name": "dogfood",
+    "category": "dogfood",
+    "description": "Exploratory QA of web apps: find bugs, evidence, reports.",
+    "author": "",
+    "version": "1.0.0",
+    "path": "dogfood/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/dogfood/SKILL.md"
+  },
+  {
+    "name": "cloud-course-assistant",
+    "category": "education",
+    "description": "Use when providing cloud study assistance, particularly for AWS certification prep. Consolidates Study Coach (for AWS) and Cloud Course Assistant.",
+    "author": "",
+    "version": "",
+    "path": "education/cloud-course-assistant/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/education/cloud-course-assistant/SKILL.md"
+  },
+  {
+    "name": "himalaya",
+    "category": "email",
+    "description": "Himalaya CLI: IMAP/SMTP email from terminal.",
+    "author": "community",
+    "version": "1.1.0",
+    "path": "email/himalaya/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/email/himalaya/SKILL.md"
+  },
+  {
+    "name": "codebase-inspection",
+    "category": "github",
+    "description": "Inspect codebases w/ pygount: LOC, languages, ratios.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "github/codebase-inspection/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/github/codebase-inspection/SKILL.md"
+  },
+  {
+    "name": "git-recovery",
+    "category": "github",
+    "description": "Recover from broken git states: detached HEAD, stale locks, divergent remotes, force-push failures.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "github/git-recovery/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/github/git-recovery/SKILL.md"
+  },
+  {
+    "name": "github-auth",
+    "category": "github",
+    "description": "GitHub auth setup: HTTPS tokens, SSH keys, gh CLI login.",
+    "author": "Hermes Agent",
+    "version": "1.1.0",
+    "path": "github/github-auth/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/github/github-auth/SKILL.md"
+  },
+  {
+    "name": "github-code-review",
+    "category": "github",
+    "description": "Review PRs: diffs, inline comments via gh or REST.",
+    "author": "Hermes Agent",
+    "version": "1.1.0",
+    "path": "github/github-code-review/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/github/github-code-review/SKILL.md"
+  },
+  {
+    "name": "github-issues",
+    "category": "github",
+    "description": "Create, triage, label, assign GitHub issues via gh or REST.",
+    "author": "Hermes Agent",
+    "version": "1.1.0",
+    "path": "github/github-issues/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/github/github-issues/SKILL.md"
+  },
+  {
+    "name": "github-pr-workflow",
+    "category": "github",
+    "description": "GitHub PR lifecycle: branch, commit, open, CI, merge.",
+    "author": "Hermes Agent",
+    "version": "1.1.0",
+    "path": "github/github-pr-workflow/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/github/github-pr-workflow/SKILL.md"
+  },
+  {
+    "name": "github-repo-management",
+    "category": "github",
+    "description": "Clone/create/fork repos; manage remotes, releases.",
+    "author": "Hermes Agent",
+    "version": "1.1.0",
+    "path": "github/github-repo-management/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/github/github-repo-management/SKILL.md"
+  },
+  {
+    "name": "ai-palmistry-guide",
+    "category": "lifestyle",
+    "description": "Use when providing AI-powered virtual palm readings. Offers insightful, personalized palm reading interpretations.",
+    "author": "",
+    "version": "",
+    "path": "lifestyle/ai-palmistry-guide/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/lifestyle/ai-palmistry-guide/SKILL.md"
+  },
+  {
+    "name": "cosmic-oracle",
+    "category": "lifestyle",
+    "description": "Use when providing personalized astrology insights and cosmic guidance. Generates birth chart interpretations and astrological readings.",
+    "author": "",
+    "version": "",
+    "path": "lifestyle/cosmic-oracle/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/lifestyle/cosmic-oracle/SKILL.md"
+  },
+  {
+    "name": "driving-test-genius",
+    "category": "lifestyle",
+    "description": "Use when preparing for US driving tests across all states. Provides state-specific practice questions and road rule guidance.",
+    "author": "",
+    "version": "",
+    "path": "lifestyle/driving-test-genius/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/lifestyle/driving-test-genius/SKILL.md"
+  },
+  {
+    "name": "humint",
+    "category": "lifestyle",
+    "description": "Use when simulating and teaching human intelligence skills focused on self-awareness, empathy, and interpersonal understanding.",
+    "author": "",
+    "version": "",
+    "path": "lifestyle/humint/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/lifestyle/humint/SKILL.md"
+  },
+  {
+    "name": "jesus-guide-me",
+    "category": "lifestyle",
+    "description": "Use when guiding users in Bible and Gnostic study with tailored questions and reflective notes. Provides scripture-based spiritual guidance.",
+    "author": "",
+    "version": "",
+    "path": "lifestyle/jesus-guide-me/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/lifestyle/jesus-guide-me/SKILL.md"
+  },
+  {
+    "name": "jo-kraft",
+    "category": "lifestyle",
+    "description": "Use when crafting and developing jokes based on a user's comedic style.",
+    "author": "",
+    "version": "",
+    "path": "lifestyle/jo-kraft/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/lifestyle/jo-kraft/SKILL.md"
+  },
+  {
+    "name": "musk-insights-tracker",
+    "category": "lifestyle",
+    "description": "Use when tracking Elon Musk's social, financial, and political influence.",
+    "author": "",
+    "version": "",
+    "path": "lifestyle/musk-insights-tracker/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/lifestyle/musk-insights-tracker/SKILL.md"
+  },
+  {
+    "name": "poor-richards-gpt",
+    "category": "lifestyle",
+    "description": "Use when providing quotes, insights, and wisdom from Benjamin Franklin's Poor Richard's Almanack. Offers historical wisdom for modern contexts.",
+    "author": "",
+    "version": "",
+    "path": "lifestyle/poor-richards-gpt/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/lifestyle/poor-richards-gpt/SKILL.md"
+  },
+  {
+    "name": "prayer-companion",
+    "category": "lifestyle",
+    "description": "Use when transforming worries and concerns into heartfelt, personalized prayers. Provides spiritual comfort through guided prayer.",
+    "author": "",
+    "version": "",
+    "path": "lifestyle/prayer-companion/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/lifestyle/prayer-companion/SKILL.md"
+  },
+  {
+    "name": "profile-wingman",
+    "category": "lifestyle",
+    "description": "Use when optimizing dating profiles with engaging, app-specific content. Tailors profiles for Tinder, Hinge, Bumble, etc.",
+    "author": "",
+    "version": "",
+    "path": "lifestyle/profile-wingman/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/lifestyle/profile-wingman/SKILL.md"
+  },
+  {
+    "name": "texts-not-to-send",
+    "category": "lifestyle",
+    "description": "Use when helping users process difficult messages before sending. Acts as a buffer for emotional communication \u2014 'send messages to me, not your ex.",
+    "author": "",
+    "version": "",
+    "path": "lifestyle/texts-not-to-send/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/lifestyle/texts-not-to-send/SKILL.md"
+  },
+  {
+    "name": "ultimate-survival-ai",
+    "category": "lifestyle",
+    "description": "Use when providing survival guidance for any environment. Covers wilderness, urban, and emergency preparedness scenarios.",
+    "author": "",
+    "version": "",
+    "path": "lifestyle/ultimate-survival-ai/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/lifestyle/ultimate-survival-ai/SKILL.md"
+  },
+  {
+    "name": "gif-search",
+    "category": "media",
+    "description": "Search/download GIFs from Tenor via curl + jq.",
+    "author": "Hermes Agent",
+    "version": "1.1.0",
+    "path": "media/gif-search/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/media/gif-search/SKILL.md"
+  },
+  {
+    "name": "heartmula",
+    "category": "media",
+    "description": "HeartMuLa: Suno-like song generation from lyrics + tags.",
+    "author": "",
+    "version": "1.0.0",
+    "path": "media/heartmula/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/media/heartmula/SKILL.md"
+  },
+  {
+    "name": "monarch-art-vault",
+    "category": "media",
+    "description": "Preserve, deduplicate, catalog, organize, prepare, and approval-gate publishing of artist photo and artwork assets.",
+    "author": "Diamitani Industries",
+    "version": "1.0.0",
+    "path": "media/monarch-art-vault/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/media/monarch-art-vault/SKILL.md"
+  },
+  {
+    "name": "songsee",
+    "category": "media",
+    "description": "Audio spectrograms/features (mel, chroma, MFCC) via CLI.",
+    "author": "community",
+    "version": "1.0.0",
+    "path": "media/songsee/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/media/songsee/SKILL.md"
+  },
+  {
+    "name": "video-download",
+    "category": "media",
+    "description": "Download embedded/protected videos from CDN-guarded platforms (HeyGen, Vimeo, Wistia, etc.) using Playwright route interception to capture video streams through a real browser session. Also covers Google Drive upload via rclone for offloading large downloads.",
+    "author": "",
+    "version": "1.0.0",
+    "path": "media/video-download/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/media/video-download/SKILL.md"
+  },
+  {
+    "name": "youtube-content",
+    "category": "media",
+    "description": "YouTube transcripts to summaries, threads, blogs.",
+    "author": "",
+    "version": "",
+    "path": "media/youtube-content/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/media/youtube-content/SKILL.md"
+  },
+  {
+    "name": "aws-backend-infra",
+    "category": "mlops",
+    "description": "Build AWS-native backends from scratch: DynamoDB single-table design, Cognito auth, S3, API Gateway + Lambda (FastAPI/Mangum), Bedrock LLM, Terraform IaC. Use when replacing Supabase or building serverless AWS backends.",
+    "author": "Hermes + Pat Diamitani",
+    "version": "1.0.0",
+    "path": "mlops/aws-backend-infra/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/mlops/aws-backend-infra/SKILL.md"
+  },
+  {
+    "name": "epk-builder",
+    "category": "mlops",
+    "description": "End-to-end Electronic Press Kit builder for artists. Uses ROSTR framework: PAL intent compilation, RAG DAL knowledge retrieval, JTBD analysis, NPAO orchestration, then generates professional EPK (HTML site + PDF) using TheLuhKel design system.",
+    "author": "Pat (TheLuhKel / Artispreneur Platform)",
+    "version": "1.0.0",
+    "path": "mlops/epk-builder/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/mlops/epk-builder/SKILL.md"
+  },
+  {
+    "name": "evaluating-llms-harness",
+    "category": "mlops",
+    "description": "lm-eval-harness: benchmark LLMs (MMLU, GSM8K, etc.).",
+    "author": "Orchestra Research",
+    "version": "1.0.0",
+    "path": "mlops/evaluation/lm-evaluation-harness/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/mlops/evaluation/lm-evaluation-harness/SKILL.md"
+  },
+  {
+    "name": "weights-and-biases",
+    "category": "mlops",
+    "description": "W&B: log ML experiments, sweeps, model registry, dashboards.",
+    "author": "Orchestra Research",
+    "version": "1.0.0",
+    "path": "mlops/evaluation/weights-and-biases/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/mlops/evaluation/weights-and-biases/SKILL.md"
+  },
+  {
+    "name": "huggingface-hub",
+    "category": "mlops",
+    "description": "HuggingFace hf CLI: search/download/upload models, datasets.",
+    "author": "Hugging Face",
+    "version": "1.0.0",
+    "path": "mlops/huggingface-hub/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/mlops/huggingface-hub/SKILL.md"
+  },
+  {
+    "name": "llama-cpp",
+    "category": "mlops",
+    "description": "llama.cpp local GGUF inference + HF Hub model discovery.",
+    "author": "Orchestra Research",
+    "version": "2.1.2",
+    "path": "mlops/inference/llama-cpp/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/mlops/inference/llama-cpp/SKILL.md"
+  },
+  {
+    "name": "serving-llms-vllm",
+    "category": "mlops",
+    "description": "vLLM: high-throughput LLM serving, OpenAI API, quantization.",
+    "author": "Orchestra Research",
+    "version": "1.0.0",
+    "path": "mlops/inference/vllm/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/mlops/inference/vllm/SKILL.md"
+  },
+  {
+    "name": "audiocraft-audio-generation",
+    "category": "mlops",
+    "description": "AudioCraft: MusicGen text-to-music, AudioGen text-to-sound.",
+    "author": "Orchestra Research",
+    "version": "1.0.0",
+    "path": "mlops/models/audiocraft/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/mlops/models/audiocraft/SKILL.md"
+  },
+  {
+    "name": "segment-anything-model",
+    "category": "mlops",
+    "description": "SAM: zero-shot image segmentation via points, boxes, masks.",
+    "author": "Orchestra Research",
+    "version": "1.0.0",
+    "path": "mlops/models/segment-anything/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/mlops/models/segment-anything/SKILL.md"
+  },
+  {
+    "name": "ar-campaign-architect",
+    "category": "music-industry",
+    "description": "Use when designing A&R strategies for artist campaigns across blogs, playlists, venues, and licensing platforms. Plans multi-channel music promotion campaigns.",
+    "author": "",
+    "version": "",
+    "path": "music-industry/ar-campaign-architect/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/music-industry/ar-campaign-architect/SKILL.md"
+  },
+  {
+    "name": "armie",
+    "category": "music-industry",
+    "description": "Use when providing advanced artist development and management guidance.",
+    "author": "",
+    "version": "",
+    "path": "music-industry/armie/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/music-industry/armie/SKILL.md"
+  },
+  {
+    "name": "artbeat-covers",
+    "category": "music-industry",
+    "description": "Use when helping artists create visually stunning cover art tailored to their music. Generates concepts, designs, and visual direction for album/single artwork.",
+    "author": "",
+    "version": "",
+    "path": "music-industry/artbeat-covers/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/music-industry/artbeat-covers/SKILL.md"
+  },
+  {
+    "name": "artispreneur-email-generator",
+    "category": "music-industry",
+    "description": "Use when generating music campaign emails for artists. Crafts outreach, fan engagement, promo, and booking emails tailored to music marketing.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "music-industry/artispreneur-email-generator/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/music-industry/artispreneur-email-generator/SKILL.md"
+  },
+  {
+    "name": "artist-bio-creator",
+    "category": "music-industry",
+    "description": "Use when guiding musicians through creating professional artist biographies. Produces compelling narrative bios for different platforms and lengths.",
+    "author": "",
+    "version": "",
+    "path": "music-industry/artist-bio-creator/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/music-industry/artist-bio-creator/SKILL.md"
+  },
+  {
+    "name": "artist-budget-guide",
+    "category": "music-industry",
+    "description": "Use when helping artists create realistic budgets for their projects. Covers recording, marketing, touring, and release expenses.",
+    "author": "",
+    "version": "",
+    "path": "music-industry/artist-budget-guide/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/music-industry/artist-budget-guide/SKILL.md"
+  },
+  {
+    "name": "artist-business-plan",
+    "category": "music-industry",
+    "description": "Use when guiding artists through building tailored business plans and growth strategies. Transforms artistic vision into actionable business frameworks.",
+    "author": "",
+    "version": "",
+    "path": "music-industry/artist-business-plan/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/music-industry/artist-business-plan/SKILL.md"
+  },
+  {
+    "name": "artist-connect",
+    "category": "music-industry",
+    "description": "Use when connecting artists with mentorship, coaching, and real advice from true artist journeys.",
+    "author": "",
+    "version": "",
+    "path": "music-industry/artist-connect/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/music-industry/artist-connect/SKILL.md"
+  },
+  {
+    "name": "artist-epk-suite",
+    "category": "music-industry",
+    "description": "Use as the unified entry point for all Artispreneur music industry tools. Routes to: EPK Builder, Artist Bio Creator, ArtBeat Covers, SyncMaster, SongVid, MicSpot, Reggie P.R.O., Catana, VenYou, Tour Tracker, E-Milly, Music Contract Assistant, A&R Campaign Architect. This is the meta-skill that ties",
+    "author": "",
+    "version": "",
+    "path": "music-industry/artist-epk-suite/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/music-industry/artist-epk-suite/SKILL.md"
+  },
+  {
+    "name": "artist-resource-hub",
+    "category": "music-industry",
+    "description": "Use when providing music industry resources, deals, and news to artists. Acts as a comprehensive guide to industry opportunities.",
+    "author": "",
+    "version": "",
+    "path": "music-industry/artist-resource-hub/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/music-industry/artist-resource-hub/SKILL.md"
+  },
+  {
+    "name": "catana",
+    "category": "music-industry",
+    "description": "Use when managing and enhancing music catalogues. Organizes files across platforms.",
+    "author": "",
+    "version": "",
+    "path": "music-industry/catana/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/music-industry/catana/SKILL.md"
+  },
+  {
+    "name": "e-milly",
+    "category": "music-industry",
+    "description": "Use when crafting data-driven email campaigns for music promotion.",
+    "author": "",
+    "version": "",
+    "path": "music-industry/e-milly/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/music-industry/e-milly/SKILL.md"
+  },
+  {
+    "name": "epk-builder-gpt",
+    "category": "music-industry",
+    "description": "Use when creating Electronic Press Kits for musicians. Crafts engaging bios, media kits, and professional EPK content. Consolidates EPK Builder and EPK Creator.",
+    "author": "",
+    "version": "",
+    "path": "music-industry/epk-builder-gpt/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/music-industry/epk-builder-gpt/SKILL.md"
+  },
+  {
+    "name": "micspot",
+    "category": "music-industry",
+    "description": "Use when finding open mics in any area for comedy and music.",
+    "author": "",
+    "version": "",
+    "path": "music-industry/micspot/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/music-industry/micspot/SKILL.md"
+  },
+  {
+    "name": "music-biz-daily-digest",
+    "category": "music-industry",
+    "description": "Use when creating a daily digest of top music industry business news. Curates and summarizes industry developments.",
+    "author": "",
+    "version": "",
+    "path": "music-industry/music-biz-daily-digest/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/music-industry/music-biz-daily-digest/SKILL.md"
+  },
+  {
+    "name": "music-contract-assistant",
+    "category": "music-industry",
+    "description": "Use when generating music contracts, reviewing agreements, or creating split sheet agreements.",
+    "author": "",
+    "version": "",
+    "path": "music-industry/music-contract-assistant/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/music-industry/music-contract-assistant/SKILL.md"
+  },
+  {
+    "name": "reggie-pro",
+    "category": "music-industry",
+    "description": "Use when helping artists register for Performance Rights Organizations (ASCAP, BMI, SESAC) and manage music portfolios.",
+    "author": "",
+    "version": "",
+    "path": "music-industry/reggie-pro/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/music-industry/reggie-pro/SKILL.md"
+  },
+  {
+    "name": "showcase",
+    "category": "music-industry",
+    "description": "Use when planning open mics, showcases, or release parties for artists.",
+    "author": "",
+    "version": "",
+    "path": "music-industry/showcase/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/music-industry/showcase/SKILL.md"
+  },
+  {
+    "name": "songbyrd",
+    "category": "music-industry",
+    "description": "Use when writing song lyrics, developing song concepts, or acting as an AI-powered songwriting assistant. Generates verses, choruses, bridges, and full song structures.",
+    "author": "",
+    "version": "",
+    "path": "music-industry/songbyrd/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/music-industry/songbyrd/SKILL.md"
+  },
+  {
+    "name": "songvid",
+    "category": "music-industry",
+    "description": "Use when creating music video concepts using stock footage based on song uploads.",
+    "author": "",
+    "version": "",
+    "path": "music-industry/songvid/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/music-industry/songvid/SKILL.md"
+  },
+  {
+    "name": "syncmaster",
+    "category": "music-industry",
+    "description": "Use when finding music supervisors, libraries, and sync licensing opportunities. Helps artists submit music for TV, film, and commercial placement.",
+    "author": "",
+    "version": "",
+    "path": "music-industry/syncmaster/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/music-industry/syncmaster/SKILL.md"
+  },
+  {
+    "name": "tour-tracker",
+    "category": "music-industry",
+    "description": "Use when discovering live music tours, booking venues, and planning tour logistics.",
+    "author": "",
+    "version": "",
+    "path": "music-industry/tour-tracker/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/music-industry/tour-tracker/SKILL.md"
+  },
+  {
+    "name": "venyou",
+    "category": "music-industry",
+    "description": "Use when finding and organizing music venue contact information.",
+    "author": "",
+    "version": "",
+    "path": "music-industry/venyou/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/music-industry/venyou/SKILL.md"
+  },
+  {
+    "name": "obsidian",
+    "category": "note-taking",
+    "description": "Read, search, create, and edit notes in the Obsidian vault.",
+    "author": "",
+    "version": "",
+    "path": "note-taking/obsidian/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/note-taking/obsidian/SKILL.md"
+  },
+  {
+    "name": "affli",
+    "category": "productivity",
+    "description": "Use when building and optimizing affiliate marketing strategies. Guides product selection, content strategy, and commission optimization.",
+    "author": "",
+    "version": "",
+    "path": "productivity/affli/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/affli/SKILL.md"
+  },
+  {
+    "name": "agreement-architect",
+    "category": "productivity",
+    "description": "Use when crafting custom partnership agreements, contracts, and legal document templates in Word format. Generates tailored agreement documents from user requirements.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "productivity/agreement-architect/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/agreement-architect/SKILL.md"
+  },
+  {
+    "name": "airtable",
+    "category": "productivity",
+    "description": "Airtable REST API via curl. Records CRUD, filters, upserts.",
+    "author": "community",
+    "version": "1.1.0",
+    "path": "productivity/airtable/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/airtable/SKILL.md"
+  },
+  {
+    "name": "applygpt",
+    "category": "productivity",
+    "description": "Use when guiding users in crafting job applications, tailoring resumes, and preparing for interviews.",
+    "author": "",
+    "version": "",
+    "path": "productivity/applygpt/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/applygpt/SKILL.md"
+  },
+  {
+    "name": "asana",
+    "category": "productivity",
+    "description": "Asana task & project management via REST API \u2014 create, search, update tasks; manage projects and sections.",
+    "author": "Hermes + Pat Diamitani",
+    "version": "1.0.0",
+    "path": "productivity/asana/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/asana/SKILL.md"
+  },
+  {
+    "name": "auctopilot",
+    "category": "productivity",
+    "description": "Use when finding auctions, foreclosures, and estate sales near any location. Discovers local buying opportunities.",
+    "author": "",
+    "version": "",
+    "path": "productivity/auctopilot/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/auctopilot/SKILL.md"
+  },
+  {
+    "name": "blk-heights-career-coach",
+    "category": "productivity",
+    "description": "Use when providing empowering career coaching and content guidance for tech-driven communities. Powered by blkheights.com.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "productivity/blk-heights-career-coach/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/blk-heights-career-coach/SKILL.md"
+  },
+  {
+    "name": "business-audit",
+    "category": "productivity",
+    "description": "Use when performing dynamic business audits and strategic planning assessments. Analyzes business health and identifies growth opportunities.",
+    "author": "",
+    "version": "",
+    "path": "productivity/business-audit/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/business-audit/SKILL.md"
+  },
+  {
+    "name": "business-model-canvas-builder",
+    "category": "productivity",
+    "description": "Use when generating a Business Model Canvas from an idea. Uses guided questions and NLP to produce structured BMC outputs.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "productivity/business-model-canvas-builder/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/business-model-canvas-builder/SKILL.md"
+  },
+  {
+    "name": "buyer-persona-architect",
+    "category": "productivity",
+    "description": "Use when generating detailed user and buyer personas from documents, research, or prompts. Includes ICP definition and segmentation.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "productivity/buyer-persona-architect/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/buyer-persona-architect/SKILL.md"
+  },
+  {
+    "name": "call-insights-assistant",
+    "category": "productivity",
+    "description": "Use when analyzing client calls, providing summaries, and updating tracking sheets. Extracts insights from conversation transcripts.",
+    "author": "",
+    "version": "",
+    "path": "productivity/call-insights-assistant/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/call-insights-assistant/SKILL.md"
+  },
+  {
+    "name": "campaign-digital-director",
+    "category": "productivity",
+    "description": "Use when creating elite political content strategy for digital mobilization. Consolidates Campaign Digital Director Assistant, Campaign Speechwriter Assistant, and Donor Call Sheet Assistant.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "productivity/campaign-digital-director/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/campaign-digital-director/SKILL.md"
+  },
+  {
+    "name": "centralized-systems-assistant",
+    "category": "productivity",
+    "description": "Use when assisting systems teams with documentation, automation, troubleshooting, and programming tasks. Built for municipal/government systems operations.",
+    "author": "",
+    "version": "",
+    "path": "productivity/centralized-systems-assistant/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/centralized-systems-assistant/SKILL.md"
+  },
+  {
+    "name": "chicago-local",
+    "category": "productivity",
+    "description": "Use when accessing Chicago-specific resources. Consolidates Crime Tracker Chicago, ChicagoESQ (justice system), Tenny: Chicago (tenant rights), and Chicago 211 Resource Assistant.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "productivity/chicago-local/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/chicago-local/SKILL.md"
+  },
+  {
+    "name": "chunkmaster-pro",
+    "category": "productivity",
+    "description": "Use when chunking, tagging, exporting, and indexing documents step-by-step. Prepares documents for RAG pipelines, embeddings, and knowledge bases.",
+    "author": "",
+    "version": "",
+    "path": "productivity/chunkmaster-pro/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/chunkmaster-pro/SKILL.md"
+  },
+  {
+    "name": "dc-312-political",
+    "category": "productivity",
+    "description": "Use when providing comprehensive political campaign guidance including digital strategy, speechwriting, donor calls, and constituent engagement. Consolidates all political campaign GPTs.",
+    "author": "",
+    "version": "",
+    "path": "productivity/dc-312-political/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/dc-312-political/SKILL.md"
+  },
+  {
+    "name": "dcase-312",
+    "category": "productivity",
+    "description": "Use when accessing Chicago Department of Cultural Affairs and Special Events resources. Finds events, grant deadlines, city-wide programs, and cultural engagement opportunities.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "productivity/dcase-312/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/dcase-312/SKILL.md"
+  },
+  {
+    "name": "doger",
+    "category": "productivity",
+    "description": "Use when analyzing budgets to find inefficiencies, propose AI solutions, and inspire community contributions toward government efficiency.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "productivity/doger/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/doger/SKILL.md"
+  },
+  {
+    "name": "dropshipping-ai-assistant",
+    "category": "productivity",
+    "description": "Use when automating dropshipping workflows and optimizing product strategy for e-commerce businesses.",
+    "author": "",
+    "version": "",
+    "path": "productivity/dropshipping-ai-assistant/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/dropshipping-ai-assistant/SKILL.md"
+  },
+  {
+    "name": "dynamic-resource-aggregator",
+    "category": "productivity",
+    "description": "Use when aggregating resources from multiple sources into structured tables. Parses links and creates organized breakdowns of content.",
+    "author": "",
+    "version": "",
+    "path": "productivity/dynamic-resource-aggregator/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/dynamic-resource-aggregator/SKILL.md"
+  },
+  {
+    "name": "email-architect",
+    "category": "productivity",
+    "description": "Use when crafting outreach emails, follow-ups, and email templates for sales, marketing, or campaigns. Generates polished, effective email copy.",
+    "author": "",
+    "version": "",
+    "path": "productivity/email-architect/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/email-architect/SKILL.md"
+  },
+  {
+    "name": "email-template-creator",
+    "category": "productivity",
+    "description": "Use when creating custom email templates for marketing, outreach, or transactional communications.",
+    "author": "",
+    "version": "",
+    "path": "productivity/email-template-creator/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/email-template-creator/SKILL.md"
+  },
+  {
+    "name": "enably",
+    "category": "productivity",
+    "description": "Use when building advanced sales enablement strategies. Optimizes sales team performance, content, and training programs.",
+    "author": "",
+    "version": "",
+    "path": "productivity/enably/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/enably/SKILL.md"
+  },
+  {
+    "name": "google-workspace",
+    "category": "productivity",
+    "description": "Gmail, Calendar, Drive, Docs, Sheets via gws CLI or Python.",
+    "author": "Nous Research",
+    "version": "1.1.0",
+    "path": "productivity/google-workspace/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/google-workspace/SKILL.md"
+  },
+  {
+    "name": "gpt-portfolio-index",
+    "category": "productivity",
+    "description": "Use to navigate Pat's complete custom GPT portfolio, now mapped to Hermes Agent skills. Index of ~185 GPTs consolidated into ~130 skills across 10 categories.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "productivity/gpt-portfolio-index/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/gpt-portfolio-index/SKILL.md"
+  },
+  {
+    "name": "gtm-architect",
+    "category": "productivity",
+    "description": "Use when designing go-to-market strategies, playbooks, BDR/AE bibles, sales playbooks, or GTM automations with Make/n8n blueprints. Consolidates GTM Engineer, GTM Playbook Architect, and Go To Market Architect.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "productivity/gtm-architect/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/gtm-architect/SKILL.md"
+  },
+  {
+    "name": "healthie",
+    "category": "productivity",
+    "description": "Use when providing expert medical and financial health analysis with clear, friendly guidance. Analyzes health data and financial wellness together.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "productivity/healthie/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/healthie/SKILL.md"
+  },
+  {
+    "name": "hoops-stats",
+    "category": "productivity",
+    "description": "Use when providing NBA stats, trends, betting analysis, and actionable basketball insights. Analyzes game data for informed decisions.",
+    "author": "",
+    "version": "",
+    "path": "productivity/hoops-stats/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/hoops-stats/SKILL.md"
+  },
+  {
+    "name": "houseofashburn",
+    "category": "productivity",
+    "description": "Use when acting as a luxury brand executive assistant for HouseofAshburn.",
+    "author": "",
+    "version": "",
+    "path": "productivity/houseofashburn/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/houseofashburn/SKILL.md"
+  },
+  {
+    "name": "image-scraper-pro",
+    "category": "productivity",
+    "description": "Use when scraping and extracting relevant images from websites for visual content enhancement.",
+    "author": "",
+    "version": "",
+    "path": "productivity/image-scraper-pro/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/image-scraper-pro/SKILL.md"
+  },
+  {
+    "name": "job-search-assistant",
+    "category": "productivity",
+    "description": "Use when parsing job links, tracking applications, generating tailored resumes, and preparing for interviews. Consolidates Job Search Assistant, ApplyGPT, InterviewGPT, and Job Link Parser & Tracker.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "productivity/job-search-assistant/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/job-search-assistant/SKILL.md"
+  },
+  {
+    "name": "jobs-to-be-done",
+    "category": "productivity",
+    "description": "Use when applying the Jobs to Be Done framework. Transforms user needs into AI-ready JTBD blueprints with guided discovery flows.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "productivity/jobs-to-be-done/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/jobs-to-be-done/SKILL.md"
+  },
+  {
+    "name": "kpi-architect",
+    "category": "productivity",
+    "description": "Use when generating KPIs and activity metrics from business goals. Creates measurable performance indicators tied to strategic objectives.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "productivity/kpi-architect/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/kpi-architect/SKILL.md"
+  },
+  {
+    "name": "link-folder",
+    "category": "productivity",
+    "description": "Use when adding web links to a running database or spreadsheet. Organizes and categorizes URLs for research and reference.",
+    "author": "",
+    "version": "",
+    "path": "productivity/link-folder/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/link-folder/SKILL.md"
+  },
+  {
+    "name": "list-manager",
+    "category": "productivity",
+    "description": "Use when organizing and managing categorized listings with search tools. Handles apartment listings, inventory, and structured data.",
+    "author": "",
+    "version": "",
+    "path": "productivity/list-manager/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/list-manager/SKILL.md"
+  },
+  {
+    "name": "maps",
+    "category": "productivity",
+    "description": "Geocode, POIs, routes, timezones via OpenStreetMap/OSRM.",
+    "author": "Mibayy",
+    "version": "1.2.0",
+    "path": "productivity/maps/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/maps/SKILL.md"
+  },
+  {
+    "name": "master-calendar",
+    "category": "productivity",
+    "description": "Master Calendar \u2014 unified task/meeting hub in Asana. NPAO-classified task creation from Hermes, email, and Google Calendar.",
+    "author": "Hermes + Pat Diamitani",
+    "version": "1.0.0",
+    "path": "productivity/master-calendar/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/master-calendar/SKILL.md"
+  },
+  {
+    "name": "mighty-oaks-capital",
+    "category": "productivity",
+    "description": "Use when handling investor inquiries for MightyOaksCapitalPartners.com.",
+    "author": "",
+    "version": "",
+    "path": "productivity/mighty-oaks-capital/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/mighty-oaks-capital/SKILL.md"
+  },
+  {
+    "name": "nano-pdf",
+    "category": "productivity",
+    "description": "Edit PDF text/typos/titles via nano-pdf CLI (NL prompts).",
+    "author": "community",
+    "version": "1.0.0",
+    "path": "productivity/nano-pdf/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/nano-pdf/SKILL.md"
+  },
+  {
+    "name": "newsletter-assistant",
+    "category": "productivity",
+    "description": "Use when creating bold, high-impact newsletters or daily AI/industry digests. Curates content and writes in specified voices. Consolidates Unstuck Newsletter Assistant and AI Newsletter Assistant.",
+    "author": "",
+    "version": "",
+    "path": "productivity/newsletter-assistant/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/newsletter-assistant/SKILL.md"
+  },
+  {
+    "name": "notion",
+    "category": "productivity",
+    "description": "Notion API + ntn CLI: pages, databases, markdown, Workers.",
+    "author": "community",
+    "version": "2.0.0",
+    "path": "productivity/notion/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/notion/SKILL.md"
+  },
+  {
+    "name": "npao-bot",
+    "category": "productivity",
+    "description": "Use when helping users prioritize and analyze tasks using the NPAO framework (Navigate, Prioritize, Allocate, Orchestrate). Provides clarity and growth-oriented task management.",
+    "author": "",
+    "version": "",
+    "path": "productivity/npao-bot/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/npao-bot/SKILL.md"
+  },
+  {
+    "name": "ocr-and-documents",
+    "category": "productivity",
+    "description": "Extract text from PDFs/scans (pymupdf, marker-pdf).",
+    "author": "Hermes Agent",
+    "version": "2.3.0",
+    "path": "productivity/ocr-and-documents/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/ocr-and-documents/SKILL.md"
+  },
+  {
+    "name": "omni-architect",
+    "category": "productivity",
+    "description": "Use when acting as a master problem solver and workflow designer across all domains. General-purpose architect for complex cross-domain challenges.",
+    "author": "",
+    "version": "",
+    "path": "productivity/omni-architect/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/omni-architect/SKILL.md"
+  },
+  {
+    "name": "onboarding-expert",
+    "category": "productivity",
+    "description": "Use when designing structured client onboarding flows from Sales Enablement Plans. Guides new clients through systematic onboarding.",
+    "author": "",
+    "version": "",
+    "path": "productivity/onboarding-expert/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/onboarding-expert/SKILL.md"
+  },
+  {
+    "name": "outreach-automator",
+    "category": "productivity",
+    "description": "Use when automating email outreach tasks and CRM workflows. Generates personalized outreach sequences at scale.",
+    "author": "",
+    "version": "",
+    "path": "productivity/outreach-automator/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/outreach-automator/SKILL.md"
+  },
+  {
+    "name": "pats-tap",
+    "category": "productivity",
+    "description": "Use when providing private entrepreneurial assistance for all business tasks. General-purpose business assistant for solopreneurs.",
+    "author": "",
+    "version": "",
+    "path": "productivity/pats-tap/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/pats-tap/SKILL.md"
+  },
+  {
+    "name": "personal-video-coach",
+    "category": "productivity",
+    "description": "Use when creating professional video scripts for job pitches, introductions, or any subject requiring a personal video presentation.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "productivity/personal-video-coach/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/personal-video-coach/SKILL.md"
+  },
+  {
+    "name": "petdex",
+    "category": "productivity",
+    "description": "Install and select animated petdex mascots for Hermes.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "productivity/petdex/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/petdex/SKILL.md"
+  },
+  {
+    "name": "political-campaign-architect",
+    "category": "productivity",
+    "description": "Use when planning political campaigns, digital strategy, and election automation. Consolidates Political Campaign Architect, Political Campaign Guide, and Candidate Insight GPT.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "productivity/political-campaign-architect/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/political-campaign-architect/SKILL.md"
+  },
+  {
+    "name": "powerpoint",
+    "category": "productivity",
+    "description": "Create, read, edit .pptx decks, slides, notes, templates.",
+    "author": "",
+    "version": "",
+    "path": "productivity/powerpoint/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/powerpoint/SKILL.md"
+  },
+  {
+    "name": "product-description-editor",
+    "category": "productivity",
+    "description": "Use when creating polished product descriptions for ecommerce platforms.",
+    "author": "",
+    "version": "",
+    "path": "productivity/product-description-editor/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/product-description-editor/SKILL.md"
+  },
+  {
+    "name": "promo-code-finder",
+    "category": "productivity",
+    "description": "Use when finding new user codes, promo codes, and signup discounts before registering for services. Consolidates ProMe and 1Promo GPTs for discovering company promotions.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "productivity/promo-code-finder/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/promo-code-finder/SKILL.md"
+  },
+  {
+    "name": "prossley",
+    "category": "productivity",
+    "description": "Use when providing AI-powered sales architecture with actionable, data-driven insights for optimized client engagement.",
+    "author": "",
+    "version": "",
+    "path": "productivity/prossley/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/prossley/SKILL.md"
+  },
+  {
+    "name": "recalla",
+    "category": "productivity",
+    "description": "Use when providing intuitive recall assistance. Generates detailed recall lists and memory aids for personal productivity.",
+    "author": "",
+    "version": "",
+    "path": "productivity/recalla/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/recalla/SKILL.md"
+  },
+  {
+    "name": "revenue-strategist",
+    "category": "productivity",
+    "description": "Use when crafting custom sales strategies using Predictable Revenue Modeling. Guides businesses in predictable revenue growth.",
+    "author": "",
+    "version": "",
+    "path": "productivity/revenue-strategist/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/revenue-strategist/SKILL.md"
+  },
+  {
+    "name": "rss-assist",
+    "category": "productivity",
+    "description": "Use when transforming RSS feeds into engaging SEO-optimized blogs, curating RSS feed lists, or aggregating content from feeds. Consolidates RSS Assist and RSS Aggregator.",
+    "author": "",
+    "version": "",
+    "path": "productivity/rss-assist/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/rss-assist/SKILL.md"
+  },
+  {
+    "name": "sales-commander",
+    "category": "productivity",
+    "description": "Use when building or optimizing a sales strategy. Acts as a general commanding sales operations, team structure, and process design.",
+    "author": "",
+    "version": "",
+    "path": "productivity/sales-commander/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/sales-commander/SKILL.md"
+  },
+  {
+    "name": "sales-process-assistant",
+    "category": "productivity",
+    "description": "Use when automating sales workflows, CRM integration, and generating actionable sales insights. Consolidates Sales Process Assistant and Prossley.",
+    "author": "",
+    "version": "",
+    "path": "productivity/sales-process-assistant/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/sales-process-assistant/SKILL.md"
+  },
+  {
+    "name": "side-hustle-finder",
+    "category": "productivity",
+    "description": "Use when helping users discover quick side hustle opportunities via mobile apps and platforms. Matches skills to gig economy options.",
+    "author": "",
+    "version": "",
+    "path": "productivity/side-hustle-finder/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/side-hustle-finder/SKILL.md"
+  },
+  {
+    "name": "social-dm-architect",
+    "category": "productivity",
+    "description": "Use when generating LinkedIn, Twitter/X, and social media DMs for outreach, follow-ups, and networking. Tailors messaging to platform and context.",
+    "author": "",
+    "version": "",
+    "path": "productivity/social-dm-architect/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/social-dm-architect/SKILL.md"
+  },
+  {
+    "name": "sop-architect",
+    "category": "productivity",
+    "description": "Use when building or improving Standard Operating Procedures. Generates structured SOPs from process descriptions, identifies gaps, and formats for team adoption.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "productivity/sop-architect/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/sop-architect/SKILL.md"
+  },
+  {
+    "name": "strategic-business-architect",
+    "category": "productivity",
+    "description": "Use when providing strategic growth guidance, sales optimization, and business model innovation. Acts as an expert strategist for business architecture.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "productivity/strategic-business-architect/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/strategic-business-architect/SKILL.md"
+  },
+  {
+    "name": "tax-assistant-pro",
+    "category": "productivity",
+    "description": "Use when guiding users through personal and business tax preparation. Consolidates Tax Assistant Pro, My Smart Tax Advisor, ERC Assistant, and IRS Form 7202 Assistant.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "productivity/tax-assistant-pro/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/tax-assistant-pro/SKILL.md"
+  },
+  {
+    "name": "teams-meeting-pipeline",
+    "category": "productivity",
+    "description": "Operate the Teams meeting summary pipeline via Hermes CLI \u2014 summarize meetings, inspect pipeline status, replay jobs, manage Microsoft Graph subscriptions.",
+    "author": "Hermes Agent + Teknium",
+    "version": "1.1.0",
+    "path": "productivity/teams-meeting-pipeline/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/teams-meeting-pipeline/SKILL.md"
+  },
+  {
+    "name": "tech-stack-architect",
+    "category": "productivity",
+    "description": "Use when researching, recommending, or generating setup guides for technology stacks. Evaluates tools against requirements and produces implementation blueprints.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "productivity/tech-stack-architect/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/tech-stack-architect/SKILL.md"
+  },
+  {
+    "name": "technical-writing-pro",
+    "category": "productivity",
+    "description": "Use when refining technical copy, creating processes, and crafting goal-oriented documents.",
+    "author": "",
+    "version": "",
+    "path": "productivity/technical-writing-pro/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/technical-writing-pro/SKILL.md"
+  },
+  {
+    "name": "tenny-search",
+    "category": "productivity",
+    "description": "Use when saving apartment listing links and parsing them into organized CSV format. Structures real estate data for comparison.",
+    "author": "",
+    "version": "",
+    "path": "productivity/tenny-search/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/tenny-search/SKILL.md"
+  },
+  {
+    "name": "theory-formulation-assistant",
+    "category": "productivity",
+    "description": "Use when assisting in theory formulation using the nx framework where x=known and n=unknown possibilities.",
+    "author": "",
+    "version": "",
+    "path": "productivity/theory-formulation-assistant/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/theory-formulation-assistant/SKILL.md"
+  },
+  {
+    "name": "uney-illinois-unemployment",
+    "category": "productivity",
+    "description": "Use when guiding users through Illinois unemployment insurance. Expert on IDES claims, benefits, eligibility, appeals, and Illinois-specific unemployment procedures.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "productivity/uney-illinois-unemployment/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/uney-illinois-unemployment/SKILL.md"
+  },
+  {
+    "name": "unleash-sales-greatness",
+    "category": "productivity",
+    "description": "Use when providing practical, empathetic sales training and growth strategies. Powered by unleashyoursalesgreatness.com methodology.",
+    "author": "",
+    "version": "",
+    "path": "productivity/unleash-sales-greatness/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/unleash-sales-greatness/SKILL.md"
+  },
+  {
+    "name": "unstuck-master-plan",
+    "category": "productivity",
+    "description": "Use when providing conversational AI coaching through the Power Assessment framework. Guides users step-by-step through personal development and getting unstuck.",
+    "author": "",
+    "version": "",
+    "path": "productivity/unstuck-master-plan/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/unstuck-master-plan/SKILL.md"
+  },
+  {
+    "name": "use-case-architect",
+    "category": "productivity",
+    "description": "Use when defining and structuring AI/automation use cases. Identifies high-value applications, scopes requirements, and prioritizes implementation order.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "productivity/use-case-architect/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/use-case-architect/SKILL.md"
+  },
+  {
+    "name": "value-proposition-architect",
+    "category": "productivity",
+    "description": "Use when crafting value propositions, USPs, and positioning statements tailored to product, audience, and GTM strategy.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "productivity/value-proposition-architect/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/value-proposition-architect/SKILL.md"
+  },
+  {
+    "name": "wealthmind-ai",
+    "category": "productivity",
+    "description": "Use when providing personal budget tracking and financial guidance. Consolidates WealthMind AI, AlgoVest, and Munger Inspired Investing Pro.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "productivity/wealthmind-ai/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/productivity/wealthmind-ai/SKILL.md"
+  },
+  {
+    "name": "arxiv",
+    "category": "research",
+    "description": "Search arXiv papers by keyword, author, category, or ID.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "research/arxiv/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/research/arxiv/SKILL.md"
+  },
+  {
+    "name": "blogwatcher",
+    "category": "research",
+    "description": "Monitor blogs and RSS/Atom feeds via blogwatcher-cli tool.",
+    "author": "JulienTant (fork of Hyaxia/blogwatcher)",
+    "version": "2.0.0",
+    "path": "research/blogwatcher/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/research/blogwatcher/SKILL.md"
+  },
+  {
+    "name": "llm-wiki",
+    "category": "research",
+    "description": "Karpathy's LLM Wiki: build/query interlinked markdown KB.",
+    "author": "Hermes Agent",
+    "version": "2.1.0",
+    "path": "research/llm-wiki/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/research/llm-wiki/SKILL.md"
+  },
+  {
+    "name": "polymarket",
+    "category": "research",
+    "description": "Query Polymarket: markets, prices, orderbooks, history.",
+    "author": "Hermes Agent + Teknium",
+    "version": "1.0.0",
+    "path": "research/polymarket/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/research/polymarket/SKILL.md"
+  },
+  {
+    "name": "research-paper-writing",
+    "category": "research",
+    "description": "Write ML papers for NeurIPS/ICML/ICLR: design\u2192submit.",
+    "author": "Orchestra Research",
+    "version": "1.1.0",
+    "path": "research/research-paper-writing/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/research/research-paper-writing/SKILL.md"
+  },
+  {
+    "name": "openhue",
+    "category": "smart-home",
+    "description": "Control Philips Hue lights, scenes, rooms via OpenHue CLI.",
+    "author": "community",
+    "version": "1.0.0",
+    "path": "smart-home/openhue/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/smart-home/openhue/SKILL.md"
+  },
+  {
+    "name": "xurl",
+    "category": "social-media",
+    "description": "X/Twitter via xurl CLI: post, search, DM, media, v2 API.",
+    "author": "xdevplatform + openclaw + Hermes Agent",
+    "version": "1.1.1",
+    "path": "social-media/xurl/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/social-media/xurl/SKILL.md"
+  },
+  {
+    "name": "agent-builder-guide",
+    "category": "software-development",
+    "description": "Use when guiding users through building AI agents with SDKs, Restack, MCP, API integration, or platforms like Relevance.ai. Consolidates Agent Builder Guide, FlowBud, and Relevance AI builders.",
+    "author": "",
+    "version": "1.0",
+    "path": "software-development/agent-builder-guide/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/software-development/agent-builder-guide/SKILL.md"
+  },
+  {
+    "name": "algorithm-architect",
+    "category": "software-development",
+    "description": "Use when creating algorithms, code tutorials, and structured programming solutions. Helps design and explain algorithmic approaches.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "software-development/algorithm-architect/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/software-development/algorithm-architect/SKILL.md"
+  },
+  {
+    "name": "api-integration-architect",
+    "category": "software-development",
+    "description": "Use when designing API schemas, building integrations, generating JSON schemas, or deploying API templates for AI assistants. Consolidates API Integration Architect Pro, API Guide, and Funky.",
+    "author": "",
+    "version": "1.0",
+    "path": "software-development/api-integration-architect/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/software-development/api-integration-architect/SKILL.md"
+  },
+  {
+    "name": "artispreneur-platform",
+    "category": "software-development",
+    "description": "Build and maintain the Artispreneur multi-product music business platform \u2014 agent workspaces, pricing, Stripe, AWS, Terraform, and the dark gold design system.",
+    "author": "",
+    "version": "",
+    "path": "software-development/artispreneur-platform/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/software-development/artispreneur-platform/SKILL.md"
+  },
+  {
+    "name": "automation-architect",
+    "category": "software-development",
+    "description": "Use when building custom automations with Make, Zapier, n8n, or Softr. Produces step-by-step blueprints with runbooks and scenario configurations. Consolidates Automation Architect, Sixth Automation, and Business Automation Guide.",
+    "author": "",
+    "version": "1.0",
+    "path": "software-development/automation-architect/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/software-development/automation-architect/SKILL.md"
+  },
+  {
+    "name": "backend-dev",
+    "category": "software-development",
+    "description": "Use when building a backend, REST API, web service, or web app server. Python + FastAPI + SQLAlchemy + pytest. Bootstrap, data layer, routes, testing, deployment \u2014 full lifecycle.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "software-development/backend-dev/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/software-development/backend-dev/SKILL.md"
+  },
+  {
+    "name": "base64-translator",
+    "category": "software-development",
+    "description": "Use when translating between Base64 and English text. Handles encoding/decoding for data interchange.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "software-development/base64-translator/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/software-development/base64-translator/SKILL.md"
+  },
+  {
+    "name": "chatbot-architect",
+    "category": "software-development",
+    "description": "Use when building structured chatbot instructions or configuring no-code chatbot platforms (Voiceflow, etc.). Creates downloadable config files and step-by-step platform guides. Consolidates Chatbot Architect, Chatbot Guide Bot, and Custom UI Chatbot Assistant.",
+    "author": "",
+    "version": "1.0",
+    "path": "software-development/chatbot-architect/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/software-development/chatbot-architect/SKILL.md"
+  },
+  {
+    "name": "code-camp-mentor",
+    "category": "software-development",
+    "description": "Use when providing personalized coding bootcamp tutoring for Python and AI. Acts as a structured programming mentor.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "software-development/code-camp-mentor/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/software-development/code-camp-mentor/SKILL.md"
+  },
+  {
+    "name": "full-stack-copilot",
+    "category": "software-development",
+    "description": "Use when scaffolding React, Tailwind, shadcn/ui components or full-stack apps from prompts. Generates deployment-ready code with modern stack defaults. Consolidates Full Stack Copilot, PlaceCode, and Horizon UI Copilot.",
+    "author": "",
+    "version": "1.0",
+    "path": "software-development/full-stack-copilot/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/software-development/full-stack-copilot/SKILL.md"
+  },
+  {
+    "name": "gpt-builder",
+    "category": "software-development",
+    "description": "Use when designing, building, or refining custom GPTs. Covers system instructions, prompt engineering, optimization, and deployment. Consolidates Custom GPT Builder Guide, Compass GPT Builder, Custom GPT Guide, GPT Project Instructions Builder, GPT Creator Pro, and GPT Configurator.",
+    "author": "",
+    "version": "1.0",
+    "path": "software-development/gpt-builder/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/software-development/gpt-builder/SKILL.md"
+  },
+  {
+    "name": "gpt-license-generator",
+    "category": "software-development",
+    "description": "Use when generating tailored software licenses and terms for GPT-based solutions and AI applications.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "software-development/gpt-license-generator/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/software-development/gpt-license-generator/SKILL.md"
+  },
+  {
+    "name": "hermes-agent-skill-authoring",
+    "category": "software-development",
+    "description": "Author in-repo SKILL.md: frontmatter, validator, structure, and writing-quality principles.",
+    "author": "Hermes Agent",
+    "version": "1.1.0",
+    "path": "software-development/hermes-agent-skill-authoring/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/software-development/hermes-agent-skill-authoring/SKILL.md"
+  },
+  {
+    "name": "hermes-dependencies",
+    "category": "software-development",
+    "description": "Install and manage Python packages in the Hermes Agent virtual environment. Covers uv pip workflows, namespace-conflict recovery, disk space cleanup, and common packaging pitfalls.",
+    "author": "",
+    "version": "1.0.0",
+    "path": "software-development/hermes-dependencies/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/software-development/hermes-dependencies/SKILL.md"
+  },
+  {
+    "name": "highly-suggested-prompts",
+    "category": "software-development",
+    "description": "Use when refining prompts with precision for optimal AI performance and clarity. Expert prompt optimization and enhancement.",
+    "author": "",
+    "version": "",
+    "path": "software-development/highly-suggested-prompts/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/software-development/highly-suggested-prompts/SKILL.md"
+  },
+  {
+    "name": "instruction-architect",
+    "category": "software-development",
+    "description": "Use when designing elite, production-grade system instructions for AI agents, assistants, and GPTs. Sets the gold standard for AI system instruction design with structured methodologies.",
+    "author": "",
+    "version": "1.0",
+    "path": "software-development/instruction-architect/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/software-development/instruction-architect/SKILL.md"
+  },
+  {
+    "name": "jsonl-converter",
+    "category": "software-development",
+    "description": "Use when converting uploaded documents to .jsonl format for AI training, fine-tuning, or data processing pipelines.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "software-development/jsonl-converter/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/software-development/jsonl-converter/SKILL.md"
+  },
+  {
+    "name": "mass-skill-creation",
+    "category": "software-development",
+    "description": "Use when converting a catalog, portfolio, or spreadsheet of items into Hermes Agent skills in bulk (>20 items). Covers the batch-delegation pattern, consolidation principles, and straggler cleanup.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "software-development/mass-skill-creation/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/software-development/mass-skill-creation/SKILL.md"
+  },
+  {
+    "name": "node-inspect-debugger",
+    "category": "software-development",
+    "description": "Debug Node.js via --inspect + Chrome DevTools Protocol CLI.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "software-development/node-inspect-debugger/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/software-development/node-inspect-debugger/SKILL.md"
+  },
+  {
+    "name": "plan",
+    "category": "software-development",
+    "description": "Plan mode: write an actionable markdown plan to .hermes/plans/, no execution. Bite-sized tasks, exact paths, complete code.",
+    "author": "Hermes Agent (writing-craft adapted from obra/superpowers)",
+    "version": "2.0.0",
+    "path": "software-development/plan/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/software-development/plan/SKILL.md"
+  },
+  {
+    "name": "prd-builder",
+    "category": "software-development",
+    "description": "Use when generating Product Requirements Documents, project instructions, and custom development resources. Transforms ideas into structured, actionable PRDs.",
+    "author": "",
+    "version": "1.0",
+    "path": "software-development/prd-builder/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/software-development/prd-builder/SKILL.md"
+  },
+  {
+    "name": "predeploy-qa-team",
+    "category": "software-development",
+    "description": "Use when predeploy/go-no-go/ready to ship. ROSTR UI+backend+integrity QA team; blocks on P0/P1.",
+    "author": "ROSTR Agent Builder",
+    "version": "1.0.0",
+    "path": "software-development/predeploy-qa-team/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/software-development/predeploy-qa-team/SKILL.md"
+  },
+  {
+    "name": "project-structure-architect",
+    "category": "software-development",
+    "description": "Use when generating dynamic project structures from PRDs or app ideas. Produces folder hierarchies, component maps, page specs, and site maps for code/design handoff. Consolidates Project Structure Architect and Site Mapper.",
+    "author": "",
+    "version": "1.0",
+    "path": "software-development/project-structure-architect/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/software-development/project-structure-architect/SKILL.md"
+  },
+  {
+    "name": "prompt-builder-architect",
+    "category": "software-development",
+    "description": "Use when breaking down app ideas into modular prompts for v0.dev, Cursor, Replit, and lovable.dev. Creates prompt sets covering UI, backend, and deploy flows tailored by plan tier. Consolidates PromptBuilder Architect V1/V2, Replit Builder, and v0.dev Full Stack App Builder.",
+    "author": "",
+    "version": "1.0",
+    "path": "software-development/prompt-builder-architect/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/software-development/prompt-builder-architect/SKILL.md"
+  },
+  {
+    "name": "python-debugpy",
+    "category": "software-development",
+    "description": "Debug Python: pdb REPL + debugpy remote (DAP).",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "software-development/python-debugpy/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/software-development/python-debugpy/SKILL.md"
+  },
+  {
+    "name": "rag-dal",
+    "category": "software-development",
+    "description": "Use when building autonomous knowledge bases for Retrieval-Augmented Generation. Implements dynamic acquisition layer (DAL) for RAG systems.",
+    "author": "",
+    "version": "",
+    "path": "software-development/rag-dal/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/software-development/rag-dal/SKILL.md"
+  },
+  {
+    "name": "requesting-code-review",
+    "category": "software-development",
+    "description": "Pre-commit review: security scan, quality gates, auto-fix.",
+    "author": "Hermes Agent (adapted from obra/superpowers + MorAlekss)",
+    "version": "2.0.0",
+    "path": "software-development/requesting-code-review/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/software-development/requesting-code-review/SKILL.md"
+  },
+  {
+    "name": "script-craft",
+    "category": "software-development",
+    "description": "Use when crafting assistant scripts, action scripts, and function schemas for GPTs and AI agents. Consolidates ScriptCraft and Script Savvy.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "software-development/script-craft/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/software-development/script-craft/SKILL.md"
+  },
+  {
+    "name": "simplify-code",
+    "category": "software-development",
+    "description": "Parallel 3-agent cleanup of recent code changes.",
+    "author": "Hermes Agent (inspired by Claude Code /simplify)",
+    "version": "1.0.0",
+    "path": "software-development/simplify-code/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/software-development/simplify-code/SKILL.md"
+  },
+  {
+    "name": "site-mapper",
+    "category": "software-development",
+    "description": "Use when converting app ideas into site maps, page specifications, and prompts for code/design tools. Plans web application structure.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "software-development/site-mapper/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/software-development/site-mapper/SKILL.md"
+  },
+  {
+    "name": "skill-packaging-distribution",
+    "category": "software-development",
+    "description": "Use when packaging Hermes Agent skills into distributable GitHub packages with tiered pricing, installation scripts, and verification workflows. Covers portfolio\u2192package transformation, GitHub CLI integration, and release management.",
+    "author": "Patrick Diamitani",
+    "version": "1.0.0",
+    "path": "software-development/skill-packaging-distribution/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/software-development/skill-packaging-distribution/SKILL.md"
+  },
+  {
+    "name": "spike",
+    "category": "software-development",
+    "description": "Throwaway experiments to validate an idea before build.",
+    "author": "Hermes Agent (adapted from gsd-build/get-shit-done)",
+    "version": "1.0.0",
+    "path": "software-development/spike/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/software-development/spike/SKILL.md"
+  },
+  {
+    "name": "static-site-qa",
+    "category": "software-development",
+    "description": "Post-deploy QA verification loop for static HTML sites. Verify every page returns 200 OK, nav links are consistent across all pages, internal links resolve, and key content markers are present. Use after every deploy before claiming done.",
+    "author": "",
+    "version": "",
+    "path": "software-development/static-site-qa/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/software-development/static-site-qa/SKILL.md"
+  },
+  {
+    "name": "systematic-debugging",
+    "category": "software-development",
+    "description": "4-phase root cause debugging: understand bugs before fixing.",
+    "author": "Hermes Agent (adapted from obra/superpowers)",
+    "version": "1.1.0",
+    "path": "software-development/systematic-debugging/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/software-development/systematic-debugging/SKILL.md"
+  },
+  {
+    "name": "test-driven-development",
+    "category": "software-development",
+    "description": "TDD: enforce RED-GREEN-REFACTOR, tests before code.",
+    "author": "Hermes Agent (adapted from obra/superpowers)",
+    "version": "1.1.0",
+    "path": "software-development/test-driven-development/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/software-development/test-driven-development/SKILL.md"
+  },
+  {
+    "name": "textvi",
+    "category": "software-development",
+    "description": "Use when converting uploaded text into video content. Transforms written content into video scripts and production plans.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "software-development/textvi/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/software-development/textvi/SKILL.md"
+  },
+  {
+    "name": "the-tie-breaker",
+    "category": "software-development",
+    "description": "Use when building futuristic voting platforms driven by AI and blockchain for smart governance. Designs decentralized decision systems.",
+    "author": "",
+    "version": "",
+    "path": "software-development/the-tie-breaker/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/software-development/the-tie-breaker/SKILL.md"
+  },
+  {
+    "name": "web-scraping-assistant",
+    "category": "software-development",
+    "description": "Use when helping build and use web scrapers, particularly on the Apify platform. Guides scraper construction and data extraction workflows.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "software-development/web-scraping-assistant/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/software-development/web-scraping-assistant/SKILL.md"
+  },
+  {
+    "name": "wordpress-assistant",
+    "category": "software-development",
+    "description": "Use when assisting with WordPress development, configuration, and troubleshooting. Handles themes, plugins, and site management.",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "software-development/wordpress-assistant/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/software-development/wordpress-assistant/SKILL.md"
+  },
+  {
+    "name": "hyperframes-voiceover",
+    "category": "video",
+    "description": ">",
+    "author": "",
+    "version": "",
+    "path": "video/hyperframes-voiceover/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/video/hyperframes-voiceover/SKILL.md"
+  },
+  {
+    "name": "artispreneur-ecosystem",
+    "category": "web-development",
+    "description": "Build and deploy Artispreneur-branded sites (landing, academy, directory) using the shared dark luxury design system. Covers the design DNA, deployment flow, cross-linking, and adding new sites.",
+    "author": "",
+    "version": "",
+    "path": "web-development/artispreneur-ecosystem/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/web-development/artispreneur-ecosystem/SKILL.md"
+  },
+  {
+    "name": "landing-page-build",
+    "category": "web-development",
+    "description": "Brand-driven landing page construction with design system extraction and single-file HTML",
+    "author": "Hermes Agent",
+    "version": "1.0.0",
+    "path": "web-development/landing-page-build/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/web-development/landing-page-build/SKILL.md"
+  },
+  {
+    "name": "modular-react-framework",
+    "category": "web-development",
+    "description": "Scaffold and build modular React+TypeScript dashboards, directories, and data tools. Layered architecture (core\u2192data\u2192features\u2192ui), Zod validation pipelines, taste-skill dial adaptation for data-dense UIs, Vite+Tailwind v4 setup, and Fuse.js search integration. Use for any data-rich React application",
+    "author": "",
+    "version": "1.0.0",
+    "path": "web-development/modular-react-framework/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/web-development/modular-react-framework/SKILL.md"
+  },
+  {
+    "name": "nextjs-app-router",
+    "category": "web-development",
+    "description": "Build, debug, and deploy Next.js 14+ App Router applications. Covers SSG pitfalls, Link+event handler patterns, static generation timeouts, and production-readiness gaps.",
+    "author": "",
+    "version": "1.1.0",
+    "path": "web-development/nextjs-app-router/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/web-development/nextjs-app-router/SKILL.md"
+  },
+  {
+    "name": "saas-platform-builder",
+    "category": "web-development",
+    "description": "Build full SaaS platforms: marketing site + auth-gated app + backend API + Stripe payments. Next.js 15 monorepo pattern with FastAPI backend, JWT auth, Vercel deployment.",
+    "author": "",
+    "version": "1.0.0",
+    "path": "web-development/saas-platform-builder/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/web-development/saas-platform-builder/SKILL.md"
+  },
+  {
+    "name": "shadcn-app-design",
+    "category": "web-development",
+    "description": "Build clean, minimal tool/utility/dashboard UIs using the shadcn/ui dark aesthetic (21st.dev style). Use when the brief is a tool, app, utility, or dashboard \u2014 NOT a landing page or marketing site.",
+    "author": "",
+    "version": "",
+    "path": "web-development/shadcn-app-design/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/web-development/shadcn-app-design/SKILL.md"
+  },
+  {
+    "name": "yuanbao",
+    "category": "yuanbao",
+    "description": "Yuanbao (\u5143\u5b9d) groups: @mention users, query info/members.",
+    "author": "",
+    "version": "1.0.0",
+    "path": "yuanbao/SKILL.md",
+    "full_path": "/Users/patmini/.hermes/skills/yuanbao/SKILL.md"
+  }
+]
