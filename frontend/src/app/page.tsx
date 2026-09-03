@@ -20,9 +20,14 @@ import {
   Github,
   Zap,
   MessageSquare,
+  Home as HomeIcon,
+  Sliders,
+  Database,
+  ArrowRight,
 } from "lucide-react";
 import { compilePALIntent, PALCompilation } from "@/lib/pal/compiler";
 import { SUB_AGENTS_REGISTRY } from "@/lib/pal/subagents";
+import { HomeOverview } from "@/components/home-overview";
 import { PALInspector } from "@/components/pal-inspector";
 import { VideoShowcase } from "@/components/video-showcase";
 import { SandboxConsole } from "@/components/sandbox-console";
@@ -41,10 +46,10 @@ interface ChatMessage {
   pal?: PALCompilation;
 }
 
-type TabType = "chat" | "studio" | "video" | "pal" | "sandbox" | "evals";
+type TabType = "home" | "chat" | "studio" | "video" | "pal" | "sandbox" | "evals";
 
 export default function HomePage() {
-  const [activeTab, setActiveTab] = useState<TabType>("chat");
+  const [activeTab, setActiveTab] = useState<TabType>("home");
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -184,6 +189,8 @@ export default function HomePage() {
   };
 
   const quickStarters = [
+    "Build a landing page for my EP with modern audio player",
+    "Design a multi-channel marketing campaign and fan funnel",
     "Scaffold a Next.js 15 App Router landing page with Stripe pricing table",
     "Research AWS Bedrock AgentCore multi-agent memory latency",
     "Deploy full-stack Vercel harness with CI/CD gates",
@@ -195,7 +202,7 @@ export default function HomePage() {
       {/* Signature ROSTR Header */}
       <header className="h-16 border-b border-slate-200 bg-white/90 backdrop-blur-xl px-4 md:px-6 flex items-center justify-between sticky top-0 z-40 shadow-xs">
         {/* Brand Lockup */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 cursor-pointer" onClick={() => setActiveTab("home")}>
           <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-cyan-600 via-blue-600 to-indigo-600 flex items-center justify-center text-white shadow-md shadow-cyan-600/20">
             <Sparkles className="w-4 h-4" />
           </div>
@@ -203,17 +210,29 @@ export default function HomePage() {
             <div className="flex items-center gap-2">
               <span className="text-base font-extrabold text-slate-900 tracking-tight">ROSTR</span>
               <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-cyan-50 text-cyan-700 border border-cyan-200 font-semibold">
-                Vercel Tech Stack
+                PAL · NPAO · RAG-DAL · Hub
               </span>
             </div>
             <div className="text-[11px] text-slate-500 hidden sm:block">
-              DI-CTO Governed Multi-Agent Harness
+              DI-CTO Governed Multi-Agent Platform
             </div>
           </div>
         </div>
 
         {/* Navigation Tabs */}
         <nav className="hidden lg:flex items-center gap-1 bg-slate-100 p-1 rounded-xl border border-slate-200">
+          <button
+            onClick={() => setActiveTab("home")}
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+              activeTab === "home"
+                ? "bg-white text-slate-900 shadow-xs font-bold border border-slate-200/60"
+                : "text-slate-600 hover:text-slate-900"
+            }`}
+          >
+            <HomeIcon className="w-3.5 h-3.5" />
+            <span>Overview</span>
+          </button>
+
           <button
             onClick={() => setActiveTab("chat")}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
@@ -362,6 +381,14 @@ export default function HomePage() {
       {/* Mobile Navigation Tabs */}
       <div className="lg:hidden flex items-center gap-1 bg-white p-2 border-b border-slate-200 overflow-x-auto">
         <button
+          onClick={() => setActiveTab("home")}
+          className={`px-3 py-1 rounded-lg text-xs font-semibold shrink-0 ${
+            activeTab === "home" ? "bg-slate-900 text-white" : "text-slate-600"
+          }`}
+        >
+          Overview
+        </button>
+        <button
           onClick={() => setActiveTab("chat")}
           className={`px-3 py-1 rounded-lg text-xs font-semibold shrink-0 ${
             activeTab === "chat" ? "bg-cyan-600 text-white" : "text-slate-600"
@@ -375,7 +402,7 @@ export default function HomePage() {
             activeTab === "studio" ? "bg-emerald-600 text-white" : "text-slate-600"
           }`}
         >
-          Runtime Studio
+          Studio
         </button>
         <button
           onClick={() => setActiveTab("video")}
@@ -383,7 +410,7 @@ export default function HomePage() {
             activeTab === "video" ? "bg-red-600 text-white" : "text-slate-600"
           }`}
         >
-          YouTube Demo
+          Demo Video
         </button>
         <button
           onClick={() => setActiveTab("pal")}
@@ -399,20 +426,19 @@ export default function HomePage() {
             activeTab === "sandbox" ? "bg-amber-600 text-white" : "text-slate-600"
           }`}
         >
-          Code Sandbox
-        </button>
-        <button
-          onClick={() => setActiveTab("evals")}
-          className={`px-3 py-1 rounded-lg text-xs font-semibold shrink-0 ${
-            activeTab === "evals" ? "bg-indigo-600 text-white" : "text-slate-600"
-          }`}
-        >
-          Evals & Gateway
+          Sandbox
         </button>
       </div>
 
       {/* Main Content Area */}
       <main className="flex-1 max-w-7xl w-full mx-auto p-4 md:p-6 flex flex-col min-h-0">
+        {activeTab === "home" && (
+          <HomeOverview
+            onOpenAgent={(p) => handleSelectPrompt(p || "")}
+            onNavigateTab={(t) => setActiveTab(t as TabType)}
+          />
+        )}
+
         {activeTab === "chat" && (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 flex-1 min-h-0">
             {/* Left 8-Columns: Main Agent Console */}
