@@ -7,7 +7,6 @@ import {
   PlayCircle,
   Layers,
   Users,
-  FileText,
   Terminal,
   ShieldCheck,
   CheckCircle2,
@@ -15,9 +14,10 @@ import {
   Youtube,
   Cpu,
   Database,
-  GitBranch,
   Sliders,
-  Code2,
+  Map,
+  Activity,
+  Zap,
 } from "lucide-react";
 
 interface HomeOverviewProps {
@@ -42,24 +42,59 @@ export function HomeOverview({ onOpenAgent, onNavigateTab }: HomeOverviewProps) 
       title: "1. PAL (Prompt Abstraction Layer)",
       desc: "Deterministic 5-stage compiler: Intent Decomposition, Soul Governance, NPAO Weighting, Approval Gate Check, and State Vector Write.",
       tag: "Deterministic Synthesis",
+      tab: "pal",
     },
     {
       icon: <Database className="w-5 h-5 text-indigo-600" />,
       title: "2. RAG-DAL (Dynamic Acquisition)",
       desc: "Semantic episodic memory persistence across 'rostr_decisions' and 'rostr_learnings' with zero hallucination rate.",
       tag: "Memory Compounding",
+      tab: "studio",
     },
     {
       icon: <Sliders className="w-5 h-5 text-purple-600" />,
       title: "3. NPAO (Dynamic 4D Scoring)",
       desc: "Mathematical prioritization: (Phase × 0.35) + (Dependency × 0.30) + (Business × 0.25) + (Resource × 0.10).",
       tag: "Prioritization Engine",
+      tab: "pal",
     },
     {
       icon: <Users className="w-5 h-5 text-emerald-600" />,
       title: "4. 9 Specialist Sub-Agents",
       desc: "Orchestration across Product Architect, Application Engineer, JTBD Planner, Experience Engineer, and Security Reviewers.",
       tag: "Autonomous Roster",
+      tab: "agency",
+    },
+  ];
+
+  const quickNavCards = [
+    {
+      title: "Governed Agent Console",
+      desc: "2-column streaming chat with live PAL compilation telemetry & sub-agent trace.",
+      icon: <Zap className="w-5 h-5 text-amber-500" />,
+      tab: "chat",
+      color: "border-amber-200 hover:border-amber-400 bg-amber-50/20",
+    },
+    {
+      title: "9 Specialist AI Managers",
+      desc: "Autonomous roster covering Product, Engineering, Music Legal/Royalty, Tour, and GTM.",
+      icon: <Users className="w-5 h-5 text-purple-600" />,
+      tab: "agency",
+      color: "border-purple-200 hover:border-purple-400 bg-purple-50/20",
+    },
+    {
+      title: "5-Stage Runtime Studio",
+      desc: "Live interactive execution pipeline & episodic vector memory query inspector.",
+      icon: <Cpu className="w-5 h-5 text-emerald-600" />,
+      tab: "studio",
+      color: "border-emerald-200 hover:border-emerald-400 bg-emerald-50/20",
+    },
+    {
+      title: "Code Sandbox & EVE Evals",
+      desc: "Browser-isolated JS/TS/Python runtime with 10 automated test suites.",
+      icon: <Terminal className="w-5 h-5 text-indigo-600" />,
+      tab: "sandbox",
+      color: "border-indigo-200 hover:border-indigo-400 bg-indigo-50/20",
     },
   ];
 
@@ -116,13 +151,46 @@ export function HomeOverview({ onOpenAgent, onNavigateTab }: HomeOverviewProps) 
           </button>
 
           <button
+            onClick={() => onNavigateTab("agency")}
+            className="px-6 py-3 rounded-xl bg-white hover:bg-purple-50 border border-slate-200 hover:border-purple-300 text-slate-700 hover:text-purple-700 font-semibold text-sm shadow-xs flex items-center gap-2 transition-all cursor-pointer"
+          >
+            <Users className="w-4 h-4 text-purple-600" />
+            <span>9 Specialist AI Managers</span>
+          </button>
+
+          <button
             onClick={() => onNavigateTab("pal")}
             className="px-6 py-3 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 font-semibold text-sm shadow-xs flex items-center gap-2 transition-all cursor-pointer"
           >
             <PlayCircle className="w-4 h-4 text-cyan-600" />
-            <span>Explore PAL Architecture</span>
+            <span>PAL Architecture</span>
           </button>
         </div>
+      </section>
+
+      {/* Quick Nav IA Grid */}
+      <section className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {quickNavCards.map((card, idx) => (
+          <div
+            key={idx}
+            onClick={() => onNavigateTab(card.tab)}
+            className={`p-4 rounded-xl bg-white border ${card.color} shadow-xs hover:shadow-md transition-all cursor-pointer flex flex-col justify-between group`}
+          >
+            <div>
+              <div className="flex items-center justify-between mb-2">
+                <div className="p-2 rounded-lg bg-slate-50 border border-slate-100 group-hover:scale-105 transition-transform">
+                  {card.icon}
+                </div>
+                <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-slate-900 group-hover:translate-x-0.5 transition-all" />
+              </div>
+              <h4 className="text-xs font-bold text-slate-900 mb-1">{card.title}</h4>
+              <p className="text-[11px] text-slate-600 leading-relaxed">{card.desc}</p>
+            </div>
+            <div className="pt-2 mt-2 border-t border-slate-100 text-[10px] font-mono text-cyan-700 font-semibold">
+              Explore Module →
+            </div>
+          </div>
+        ))}
       </section>
 
       {/* Featured Hardware Video Showcase Frame */}
@@ -209,17 +277,20 @@ export function HomeOverview({ onOpenAgent, onNavigateTab }: HomeOverviewProps) 
           {pillars.map((pillar, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-white border border-slate-200/80 hover:border-cyan-300 shadow-xs hover:shadow-md transition-all space-y-3"
+              onClick={() => onNavigateTab(pillar.tab)}
+              className="p-6 rounded-2xl bg-white border border-slate-200/80 hover:border-cyan-300 shadow-xs hover:shadow-md transition-all space-y-3 cursor-pointer group"
             >
               <div className="flex items-center justify-between">
-                <div className="w-10 h-10 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center group-hover:scale-105 transition-transform">
                   {pillar.icon}
                 </div>
                 <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-cyan-50 text-cyan-700 font-bold border border-cyan-200">
                   {pillar.tag}
                 </span>
               </div>
-              <h3 className="text-base font-bold text-slate-900">{pillar.title}</h3>
+              <h3 className="text-base font-bold text-slate-900 group-hover:text-cyan-700 transition-colors">
+                {pillar.title}
+              </h3>
               <p className="text-xs text-slate-600 leading-relaxed">{pillar.desc}</p>
             </div>
           ))}

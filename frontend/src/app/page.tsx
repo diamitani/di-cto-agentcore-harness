@@ -16,14 +16,9 @@ import {
   Play,
   Key,
   Crown,
-  User as UserIcon,
-  Github,
-  Zap,
+  Users,
   MessageSquare,
-  Home as HomeIcon,
-  Sliders,
-  Database,
-  ArrowRight,
+  Activity,
 } from "lucide-react";
 import { compilePALIntent, PALCompilation } from "@/lib/pal/compiler";
 import { SUB_AGENTS_REGISTRY } from "@/lib/pal/subagents";
@@ -34,6 +29,10 @@ import { SandboxConsole } from "@/components/sandbox-console";
 import { EvalsDashboard } from "@/components/evals-dashboard";
 import { GatewayMonitor } from "@/components/gateway-monitor";
 import { RuntimeStudio } from "@/components/runtime-studio";
+import { AgencyManagers } from "@/components/agency-managers";
+import { NavigationHeader, NavTab } from "@/components/navigation-header";
+import { SitemapModal } from "@/components/sitemap-modal";
+import { PlatformFooter } from "@/components/platform-footer";
 import { AuthModal, UserSession } from "@/components/auth-modal";
 import { PricingModal } from "@/components/pricing-modal";
 import { BYOKModal, BYOKConfig } from "@/components/byok-modal";
@@ -46,10 +45,8 @@ interface ChatMessage {
   pal?: PALCompilation;
 }
 
-type TabType = "home" | "chat" | "studio" | "video" | "pal" | "sandbox" | "evals";
-
 export default function HomePage() {
-  const [activeTab, setActiveTab] = useState<TabType>("home");
+  const [activeTab, setActiveTab] = useState<NavTab>("home");
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -65,6 +62,7 @@ export default function HomePage() {
   const [isAuthOpen, setIsAuthOpen] = useState<boolean>(false);
   const [isPricingOpen, setIsPricingOpen] = useState<boolean>(false);
   const [isBYOKOpen, setIsBYOKOpen] = useState<boolean>(false);
+  const [isSitemapOpen, setIsSitemapOpen] = useState<boolean>(false);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -199,244 +197,37 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#f8fafc] text-slate-900 selection:bg-cyan-500/20 selection:text-cyan-800">
-      {/* Signature ROSTR Header */}
-      <header className="h-16 border-b border-slate-200 bg-white/90 backdrop-blur-xl px-4 md:px-6 flex items-center justify-between sticky top-0 z-40 shadow-xs">
-        {/* Brand Lockup */}
-        <div className="flex items-center gap-3 cursor-pointer" onClick={() => setActiveTab("home")}>
-          <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-cyan-600 via-blue-600 to-indigo-600 flex items-center justify-center text-white shadow-md shadow-cyan-600/20">
-            <Sparkles className="w-4 h-4" />
-          </div>
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="text-base font-extrabold text-slate-900 tracking-tight">ROSTR</span>
-              <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-cyan-50 text-cyan-700 border border-cyan-200 font-semibold">
-                PAL · NPAO · RAG-DAL · Hub
-              </span>
-            </div>
-            <div className="text-[11px] text-slate-500 hidden sm:block">
-              DI-CTO Governed Multi-Agent Platform
-            </div>
-          </div>
-        </div>
-
-        {/* Navigation Tabs */}
-        <nav className="hidden lg:flex items-center gap-1 bg-slate-100 p-1 rounded-xl border border-slate-200">
-          <button
-            onClick={() => setActiveTab("home")}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
-              activeTab === "home"
-                ? "bg-white text-slate-900 shadow-xs font-bold border border-slate-200/60"
-                : "text-slate-600 hover:text-slate-900"
-            }`}
-          >
-            <HomeIcon className="w-3.5 h-3.5" />
-            <span>Overview</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab("chat")}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
-              activeTab === "chat"
-                ? "bg-white text-cyan-700 shadow-xs font-bold border border-slate-200/60"
-                : "text-slate-600 hover:text-slate-900"
-            }`}
-          >
-            <MessageSquare className="w-3.5 h-3.5 text-cyan-600" />
-            <span>Agent Console</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab("studio")}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
-              activeTab === "studio"
-                ? "bg-white text-emerald-700 shadow-xs font-bold border border-slate-200/60"
-                : "text-slate-600 hover:text-slate-900"
-            }`}
-          >
-            <Cpu className="w-3.5 h-3.5 text-emerald-600" />
-            <span>Runtime Studio</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab("video")}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
-              activeTab === "video"
-                ? "bg-white text-red-700 shadow-xs font-bold border border-slate-200/60"
-                : "text-slate-600 hover:text-slate-900"
-            }`}
-          >
-            <Youtube className="w-3.5 h-3.5 text-red-600" />
-            <span>YouTube Showcase</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab("pal")}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
-              activeTab === "pal"
-                ? "bg-white text-purple-700 shadow-xs font-bold border border-slate-200/60"
-                : "text-slate-600 hover:text-slate-900"
-            }`}
-          >
-            <Layers className="w-3.5 h-3.5 text-purple-600" />
-            <span>PAL & NPAO</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab("sandbox")}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
-              activeTab === "sandbox"
-                ? "bg-white text-amber-700 shadow-xs font-bold border border-slate-200/60"
-                : "text-slate-600 hover:text-slate-900"
-            }`}
-          >
-            <Terminal className="w-3.5 h-3.5 text-amber-600" />
-            <span>Code Sandbox</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab("evals")}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
-              activeTab === "evals"
-                ? "bg-white text-indigo-700 shadow-xs font-bold border border-slate-200/60"
-                : "text-slate-600 hover:text-slate-900"
-            }`}
-          >
-            <ShieldCheck className="w-3.5 h-3.5 text-indigo-600" />
-            <span>EVE Evals & Gateway</span>
-          </button>
-        </nav>
-
-        {/* Right Header Actions */}
-        <div className="flex items-center gap-2.5">
-          {/* Model Selector */}
-          <div className="hidden xl:flex items-center gap-2 bg-slate-50 px-2.5 py-1 rounded-lg border border-slate-200 text-xs">
-            <span className="text-slate-500 text-[10px] font-mono uppercase">Model:</span>
-            <select
-              value={selectedModel}
-              onChange={(e) => setSelectedModel(e.target.value)}
-              aria-label="Select AI Model"
-              className="bg-transparent text-cyan-700 text-xs font-semibold font-mono focus:outline-none cursor-pointer"
-            >
-              <option value="us.anthropic.claude-sonnet-4-6-v1:0" className="bg-white text-slate-900">
-                Claude Sonnet 4.6 (Bedrock)
-              </option>
-              <option value="claude-3-5-sonnet-20241022" className="bg-white text-slate-900">
-                Claude 3.5 Sonnet (Direct)
-              </option>
-              <option value="gpt-4o" className="bg-white text-slate-900">
-                GPT-4o (OpenAI)
-              </option>
-            </select>
-          </div>
-
-          {/* BYOK Button */}
-          <button
-            onClick={() => setIsBYOKOpen(true)}
-            className="px-2.5 py-1.5 rounded-lg bg-white border border-slate-200 hover:border-amber-400 text-xs text-slate-700 hover:text-amber-700 flex items-center gap-1.5 transition-all cursor-pointer shadow-2xs"
-          >
-            <Key className="w-3.5 h-3.5 text-amber-500" />
-            <span className="hidden sm:inline font-medium">BYOK</span>
-          </button>
-
-          {/* Pricing / Pro Button */}
-          <button
-            onClick={() => setIsPricingOpen(true)}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer shadow-xs ${
-              userSession?.tier === "pro"
-                ? "bg-purple-50 text-purple-700 border border-purple-200"
-                : "bg-gradient-to-r from-purple-600 via-indigo-600 to-cyan-600 hover:from-purple-500 hover:to-cyan-500 text-white shadow-md shadow-purple-600/20"
-            }`}
-          >
-            <Crown className="w-3.5 h-3.5 text-amber-300" />
-            <span>{userSession?.tier === "pro" ? "Pro Plan ($19.99)" : "Upgrade ($19.99)"}</span>
-          </button>
-
-          {/* OAuth / User Profile Button */}
-          {userSession ? (
-            <button
-              onClick={() => setIsAuthOpen(true)}
-              className="flex items-center gap-2 p-1 pl-2 pr-3 rounded-xl bg-white border border-slate-200 text-xs text-slate-800 hover:border-cyan-500 transition-all cursor-pointer shadow-2xs"
-            >
-              {userSession.provider === "github" ? (
-                <Github className="w-3.5 h-3.5 text-slate-900" />
-              ) : (
-                <div className="w-5 h-5 rounded-full bg-cyan-600 flex items-center justify-center text-[10px] font-bold text-white">
-                  {userSession.name[0]?.toUpperCase() || "U"}
-                </div>
-              )}
-              <span className="font-semibold max-w-[80px] truncate">{userSession.name}</span>
-            </button>
-          ) : (
-            <button
-              onClick={() => setIsAuthOpen(true)}
-              className="px-3.5 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-800 text-xs font-semibold text-white transition-all cursor-pointer flex items-center gap-1.5 shadow-xs"
-            >
-              <Github className="w-3.5 h-3.5" />
-              <span>Sign In with OAuth</span>
-            </button>
-          )}
-        </div>
-      </header>
-
-      {/* Mobile Navigation Tabs */}
-      <div className="lg:hidden flex items-center gap-1 bg-white p-2 border-b border-slate-200 overflow-x-auto">
-        <button
-          onClick={() => setActiveTab("home")}
-          className={`px-3 py-1 rounded-lg text-xs font-semibold shrink-0 ${
-            activeTab === "home" ? "bg-slate-900 text-white" : "text-slate-600"
-          }`}
-        >
-          Overview
-        </button>
-        <button
-          onClick={() => setActiveTab("chat")}
-          className={`px-3 py-1 rounded-lg text-xs font-semibold shrink-0 ${
-            activeTab === "chat" ? "bg-cyan-600 text-white" : "text-slate-600"
-          }`}
-        >
-          Agent Console
-        </button>
-        <button
-          onClick={() => setActiveTab("studio")}
-          className={`px-3 py-1 rounded-lg text-xs font-semibold shrink-0 ${
-            activeTab === "studio" ? "bg-emerald-600 text-white" : "text-slate-600"
-          }`}
-        >
-          Studio
-        </button>
-        <button
-          onClick={() => setActiveTab("video")}
-          className={`px-3 py-1 rounded-lg text-xs font-semibold shrink-0 ${
-            activeTab === "video" ? "bg-red-600 text-white" : "text-slate-600"
-          }`}
-        >
-          Demo Video
-        </button>
-        <button
-          onClick={() => setActiveTab("pal")}
-          className={`px-3 py-1 rounded-lg text-xs font-semibold shrink-0 ${
-            activeTab === "pal" ? "bg-purple-600 text-white" : "text-slate-600"
-          }`}
-        >
-          PAL & NPAO
-        </button>
-        <button
-          onClick={() => setActiveTab("sandbox")}
-          className={`px-3 py-1 rounded-lg text-xs font-semibold shrink-0 ${
-            activeTab === "sandbox" ? "bg-amber-600 text-white" : "text-slate-600"
-          }`}
-        >
-          Sandbox
-        </button>
-      </div>
+      {/* Redesigned Navigation Header with Clear IA */}
+      <NavigationHeader
+        activeTab={activeTab}
+        onSelectTab={(tab) => setActiveTab(tab)}
+        selectedModel={selectedModel}
+        onSelectModel={setSelectedModel}
+        userSession={userSession}
+        byokConfig={byokConfig}
+        onOpenAuth={() => setIsAuthOpen(true)}
+        onOpenPricing={() => setIsPricingOpen(true)}
+        onOpenBYOK={() => setIsBYOKOpen(true)}
+        onOpenSitemap={() => setIsSitemapOpen(true)}
+      />
 
       {/* Main Content Area */}
       <main className="flex-1 max-w-7xl w-full mx-auto p-4 md:p-6 flex flex-col min-h-0">
         {activeTab === "home" && (
           <HomeOverview
             onOpenAgent={(p) => handleSelectPrompt(p || "")}
-            onNavigateTab={(t) => setActiveTab(t as TabType)}
+            onNavigateTab={(t) => setActiveTab(t as NavTab)}
           />
+        )}
+
+        {activeTab === "agency" && (
+          <AgencyManagers
+            onSelectAgent={(agentId, prompt) => handleSelectPrompt(prompt || "")}
+          />
+        )}
+
+        {activeTab === "video" && (
+          <VideoShowcase onSelectPrompt={handleSelectPrompt} />
         )}
 
         {activeTab === "chat" && (
@@ -677,15 +468,24 @@ export default function HomePage() {
 
               {/* Sub-Agents Quick Status */}
               <div className="glass-panel p-4 flex-1 bg-white border border-slate-200">
-                <div className="text-xs font-bold text-slate-900 mb-2 flex items-center gap-2">
-                  <Cpu className="w-4 h-4 text-blue-600" />
-                  Specialist Sub-Agents Registry (9)
+                <div className="flex items-center justify-between mb-2">
+                  <div className="text-xs font-bold text-slate-900 flex items-center gap-2">
+                    <Cpu className="w-4 h-4 text-blue-600" />
+                    Specialist Sub-Agents (9)
+                  </div>
+                  <button
+                    onClick={() => setActiveTab("agency")}
+                    className="text-[10px] text-indigo-600 font-semibold hover:underline cursor-pointer"
+                  >
+                    View All →
+                  </button>
                 </div>
                 <div className="space-y-1.5 max-h-[180px] overflow-y-auto pr-1">
                   {SUB_AGENTS_REGISTRY.map((agent) => (
                     <div
                       key={agent.id}
-                      className="p-2 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-between text-[11px]"
+                      onClick={() => setActiveTab("agency")}
+                      className="p-2 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-between text-[11px] cursor-pointer hover:bg-slate-100 transition-colors"
                     >
                       <span className="text-slate-800 font-medium">{agent.name}</span>
                       <span className="text-[10px] font-mono text-slate-500">
@@ -700,18 +500,42 @@ export default function HomePage() {
         )}
 
         {activeTab === "studio" && <RuntimeStudio />}
-        {activeTab === "video" && <VideoShowcase onSelectPrompt={handleSelectPrompt} />}
         {activeTab === "pal" && <PALInspector onDispatchToChat={handleSelectPrompt} />}
         {activeTab === "sandbox" && <SandboxConsole />}
-        {activeTab === "evals" && (
-          <div className="space-y-8">
-            <EvalsDashboard />
-            <GatewayMonitor selectedModel={selectedModel} onSelectModel={setSelectedModel} />
-          </div>
+        {activeTab === "evals" && <EvalsDashboard />}
+        {activeTab === "gateway" && (
+          <GatewayMonitor selectedModel={selectedModel} onSelectModel={setSelectedModel} />
         )}
       </main>
 
+      {/* Full Sitemap Footer */}
+      <PlatformFooter
+        onNavigate={(tab) => setActiveTab(tab)}
+        onOpenSitemap={() => setIsSitemapOpen(true)}
+        onOpenAuth={() => setIsAuthOpen(true)}
+        onOpenPricing={() => setIsPricingOpen(true)}
+        onOpenBYOK={() => setIsBYOKOpen(true)}
+      />
+
       {/* Modals */}
+      <SitemapModal
+        isOpen={isSitemapOpen}
+        onClose={() => setIsSitemapOpen(false)}
+        onNavigate={(tab) => setActiveTab(tab)}
+        onOpenAuth={() => {
+          setIsSitemapOpen(false);
+          setIsAuthOpen(true);
+        }}
+        onOpenPricing={() => {
+          setIsSitemapOpen(false);
+          setIsPricingOpen(true);
+        }}
+        onOpenBYOK={() => {
+          setIsSitemapOpen(false);
+          setIsBYOKOpen(true);
+        }}
+      />
+
       <AuthModal
         isOpen={isAuthOpen}
         onClose={() => setIsAuthOpen(false)}
