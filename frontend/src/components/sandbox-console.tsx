@@ -47,19 +47,28 @@ console.log("TypeScript Strict Sandbox Validation:");
 console.log("Intent Phase:", intent.phase);
 console.log("Priority Score:", intent.priority);
 console.log("Status: 100% Type Safe & Verified.");`,
-    python: `# Vercel Sandbox Python Simulation
-from dataclasses import dataclass
+    python: `# ROSTR Pydantic Deep Runtime Simulation
+# Powered by pydantic-deep (pip install pydantic-deep)
+from typing import List, Optional
+from pydantic import BaseModel, Field
 
-@dataclass
-class PALTask:
-    name: str
-    phase: str
-    priority: float
+class PALIntent(BaseModel):
+    task: str = Field(description="Raw outcome-driven prompt")
+    phase: str = Field(default="Development", description="Lifecycle phase")
+    npao_score: float = Field(default=7.25, ge=0.0, le=10.0)
+    subagents: List[str] = Field(default_factory=lambda: ["product-architect", "agent-runtime-engineer"])
+    memory_namespace: str = "rostr_decisions"
 
-task = PALTask("Research Bedrock AgentCore Memory", "PreD", 3.10)
-print(f"[Python 3.14] Processing task: {task.name}")
-print(f"Phase: {task.phase} | Priority: {task.priority}")
-print("Episodic Memory record queued in namespace: rostr_decisions")`,
+intent = PALIntent(
+    task="Synthesize autonomous GTM funnel with Pydantic Deep agent",
+    phase="Development",
+    npao_score=8.10
+)
+
+print(f"🚀 [pydantic-deep] Initialized deep agent runtime")
+print(f"📦 Active Schema: {intent.model_dump_json(indent=2)}")
+print(f"✅ Governance Verification: Zero phase drift detected")
+print(f"⚡ Sandboxed Execution: Status SUCCESS")`,
   };
 
   const [code, setCode] = useState<string>(defaultTemplates.javascript);
@@ -109,20 +118,20 @@ print("Episodic Memory record queued in namespace: rostr_decisions")`,
   return (
     <div className="space-y-6">
       {/* Top Banner */}
-      <div className="glass-panel p-6">
+      <div className="glass-panel p-6 bg-white border border-slate-200">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2 mb-1.5">
-              <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+              <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
                 Vercel Sandbox Runtime
               </span>
-              <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
-                Isolated Execution
+              <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-cyan-50 text-cyan-700 border border-cyan-200">
+                pydantic-deep Enabled
               </span>
             </div>
-            <h2 className="text-xl font-bold text-white">Vercel Code Sandbox Console</h2>
-            <p className="text-xs text-slate-400 mt-1">
-              Test and execute agent-generated vertical slices, verify PAL assertions, and capture telemetry in real time.
+            <h2 className="text-xl font-bold text-slate-900">Vercel Code Sandbox Console</h2>
+            <p className="text-xs text-slate-600 mt-1">
+              Test and execute agent-generated vertical slices, verify PAL assertions, and run Python / Pydantic Deep agent tasks.
             </p>
           </div>
 
@@ -130,7 +139,7 @@ print("Episodic Memory record queued in namespace: rostr_decisions")`,
             <button
               onClick={handleRun}
               disabled={loading}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-medium transition-all shadow-lg shadow-emerald-600/20 disabled:opacity-50 cursor-pointer"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-medium transition-all shadow-md shadow-emerald-600/20 disabled:opacity-50 cursor-pointer"
             >
               {loading ? (
                 <>
@@ -151,21 +160,21 @@ print("Episodic Memory record queued in namespace: rostr_decisions")`,
       {/* Editor & Terminal Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Left: Code Editor */}
-        <div className="lg:col-span-7 glass-panel flex flex-col overflow-hidden">
-          <div className="p-3 bg-slate-950/60 border-b border-white/10 flex items-center justify-between">
+        <div className="lg:col-span-7 glass-panel flex flex-col overflow-hidden bg-white border border-slate-200">
+          <div className="p-3 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <FileCode className="w-4 h-4 text-cyan-400" />
-              <span className="text-xs font-semibold text-slate-200">Sandbox Code Buffer</span>
+              <FileCode className="w-4 h-4 text-cyan-600" />
+              <span className="text-xs font-semibold text-slate-800">Sandbox Code Buffer</span>
             </div>
 
             <div className="flex items-center gap-2">
-              <div className="flex rounded-lg bg-slate-900 p-0.5 border border-white/10 text-xs">
+              <div className="flex rounded-lg bg-slate-200/60 p-0.5 border border-slate-200 text-xs">
                 {(["javascript", "typescript", "python"] as const).map((lang) => (
                   <button
                     key={lang}
                     onClick={() => handleLanguageChange(lang)}
-                    className={`px-2.5 py-1 rounded capitalize font-medium transition-colors ${
-                      language === lang ? "bg-cyan-500/20 text-cyan-300 font-semibold" : "text-slate-400 hover:text-slate-200"
+                    className={`px-2.5 py-1 rounded capitalize font-medium transition-colors cursor-pointer ${
+                      language === lang ? "bg-white text-cyan-800 font-semibold shadow-xs" : "text-slate-600 hover:text-slate-900"
                     }`}
                   >
                     {lang}
@@ -175,10 +184,10 @@ print("Episodic Memory record queued in namespace: rostr_decisions")`,
 
               <button
                 onClick={handleCopy}
-                className="p-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-400 hover:text-slate-200 text-xs"
+                className="p-1.5 rounded-lg bg-white hover:bg-slate-100 text-slate-600 hover:text-slate-900 border border-slate-200 text-xs cursor-pointer shadow-2xs"
                 title="Copy code"
               >
-                {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+                {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
               </button>
             </div>
           </div>
@@ -188,24 +197,24 @@ print("Episodic Memory record queued in namespace: rostr_decisions")`,
             onChange={(e) => setCode(e.target.value)}
             rows={16}
             spellCheck={false}
-            className="w-full bg-[#05070a] p-4 text-xs font-mono text-cyan-200 focus:outline-none resize-none selection:bg-cyan-500/40"
+            className="w-full bg-[#0f172a] p-4 text-xs font-mono text-cyan-200 focus:outline-none resize-none selection:bg-cyan-500/40"
           />
         </div>
 
         {/* Right: Terminal Output & Telemetry */}
         <div className="lg:col-span-5 space-y-4">
-          <div className="glass-panel overflow-hidden flex flex-col h-full min-h-[380px]">
-            <div className="p-3 bg-slate-950/60 border-b border-white/10 flex items-center justify-between">
+          <div className="glass-panel overflow-hidden flex flex-col h-full min-h-[380px] bg-white border border-slate-200">
+            <div className="p-3 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <Terminal className="w-4 h-4 text-emerald-400" />
-                <span className="text-xs font-semibold text-slate-200">Terminal Output</span>
+                <Terminal className="w-4 h-4 text-emerald-600" />
+                <span className="text-xs font-semibold text-slate-800">Terminal Output</span>
               </div>
               {output && (
                 <span
-                  className={`text-[10px] font-mono px-2 py-0.5 rounded flex items-center gap-1 ${
+                  className={`text-[10px] font-mono px-2 py-0.5 rounded flex items-center gap-1 font-semibold ${
                     output.status === "success"
-                      ? "bg-emerald-500/20 text-emerald-300"
-                      : "bg-red-500/20 text-red-300"
+                      ? "bg-emerald-50 text-emerald-700 border border-emerald-200"
+                      : "bg-red-50 text-red-700 border border-red-200"
                   }`}
                 >
                   {output.status === "success" ? (
@@ -218,35 +227,35 @@ print("Episodic Memory record queued in namespace: rostr_decisions")`,
               )}
             </div>
 
-            <div className="p-4 bg-[#05070a] flex-1 font-mono text-xs overflow-y-auto">
+            <div className="p-4 bg-[#0f172a] flex-1 font-mono text-xs overflow-y-auto">
               {output ? (
                 <>
                   {output.stdout && (
-                    <pre className="text-slate-300 whitespace-pre-wrap leading-relaxed">{output.stdout}</pre>
+                    <pre className="text-slate-200 whitespace-pre-wrap leading-relaxed">{output.stdout}</pre>
                   )}
                   {output.stderr && (
                     <pre className="text-red-400 whitespace-pre-wrap leading-relaxed mt-2">{output.stderr}</pre>
                   )}
                 </>
               ) : (
-                <div className="text-slate-600 flex flex-col items-center justify-center h-full py-12 text-center">
-                  <Terminal className="w-8 h-8 mb-2 opacity-40" />
-                  <p>Click "Execute in Sandbox" to run the code.</p>
-                  <p className="text-[11px] text-slate-700 mt-1">Output and execution metrics will stream here.</p>
+                <div className="text-slate-500 flex flex-col items-center justify-center h-full py-12 text-center">
+                  <Terminal className="w-8 h-8 mb-2 opacity-40 text-slate-400" />
+                  <p className="text-slate-400 font-medium">Click "Execute in Sandbox" to run the code.</p>
+                  <p className="text-[11px] text-slate-500 mt-1">Output and execution metrics will stream here.</p>
                 </div>
               )}
             </div>
 
             {/* Telemetry Bar */}
             {output && (
-              <div className="p-3 bg-slate-950/70 border-t border-white/10 grid grid-cols-2 gap-2 text-xs">
-                <div className="flex items-center gap-2 text-slate-400">
-                  <Clock className="w-3.5 h-3.5 text-cyan-400" />
-                  <span>Execution: <strong className="text-white">{output.executionTimeMs}ms</strong></span>
+              <div className="p-3 bg-slate-50 border-t border-slate-200 grid grid-cols-2 gap-2 text-xs">
+                <div className="flex items-center gap-2 text-slate-600">
+                  <Clock className="w-3.5 h-3.5 text-cyan-600" />
+                  <span>Execution: <strong className="text-slate-900">{output.executionTimeMs}ms</strong></span>
                 </div>
-                <div className="flex items-center gap-2 text-slate-400">
-                  <Cpu className="w-3.5 h-3.5 text-purple-400" />
-                  <span>Memory: <strong className="text-white">{output.memoryUsedMb} MB</strong></span>
+                <div className="flex items-center gap-2 text-slate-600">
+                  <Cpu className="w-3.5 h-3.5 text-purple-600" />
+                  <span>Memory: <strong className="text-slate-900">{output.memoryUsedMb} MB</strong></span>
                 </div>
               </div>
             )}
